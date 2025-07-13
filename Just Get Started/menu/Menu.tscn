@@ -1,23 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=8 format=3 uid="uid://c032dqi0ll2eh"]
 
 [ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
+[ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
 [ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_84oma"]
-[ext_resource type="Texture2D" uid="uid://dskse53ucjphp" path="res://icon.svg" id="3_x7xvn"]
+[ext_resource type="Texture2D" uid="uid://cir1qgf7exf1f" path="res://menu/button.png" id="3_yvft0"]
+[ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="5_pagdp"]
+[ext_resource type="Texture2D" uid="uid://b3p18lnq6ue8o" path="res://menu/Sprit.png" id="6_uwaaf"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_pu136"]
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_fpwas"]
+font = ExtResource("5_pagdp")
+font_size = 20
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -332.0
-offset_top = -21.0
-offset_right = -332.0
-offset_bottom = -21.0
+offset_left = -1.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vd862")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("1_fpikx")
@@ -42,13 +47,13 @@ motion_mirroring = Vector2(1189.67, 0)
 
 [node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer2"]
 texture_filter = 1
-position = Vector2(856, 216)
-scale = Vector2(6.76, 6.76)
+position = Vector2(810, 167)
+scale = Vector2(5, 5)
 tile_set = ExtResource("2_84oma")
 format = 2
 layer_0/modulate = Color(0.385493, 0.385492, 0.385492, 0.831373)
 layer_1/modulate = Color(0.619608, 0.619608, 0.619608, 0.509804)
-layer_1/tile_data = PackedInt32Array(-65544, 262145, 12, -65543, 327681, 12, -65542, 393217, 12, -65541, 131073, 12, -5, 131073, 13, -65537, 524289, 12, -1, 524289, 13, -65540, 65537, 805306382, -65539, 262145, 805306382, -65538, 393217, 805306382, -131072, 393217, 805306381, -131071, 327681, 805306381, -131070, 262145, 805306381)
+layer_1/tile_data = PackedInt32Array(-65542, 131073, 12, -6, 131073, 13, -65545, 327681, 12, -65544, 393217, 12, -65546, 262145, 12, -65540, 65537, 805306382, -65539, 262145, 805306382, -65538, 393217, 805306382, -131070, 393217, 805306381, -131069, 327681, 805306381, -131068, 262145, 805306381, -131072, 524289, 12, -65536, 524289, 13)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1189.42, 0)
@@ -62,46 +67,130 @@ format = 2
 layer_0/modulate = Color(0.299547, 0.299547, 0.299547, 0.984314)
 layer_0/tile_data = PackedInt32Array(524278, 655361, 10, 524279, 655361, 9, 458743, 655361, 12, 458744, 655361, 10, 458745, 720897, 12, 524281, 655361, 9, 524280, 655361, 9, 524282, 655361, 10, 393208, 655361, 11, 524283, 786433, 12, 458746, 589825, 11, 458752, 327681, 11, 393216, 327681, 9, 327680, 327681, 10, 262144, 327681, 10, 196608, 327681, 9, 131072, 851969, 11, 196609, 458753, 9, 196610, 524289, 9, 262143, 458753, 9, 262142, 589825, 9, 65536, 851969, 10, -65534, 65537, 805306378, -65535, 131073, 805306378, -65536, 131073, 805306378, -1, 131073, 805306378, -2, 196609, 805306378, 2, 851969, 14, 1, 786433, 14, 65535, 720897, 14, 65534, 655361, 14, 0, 720897, 14, 524273, 655361, 10, 524272, 655361, 9, 524274, 786433, 9, 458736, 458753, 11, 458737, 589825, 11, 524275, 196609, 14, 524276, 262145, 14, 524277, 393217, 14, 458757, 720897, 12, 524285, 458753, 10)
 
-[node name="quit button" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 397.0
-offset_right = 774.0
-offset_bottom = 525.0
-scale = Vector2(1, 0.559999)
-texture_normal = ExtResource("3_x7xvn")
-stretch_mode = 0
+[node name="G_menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="quit label" type="Label" parent="quit button"]
+[node name="Quit" type="Button" parent="G_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 35.0
+offset_top = 407.0
+offset_right = 123.0
+offset_bottom = 439.0
+scale = Vector2(3, 3)
+icon = ExtResource("3_yvft0")
+flat = true
+
+[node name="Label" type="Label" parent="G_menu/Quit"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 0.333333
+offset_right = 0.333336
 grow_horizontal = 2
 grow_vertical = 2
-text = "QUIT"
-label_settings = SubResource("LabelSettings_pu136")
+text = "Quit"
+label_settings = SubResource("LabelSettings_fpwas")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="start button" type="TextureButton" parent="."]
+[node name="Settings" type="Button" parent="G_menu"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 448.0
-offset_top = 304.0
-offset_right = 774.0
-offset_bottom = 432.0
-scale = Vector2(1, 0.600002)
-texture_normal = ExtResource("3_x7xvn")
-stretch_mode = 0
+offset_left = 35.0
+offset_top = 307.0
+offset_right = 123.0
+offset_bottom = 339.0
+scale = Vector2(3, 3)
+icon = ExtResource("3_yvft0")
+flat = true
 
-[node name="start label" type="Label" parent="start button"]
+[node name="Label" type="Label" parent="G_menu/Settings"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "START"
-label_settings = SubResource("LabelSettings_pu136")
+scale = Vector2(0.9, 0.9)
+text = "Settings"
+label_settings = SubResource("LabelSettings_fpwas")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Start" type="Button" parent="G_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 35.0
+offset_top = 207.0
+offset_right = 123.0
+offset_bottom = 239.0
+scale = Vector2(3, 3)
+icon = ExtResource("3_yvft0")
+flat = true
+
+[node name="Label" type="Label" parent="G_menu/Start"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.333333
+offset_right = 0.333336
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_fpwas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 660.0
+
+[node name="Sprit" type="Sprite2D" parent="Settings"]
+position = Vector2(578.75, 332.75)
+scale = Vector2(0.57, 0.55)
+texture = ExtResource("6_uwaaf")
+
+[node name="CheckButton" type="CheckButton" parent="Settings"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 174.0
+offset_top = 143.0
+offset_right = 218.0
+offset_bottom = 167.0
+scale = Vector2(2.5, 2.5)
+
+[node name="Label" type="Label" parent="Settings"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 294.0
+offset_top = 154.0
+offset_right = -733.0
+offset_bottom = -456.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "Settings"
+label_settings = SubResource("LabelSettings_fpwas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="G_menu/Quit" to="." method="_on_quit"]
+[connection signal="button_down" from="G_menu/Settings" to="." method="_on_settings"]
+[connection signal="button_down" from="G_menu/Start" to="." method="_on_start"]
