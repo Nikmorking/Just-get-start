@@ -25,3 +25,9 @@ func _on_settings():
 func _on_quit():
 	get_tree().quit()
 	pass # Replace with function body.
+
+
+func _on_back():
+	$Settings.hide()
+	$G_menu.show()
+	pass # Replace with function body.
