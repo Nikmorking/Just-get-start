@@ -1,9 +1,32 @@
-[gd_scene format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=3 format=3 uid="uid://c032dqi0ll2eh"]
+
+[ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
+[ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_84oma"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -21.0
+offset_right = -332.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_fpikx")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1189.77, 0)
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(856, 165)
+scale = Vector2(6.76, 6.76)
+tile_set = ExtResource("2_84oma")
+format = 2
+layer_0/modulate = Color(0.385493, 0.385492, 0.385492, 0.831373)
+layer_0/tile_data = PackedInt32Array(-65544, 655361, 5, -8, 655361, 6, 65528, 655361, 5, 131064, 655361, 6, 196600, 524289, 5, 262136, 524289, 6, 327672, 524289, 7, -65543, 589825, 1, -7, 589825, 2, 65529, 589825, 3, 131065, 589825, 4, 196601, 589825, 5, 262137, 589825, 6, 327673, 589825, 7, -65542, 589825, 2, -6, 589825, 3, 65530, 655361, 3, 131066, 655361, 4, 196602, 655361, 5, 262138, 655361, 6, 327674, 655361, 7, -65541, 589825, 2, -5, 589825, 3, 65531, 720897, 3, 131067, 720897, 4, 196603, 720897, 5, 262139, 720897, 6, 327675, 720897, 7, -65540, 786433, 1, -4, 786433, 2, 65532, 786433, 3, 131068, 786433, 4, 196604, 786433, 5, 262140, 786433, 6, 327676, 786433, 7, -65539, 851969, 1, -3, 851969, 2, 65533, 851969, 3, 131069, 524289, 4, 196605, 524289, 5, 262141, 524289, 6, 327677, 524289, 7, -65538, 589825, 1, -2, 589825, 2, 65534, 589825, 3, 131070, 589825, 4, 196606, 589825, 5, 262142, 589825, 6, 327678, 589825, 7, -65537, 524289, 3, -1, 524289, 3, 65535, 655361, 3, 131071, 655361, 4, 196607, 655361, 5, 262143, 655361, 6, 327679, 655361, 7, -131072, 524289, 3, -65536, 524289, 3, 0, 720897, 3, 65536, 720897, 4, 131072, 720897, 5, 196608, 720897, 6, 262144, 720897, 7, -131071, 786433, 1, -65535, 786433, 2, 1, 786433, 3, 65537, 786433, 4, 131073, 786433, 5, 196609, 786433, 6, 262145, 786433, 7, -131070, 851969, 1, -65534, 851969, 2, 2, 851969, 3, 65538, 524289, 4, 131074, 524289, 5, 196610, 524289, 6, 262146, 524289, 7)
+layer_1/tile_data = PackedInt32Array()
