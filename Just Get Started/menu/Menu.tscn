@@ -1,9 +1,196 @@
-[gd_scene format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=8 format=3 uid="uid://c032dqi0ll2eh"]
+
+[ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
+[ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
+[ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_84oma"]
+[ext_resource type="Texture2D" uid="uid://cir1qgf7exf1f" path="res://menu/button.png" id="3_yvft0"]
+[ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="5_pagdp"]
+[ext_resource type="Texture2D" uid="uid://b3p18lnq6ue8o" path="res://menu/Sprit.png" id="6_uwaaf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fpwas"]
+font = ExtResource("5_pagdp")
+font_size = 20
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vd862")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_fpikx")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1189.69, 0)
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(856, 216)
+scale = Vector2(6.76, 6.76)
+tile_set = ExtResource("2_84oma")
+format = 2
+layer_0/modulate = Color(0.299548, 0.299547, 0.299547, 0.831373)
+layer_0/tile_data = PackedInt32Array(-65544, 655361, 5, -8, 655361, 6, 65528, 655361, 5, 131064, 655361, 6, 196600, 524289, 5, 262136, 524289, 6, 327672, 524289, 7, -65543, 589825, 1, -7, 589825, 2, 65529, 589825, 3, 131065, 589825, 4, 196601, 589825, 5, 262137, 589825, 6, 327673, 589825, 7, -65542, 589825, 2, -6, 589825, 3, 65530, 655361, 3, 131066, 655361, 4, 196602, 655361, 5, 262138, 655361, 6, 327674, 655361, 7, -65541, 589825, 2, -5, 589825, 3, 65531, 720897, 3, 131067, 720897, 4, 196603, 720897, 5, 262139, 720897, 6, 327675, 720897, 7, -65540, 786433, 1, -4, 786433, 2, 65532, 786433, 3, 131068, 786433, 4, 196604, 786433, 5, 262140, 786433, 6, 327676, 786433, 7, -65539, 851969, 1, -3, 851969, 2, 65533, 851969, 3, 131069, 524289, 4, 196605, 524289, 5, 262141, 524289, 6, 327677, 524289, 7, -65538, 589825, 1, -2, 589825, 2, 65534, 589825, 3, 131070, 589825, 4, 196606, 589825, 5, 262142, 589825, 6, 327678, 589825, 7, -65537, 524289, 3, -1, 524289, 3, 65535, 655361, 3, 131071, 655361, 4, 196607, 655361, 5, 262143, 655361, 6, 327679, 655361, 7, -131072, 524289, 3, -65536, 524289, 3, 0, 720897, 3, 65536, 720897, 4, 131072, 720897, 5, 196608, 720897, 6, 262144, 720897, 7, -131071, 786433, 1, -65535, 786433, 2, 1, 786433, 3, 65537, 786433, 4, 131073, 786433, 5, 196609, 786433, 6, 262145, 786433, 7, -131070, 851969, 1, -65534, 851969, 2, 2, 851969, 3, 65538, 524289, 4, 131074, 524289, 5, 196610, 524289, 6, 262146, 524289, 7)
+layer_1/tile_data = PackedInt32Array()
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1189.67, 0)
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(810, 167)
+scale = Vector2(5, 5)
+tile_set = ExtResource("2_84oma")
+format = 2
+layer_0/modulate = Color(0.385493, 0.385492, 0.385492, 0.831373)
+layer_1/modulate = Color(0.619608, 0.619608, 0.619608, 0.509804)
+layer_1/tile_data = PackedInt32Array(-65542, 131073, 12, -6, 131073, 13, -65545, 327681, 12, -65544, 393217, 12, -65546, 262145, 12, -65540, 65537, 805306382, -65539, 262145, 805306382, -65538, 393217, 805306382, -131070, 393217, 805306381, -131069, 327681, 805306381, -131068, 262145, 805306381, -131072, 524289, 12, -65536, 524289, 13)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1189.42, 0)
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(856, 217)
+scale = Vector2(3.375, 3.375)
+tile_set = ExtResource("2_84oma")
+format = 2
+layer_0/modulate = Color(0.299547, 0.299547, 0.299547, 0.984314)
+layer_0/tile_data = PackedInt32Array(524278, 655361, 10, 524279, 655361, 9, 458743, 655361, 12, 458744, 655361, 10, 458745, 720897, 12, 524281, 655361, 9, 524280, 655361, 9, 524282, 655361, 10, 393208, 655361, 11, 524283, 786433, 12, 458746, 589825, 11, 458752, 327681, 11, 393216, 327681, 9, 327680, 327681, 10, 262144, 327681, 10, 196608, 327681, 9, 131072, 851969, 11, 196609, 458753, 9, 196610, 524289, 9, 262143, 458753, 9, 262142, 589825, 9, 65536, 851969, 10, -65534, 65537, 805306378, -65535, 131073, 805306378, -65536, 131073, 805306378, -1, 131073, 805306378, -2, 196609, 805306378, 2, 851969, 14, 1, 786433, 14, 65535, 720897, 14, 65534, 655361, 14, 0, 720897, 14, 524273, 655361, 10, 524272, 655361, 9, 524274, 786433, 9, 458736, 458753, 11, 458737, 589825, 11, 524275, 196609, 14, 524276, 262145, 14, 524277, 393217, 14, 458757, 720897, 12, 524285, 458753, 10)
+
+[node name="G_menu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Quit" type="Button" parent="G_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 35.0
+offset_top = 407.0
+offset_right = 123.0
+offset_bottom = 439.0
+scale = Vector2(3, 3)
+icon = ExtResource("3_yvft0")
+flat = true
+
+[node name="Label" type="Label" parent="G_menu/Quit"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.333333
+offset_right = 0.333336
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_fpwas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Button" parent="G_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 35.0
+offset_top = 307.0
+offset_right = 123.0
+offset_bottom = 339.0
+scale = Vector2(3, 3)
+icon = ExtResource("3_yvft0")
+flat = true
+
+[node name="Label" type="Label" parent="G_menu/Settings"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "Settings"
+label_settings = SubResource("LabelSettings_fpwas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="G_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 35.0
+offset_top = 207.0
+offset_right = 123.0
+offset_bottom = 239.0
+scale = Vector2(3, 3)
+icon = ExtResource("3_yvft0")
+flat = true
+
+[node name="Label" type="Label" parent="G_menu/Start"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.333333
+offset_right = 0.333336
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_fpwas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 660.0
+
+[node name="Sprit" type="Sprite2D" parent="Settings"]
+position = Vector2(578.75, 332.75)
+scale = Vector2(0.57, 0.55)
+texture = ExtResource("6_uwaaf")
+
+[node name="CheckButton" type="CheckButton" parent="Settings"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 174.0
+offset_top = 143.0
+offset_right = 218.0
+offset_bottom = 167.0
+scale = Vector2(2.5, 2.5)
+
+[node name="Label" type="Label" parent="Settings"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 294.0
+offset_top = 154.0
+offset_right = -733.0
+offset_bottom = -456.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "Settings"
+label_settings = SubResource("LabelSettings_fpwas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="G_menu/Quit" to="." method="_on_quit"]
+[connection signal="button_down" from="G_menu/Settings" to="." method="_on_settings"]
+[connection signal="button_down" from="G_menu/Start" to="." method="_on_start"]
