@@ -27,7 +27,7 @@ func _on_quit():
 
 func _on_start_pressed():
 	$start.play("start")
-	$Timer.start(7)
+	$Timer.start(10)
 
 
 func _on_timer_timeout():
