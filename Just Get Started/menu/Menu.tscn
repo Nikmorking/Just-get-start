@@ -513,6 +513,7 @@ offset_right = 211.0
 offset_bottom = 578.704
 scale = Vector2(3, 3)
 pivot_offset = Vector2(44.1111, 14.7778)
+focus_mode = 0
 icon = ExtResource("3_yvft0")
 flat = true
 
@@ -546,6 +547,7 @@ offset_right = 210.0
 offset_bottom = 488.704
 scale = Vector2(3, 3)
 pivot_offset = Vector2(43.6667, 16.3333)
+focus_mode = 0
 icon = ExtResource("3_yvft0")
 flat = true
 
@@ -581,6 +583,7 @@ offset_right = 209.0
 offset_bottom = 395.704
 scale = Vector2(3, 3)
 pivot_offset = Vector2(42.963, 15.8518)
+focus_mode = 0
 icon = ExtResource("3_yvft0")
 flat = true
 
@@ -643,6 +646,39 @@ label_settings = SubResource("LabelSettings_fpwas")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Back" type="Button" parent="Settings"]
+texture_filter = 1
+offset_left = 935.0
+offset_top = 555.0
+offset_right = 1023.0
+offset_bottom = 587.0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(44.1111, 14.7778)
+focus_mode = 0
+icon = ExtResource("3_yvft0")
+flat = true
+
+[node name="Label" type="Label" parent="Settings/Back"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.333333
+offset_right = 0.333336
+grow_horizontal = 2
+grow_vertical = 2
+text = "back"
+label_settings = SubResource("LabelSettings_fpwas")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="animation" type="AnimationPlayer" parent="Settings/Back"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_dswm8")
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_nomj6")
@@ -680,4 +716,7 @@ one_shot = true
 [connection signal="mouse_entered" from="G_menu/Start" to="G_menu" method="_on_start_mouse_entered"]
 [connection signal="mouse_exited" from="G_menu/Start" to="G_menu" method="_on_start_mouse_exited"]
 [connection signal="pressed" from="G_menu/Start" to="." method="_on_start_pressed"]
+[connection signal="button_up" from="Settings/Back" to="." method="_on_back"]
+[connection signal="mouse_entered" from="Settings/Back" to="G_menu" method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="Settings/Back" to="G_menu" method="_on_quit_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
