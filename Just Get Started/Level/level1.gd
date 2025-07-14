@@ -1,5 +1,7 @@
 extends Node2D
 
+var door_action = false
+
 func _ready():
 	pass 
 
@@ -18,15 +20,20 @@ func door_state(state):
 		$openDoor.visible = true
 	pass
 
-
+func _input(event):
+	if Input.is_action_just_pressed("e") && door_action:
+		get_tree().change_scene_to_file("res://menu/Menu.tscn")
+	pass
 
 
 
 func _on_area_2d_body_entered(body):
+	door_action = true
 	door_state(true)
 	pass # Replace with function body.
 
 
 func _on_area_2d_body_exited(body):
+	door_action = false
 	door_state(false)
 	pass # Replace with function body.

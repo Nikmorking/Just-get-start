@@ -1,7 +1,7 @@
 extends ParallaxBackground
 
 var speed = 35
-var targetPosition = -160
+var targetPosition = -165
 var start = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
