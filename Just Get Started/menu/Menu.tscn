@@ -648,6 +648,7 @@ vertical_alignment = 1
 
 [node name="Back" type="Button" parent="Settings"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 935.0
 offset_top = 555.0
 offset_right = 1023.0

@@ -26,22 +26,28 @@ func _on_quit_mouse_exited():
 	$Quit/animation.play("off")
 
 func _on_start_button_down():
-	$Start.scale.x = 2.95
-	$Start.scale.y = 2.95
+	$Start/startButtonOn.stop()
+	$Start.scale.x = 3.05
+	$Start.scale.y = 3.05
 func _on_start_button_up():
-	$Start.scale.x = 3
-	$Start.scale.y = 3
+	$Start/startButtonOn.stop()
+	$Start.scale.x = 3.2
+	$Start.scale.y = 3.2
 
 func _on_settings_button_down():
-	$Settings.scale.x = 2.95
-	$Settings.scale.y = 2.95
+	$Settings/animation.stop()
+	$Settings.scale.x = 3.05
+	$Settings.scale.y = 3.05
 func _on_settings_button_up():
-	$Settings.scale.x = 3
-	$Settings.scale.y = 3
+	$Settings/animation.stop()
+	$Settings.scale.x = 3.2
+	$Settings.scale.y = 3.2
 
 func _on_quit_button_down():
-	$Quit.scale.x = 2.95
-	$Quit.scale.y = 2.95
+	$Quit/animation.stop()
+	$Quit.scale.x = 3.05
+	$Quit.scale.y = 3.05
 func _on_quit_button_up():
-	$Quit.scale.x = 3
-	$Quit.scale.y = 3
+	$Quit/animation.stop()
+	$Quit.scale.x = 3.2
+	$Quit.scale.y = 3.2
