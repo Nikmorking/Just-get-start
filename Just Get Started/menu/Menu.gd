@@ -32,6 +32,7 @@ func _on_start_pressed():
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://Level/level1.tscn")
+	pass
 
 
 func _on_back():
