@@ -25,7 +25,6 @@ func _on_quit():
 	pass # Replace with function body.
 
 
-
 func _on_start_pressed():
 	$start.play("start")
 	$Timer.start(7)
@@ -33,8 +32,3 @@ func _on_start_pressed():
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://Level/level1.tscn")
-
-func _on_back():
-	$Settings.hide()
-	$G_menu.show()
-	pass # Replace with function body.
