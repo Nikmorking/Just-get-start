@@ -14,8 +14,7 @@ func _process(delta):
 
 
 func _on_start():
-	pass # Replace with function body.
-
+	pass
 
 func _on_settings():
 	$G_menu.hide()
@@ -26,3 +25,7 @@ func _on_settings():
 func _on_quit():
 	get_tree().quit()
 	pass # Replace with function body.
+
+
+func _on_start_pressed():
+	$start.play("start")
