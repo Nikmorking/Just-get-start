@@ -13,8 +13,6 @@ func _process(delta):
 
 
 
-func _on_start():
-	pass
 
 func _on_settings():
 	$G_menu.hide()
@@ -29,3 +27,8 @@ func _on_quit():
 
 func _on_start_pressed():
 	$start.play("start")
+	$Timer.start(7)
+
+
+func _on_timer_timeout():
+	get_tree().change_scene_to_file("res://Level/level1.tscn")

@@ -1,12 +1,11 @@
 extends ParallaxBackground
 
 var speed = 35
-var targetPosition = -300
+var targetPosition = -155
 var start = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(start)
 	if start == true:
 		speed = (scroll_offset.x - targetPosition) / 1.25
 		if speed < 0:
@@ -28,7 +27,6 @@ func _process(delta):
 	else:
 		scroll_offset.x -= speed * delta
 		$marker.position.x -= speed * delta
-		print(scroll_offset.x)
 	
 
 
