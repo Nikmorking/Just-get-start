@@ -1,28 +1,38 @@
 extends CharacterBody2D
+class_name Player
 
-
-@export var SPEED = 300.0
-@export var JUMP_VELOCITY = -350.0
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+@export var gravity = 400
+@export var speed = 100
+var jump_force = 250
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
+	if is_on_floor() == false:
 		velocity.y += gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+		
+	if Input.is_action_just_pressed("jump") && is_on_floor():
+		jump(jump_force)
+		
+	if velocity.y >= 500:
+		velocity.y = 500
 	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	if direction != 0:
+		$AnimatedSprite2D.flip_h = (direction == -1)
+	velocity.x = direction  * speed 
 	move_and_slide()
+	update_animations(direction)
+	
+func jump(force):
+	velocity.y = -force
+	
+	
+func update_animations(direction):
+	if is_on_floor():
+		if direction == 0:
+			$AnimatedSprite2D.play("idle")
+		else:
+			$AnimatedSprite2D.play("run")
+	else:
+		if velocity.y < 0:
+			$AnimatedSprite2D.play("jump")
+		else:
+			$AnimatedSprite2D.play("fall")

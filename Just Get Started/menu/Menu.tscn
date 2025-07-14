@@ -14,21 +14,6 @@
 font = ExtResource("5_pagdp")
 font_size = 20
 
-[sub_resource type="Animation" id="Animation_ikm4n"]
-resource_name = "on"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("G_menu/Quit:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1.10957, 1.7411),
-"update": 0,
-"values": [Vector2(3, 3), Vector2(3.15, 3.15)]
-}
-
 [sub_resource type="Animation" id="Animation_5diak"]
 length = 0.001
 tracks/0/type = "value"
@@ -59,26 +44,26 @@ tracks/0/keys = {
 "values": [Vector2(3.15, 3.15), Vector2(3, 3)]
 }
 
+[sub_resource type="Animation" id="Animation_ikm4n"]
+resource_name = "on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("G_menu/Quit:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1.10957, 1.7411),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(3.15, 3.15)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dswm8"]
 _data = {
 "RESET": SubResource("Animation_5diak"),
 "off": SubResource("Animation_wrykf"),
 "on": SubResource("Animation_ikm4n")
-}
-
-[sub_resource type="Animation" id="Animation_ikwvd"]
-resource_name = "on"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1.23114, 1.62451),
-"update": 0,
-"values": [Vector2(3, 3), Vector2(3.15, 3.15)]
 }
 
 [sub_resource type="Animation" id="Animation_66jqn"]
@@ -111,26 +96,26 @@ tracks/0/keys = {
 "values": [Vector2(3.15, 3.15), Vector2(3, 3)]
 }
 
+[sub_resource type="Animation" id="Animation_ikwvd"]
+resource_name = "on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1.23114, 1.62451),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(3.15, 3.15)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f3yxj"]
 _data = {
 "RESET": SubResource("Animation_66jqn"),
 "off": SubResource("Animation_d8peg"),
 "on": SubResource("Animation_ikwvd")
-}
-
-[sub_resource type="Animation" id="Animation_yusvk"]
-resource_name = "startButton"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("G_menu/Start:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1.1487, 1.7411),
-"update": 0,
-"values": [Vector2(3, 3), Vector2(3.15, 3.15)]
 }
 
 [sub_resource type="Animation" id="Animation_n2jr0"]
@@ -161,6 +146,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1.18921, 1.7411),
 "update": 0,
 "values": [Vector2(3.15, 3.15), Vector2(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_yusvk"]
+resource_name = "startButton"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("G_menu/Start:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1.1487, 1.7411),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(3.15, 3.15)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bxvpq"]
@@ -327,6 +327,21 @@ _data = {
 "appearance": SubResource("Animation_7b1kc")
 }
 
+[sub_resource type="Animation" id="Animation_x1rsc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Black:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_1jf0h"]
 resource_name = "start"
 length = 7.0
@@ -413,21 +428,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_x1rsc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Black:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rrcvw"]
