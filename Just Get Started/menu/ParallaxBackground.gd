@@ -27,7 +27,7 @@ func _process(delta):
 	else:
 		scroll_offset.x -= speed * delta
 		$marker.position.x -= speed * delta
-	
+	pass
 
 
 
