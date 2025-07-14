@@ -466,7 +466,6 @@ layer_1/tile_data = PackedInt32Array(-65545, 65537, 1, -9, 65537, 2, 65527, 6553
 position = Vector2(95, -129)
 scale = Vector2(0.5, 0.5)
 SPEED = 190.0
-JUMP_VELOCITY = -300.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(412, -27)
