@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=29 format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=9 format=3 uid="uid://c032dqi0ll2eh"]
 
 [ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
 [ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
@@ -13,6 +15,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_fpwas"]
 font = ExtResource("5_pagdp")
 font_size = 20
+
 
 [sub_resource type="Animation" id="Animation_5diak"]
 length = 0.001
@@ -435,6 +438,9 @@ _data = {
 "RESET": SubResource("Animation_x1rsc"),
 "start": SubResource("Animation_1jf0h")
 }
+[sub_resource type="LabelSettings" id="LabelSettings_4e7td"]
+font = ExtResource("5_pagdp")
+font_size = 64
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -631,14 +637,40 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 294.0
-offset_top = 154.0
-offset_right = -733.0
-offset_bottom = -456.0
+offset_left = 251.0
+offset_top = 144.0
+offset_right = -660.0
+offset_bottom = -452.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-text = "Settings"
+text = "Music
+"
+label_settings = SubResource("LabelSettings_4e7td")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="Button" parent="Settings"]
+texture_filter = 1
+offset_left = 834.0
+offset_top = 531.0
+offset_right = 922.0
+offset_bottom = 563.0
+scale = Vector2(3, 3)
+icon = ExtResource("3_yvft0")
+flat = true
+
+[node name="Label" type="Label" parent="Settings/back"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.333333
+offset_right = 0.333336
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
 label_settings = SubResource("LabelSettings_fpwas")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -681,3 +713,4 @@ one_shot = true
 [connection signal="mouse_exited" from="G_menu/Start" to="G_menu" method="_on_start_mouse_exited"]
 [connection signal="pressed" from="G_menu/Start" to="." method="_on_start_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="G_menu/Start" to="." method="_on_start"]
