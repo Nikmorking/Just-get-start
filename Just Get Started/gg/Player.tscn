@@ -61,7 +61,9 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_oigvg")
 animation = &"run"
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+

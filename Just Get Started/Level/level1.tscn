@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="5_sj74b"]
 [ext_resource type="Texture2D" uid="uid://br0vkfvckllsc" path="res://Level/Sprite-0011.png" id="6_84g71"]
 [ext_resource type="Texture2D" uid="uid://um8g2n4w53tx" path="res://Level/jumpButton.png" id="8_v33o3"]
+[ext_resource type="PackedScene" uid="uid://diialn30lhdpa" path="res://menu/control.tscn" id="9_g5y7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
 font = ExtResource("4_0c017")
@@ -101,6 +102,7 @@ position = Vector2(716, 14)
 shape = SubResource("CapsuleShape2D_e38m4")
 
 [node name="vignette" parent="." instance=ExtResource("5_sj74b")]
+visible = false
 
 [node name="gui" type="Sprite2D" parent="."]
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
@@ -258,6 +260,22 @@ scale = Vector2(0.95, 0.95)
 text = "???"
 label_settings = SubResource("LabelSettings_0au0v")
 
+[node name="Control" parent="." instance=ExtResource("9_g5y7y")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -176.0
+offset_top = -242.0
+offset_right = -176.0
+offset_bottom = -242.0
+grow_vertical = 1
+pivot_offset = Vector2(575, 115)
+size_flags_vertical = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(412.03, -27.02)
+zoom = Vector2(1.5, 1.5)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(39, -25)
 

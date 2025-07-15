@@ -24,7 +24,18 @@ func _ready():
 	direction = Input.get_axis("ui_left", "ui_right")
 	pass
 
-
+func _on_timer_2_timeout():
+	if dashKd:
+		timerBlock = true
+		dashKd = false
+		velocity.x = 0
+		move_and_slide()
+		$Timer2.wait_time = 1
+		$Timer2.start()
+	elif !dashKd:
+		$Timer2.wait_time = 0.05
+		dashKd = true
+	pass # Replace with function body.
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -45,30 +56,14 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 	
 	
-	if Input.is_action_pressed("dash") and (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and dashKd and dashBlock:
-		velocity.x = 0
-		velocity.y = 0
-		dashKd = false
-		$Timer.start()
+	if Input.is_action_pressed("dash") and dashKd == true:
+		if Input.is_action_pressed("ui_right"):
+			velocity.x = SPEED * 10
+		elif Input.is_action_pressed("ui_left"):
+			velocity.x = SPEED * -10
+		if timerBlock:
+			$Timer2.start()
+			timerBlock = false
 	
 	
 	move_and_slide()
-
-
-func _on_timer_timeout():
-	if dashKd == false:
-		dashKd = true
-		dashBlock = false
-		
-		if Input.is_action_pressed("ui_right"):
-			velocity.x = SPEED * 150
-		elif Input.is_action_pressed("ui_left"):
-			velocity.x = SPEED * -150
-			
-		move_and_slide()
-		$Timer.wait_time = 2
-		$Timer.start()
-	else:
-		$Timer.wait_time = 0.1
-		dashBlock = true
-	pass # Replace with function body.
