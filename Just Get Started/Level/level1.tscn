@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://j4lt2hbh88tk"]
+[gd_scene load_steps=14 format=3 uid="uid://j4lt2hbh88tk"]
 
-[ext_resource type="Script" path="res://Level/level1.gd" id="1_r38uj"]
-[ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_itkbj"]
+[ext_resource type="Script" path="res://Level/level1.gd" id="1_33loi"]
+[ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_itkbj"]
 [ext_resource type="Texture2D" uid="uid://cs483au81ef7a" path="res://Level/Sprite-0012.png" id="3_psff3"]
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="4_0c017"]
 [ext_resource type="PackedScene" uid="uid://qfagnaexl464" path="res://gg/Player.tscn" id="4_oq6gw"]
@@ -27,6 +27,9 @@ font_color = Color(0.168627, 0.105882, 0.133333, 1)
 font = ExtResource("4_0c017")
 font_size = 20
 font_color = Color(0.317647, 0.172549, 0.156863, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efy1n"]
+size = Vector2(51, 255)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(31, 268)
@@ -254,6 +257,20 @@ offset_bottom = -22.8015
 scale = Vector2(0.95, 0.95)
 text = "???"
 label_settings = SubResource("LabelSettings_0au0v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(39, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(15.5, -92.5)
+shape = SubResource("RectangleShape2D_efy1n")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(755, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(15.5, -92.5)
+shape = SubResource("RectangleShape2D_efy1n")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

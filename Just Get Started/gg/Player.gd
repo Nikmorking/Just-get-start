@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-@export var SPEED := 200.0
+@export var SPEED = 250.0
 @export var JUMP_VELOCITY = -350.0
 var dashKd: bool = true
 var dashBlock: bool = false
