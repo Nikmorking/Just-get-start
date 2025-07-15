@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxfau01l8ih4f"]
+[gd_scene load_steps=15 format=3 uid="uid://bxfau01l8ih4f"]
 
 [ext_resource type="Script" path="res://Level/level1.gd" id="1_r38uj"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_itkbj"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="5_sj74b"]
 [ext_resource type="Texture2D" uid="uid://br0vkfvckllsc" path="res://Level/Sprite-0011.png" id="6_84g71"]
 [ext_resource type="Texture2D" uid="uid://um8g2n4w53tx" path="res://Level/jumpButton.png" id="8_v33o3"]
+[ext_resource type="PackedScene" uid="uid://cw7r82ttqkt87" path="res://menu/control.tscn" id="9_g5y7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
 font = ExtResource("4_0c017")
@@ -90,7 +91,7 @@ position = Vector2(112, -48)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(414, -29)
+position = Vector2(421.005, -11.995)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -270,6 +271,19 @@ position = Vector2(709, -3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(64.5, -107)
 shape = SubResource("RectangleShape2D_nbgcs")
+
+[node name="Control" parent="." instance=ExtResource("9_g5y7y")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -176.0
+offset_top = -250.0
+offset_right = -176.0
+offset_bottom = -250.0
+grow_vertical = 1
+pivot_offset = Vector2(575, 115)
+size_flags_vertical = 0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
