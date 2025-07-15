@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 250.0
 @export var JUMP_VELOCITY = -350.0
 var dashKd: bool = true
-var dashBlock: bool = false
+var timerBlock: bool = true
 var direction
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -39,12 +39,12 @@ func _on_timer_2_timeout():
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor() and dashKd:
+	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	# Handle jump.
 	
-	if direction and dashKd:
+	if direction:
 		velocity.x = direction * SPEED
 		$AnimatedSprite2D.play("run")
 		if direction == 1:
