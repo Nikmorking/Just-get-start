@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cammdp5ce8jes"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cjikwnxplla7"]
 
 [ext_resource type="Texture2D" uid="uid://wcyycn38j4mw" path="res://Level/Dungeon Tile Set.png" id="1_4e70v"]
 
@@ -31,11 +31,11 @@ texture = ExtResource("1_4e70v")
 5:1/0 = 0
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, -8, 8, 8, -8, 8)
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, 0.694489, -0.198425)
 6:1/0 = 0
 6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:1/0/physics_layer_0/angular_velocity = 0.0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 8, 8, -8, 8)
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.4375, 1.375, 8, 8, -8, 8, -8, -8, -1.8125, -3.25)
 8:1/0 = 0
 8:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:1/0/physics_layer_0/angular_velocity = 0.0
