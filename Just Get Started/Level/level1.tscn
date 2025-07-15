@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://j4lt2hbh88tk"]
+[gd_scene load_steps=14 format=3 uid="uid://j4lt2hbh88tk"]
 
 [ext_resource type="Script" path="res://Level/level1.gd" id="1_r38uj"]
 [ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_itkbj"]
@@ -27,6 +27,9 @@ font_color = Color(0.168627, 0.105882, 0.133333, 1)
 font = ExtResource("4_0c017")
 font_size = 20
 font_color = Color(0.317647, 0.172549, 0.156863, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbgcs"]
+size = Vector2(45, 268)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(31, 268)
@@ -254,6 +257,19 @@ offset_bottom = -22.8015
 scale = Vector2(0.95, 0.95)
 text = "???"
 label_settings = SubResource("LabelSettings_0au0v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(64.5, -107)
+shape = SubResource("RectangleShape2D_nbgcs")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(709, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(64.5, -107)
+shape = SubResource("RectangleShape2D_nbgcs")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
