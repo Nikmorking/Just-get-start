@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dhe8blqo4ufjt"
+path="res://.godot/imported/start.dialogue-faff3e5cf91d54e7e33888fd9b09b545.tres"
+
+[deps]
+
+source_file="res://vignette/start.dialogue"
+dest_files=["res://.godot/imported/start.dialogue-faff3e5cf91d54e7e33888fd9b09b545.tres"]
+
+[params]
+
+defaults=true

@@ -15,6 +15,11 @@ func _process(delta):
 	else:
 		$music/music.texture_normal = $music/unmute.texture_normal
 	pass
+	
+func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_settings_line_button_up()
+	pass
 
 
 func menu(state):
@@ -43,18 +48,13 @@ func _on_texture_button_button_up():
 	$continue/Animation.stop()
 	$continue.scale.x = 2.15
 	$continue.scale.y = 2.15
-	
-	if menuState:
-		$AnimationPlayer.play("off")
-		$Timer.start(0.6)
-		print(menuState)
-	else:
-		menu(true)
-		$AnimationPlayer.play("on")
-		print(menuState)
-	pass
-	pass
-
+	_on_settings_line_button_up()
+	if Global.level == 1:
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://Level/level1.tscn")
+	if Global.level == 2:
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://Level/level2.tscn")
 
 func _on_music_mouse_entered():
 	$music/Animation.play("on")
@@ -93,6 +93,7 @@ func _on_exit_button_up():
 	$exit/Animation.stop()
 	$exit.scale.x = 2.15
 	$exit.scale.y = 2.15
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://menu/Menu.tscn")
 	pass # Replace with function body.
 
