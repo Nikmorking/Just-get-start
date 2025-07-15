@@ -67,4 +67,4 @@ animation = &"run"
 wait_time = 0.2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]s
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
