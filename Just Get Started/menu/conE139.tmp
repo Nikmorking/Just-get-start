@@ -263,7 +263,6 @@ _data = {
 }
 
 [node name="Control" type="Control"]
-process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,14 +285,12 @@ texture_normal = ExtResource("2_3ju0h")
 texture_hover = ExtResource("3_2kcot")
 
 [node name="GuiMenu" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(576, 114)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_2wl5c")
 
 [node name="continue" type="TextureButton" parent="."]
-visible = false
 texture_filter = 1
 offset_left = 515.5
 offset_top = 59.0
@@ -309,7 +306,6 @@ libraries = {
 }
 
 [node name="music" type="Node2D" parent="."]
-visible = false
 position = Vector2(602, 59)
 
 [node name="music" type="TextureButton" parent="music"]
@@ -345,7 +341,6 @@ libraries = {
 }
 
 [node name="exit" type="TextureButton" parent="."]
-visible = false
 texture_filter = 1
 offset_left = 600.0
 offset_top = 139.0
@@ -361,7 +356,6 @@ libraries = {
 }
 
 [node name="settings" type="TextureButton" parent="."]
-visible = false
 texture_filter = 1
 offset_left = 515.0
 offset_top = 139.0
@@ -383,8 +377,6 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
 
 [connection signal="button_up" from="settingsLine" to="." method="_on_settings_line_button_up"]
 [connection signal="button_down" from="continue" to="." method="_on_texture_button_button_down"]
