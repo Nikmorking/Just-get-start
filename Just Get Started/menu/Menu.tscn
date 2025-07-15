@@ -554,6 +554,7 @@ script = ExtResource("4_j7bh4")
 
 [node name="Quit" type="Button" parent="G_menu"]
 texture_filter = 1
+use_parent_material = true
 layout_mode = 0
 offset_left = 123.0
 offset_top = 546.704
