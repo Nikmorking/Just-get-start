@@ -1,0 +1,414 @@
+[gd_scene load_steps=18 format=3 uid="uid://oc5s14ug6qjw"]
+
+[ext_resource type="Texture2D" uid="uid://bjxh2ygpks3b5" path="res://menu/guiMenu.png" id="1_2wl5c"]
+[ext_resource type="Script" path="res://menu/control.gd" id="1_op8so"]
+[ext_resource type="Texture2D" uid="uid://cauf40ma2dy3u" path="res://Level/settingsLine.png" id="2_3ju0h"]
+[ext_resource type="Texture2D" uid="uid://d87d7vlhwqi5" path="res://menu/settingsLine.png" id="3_2kcot"]
+[ext_resource type="Texture2D" uid="uid://4bnjam26swn2" path="res://menu/continiu.png" id="4_tat5t"]
+[ext_resource type="Texture2D" uid="uid://7xcp61h8e2wp" path="res://menu/music.png" id="5_qo148"]
+[ext_resource type="Texture2D" uid="uid://cxtheta72y247" path="res://menu/mute.png" id="6_nf1c5"]
+[ext_resource type="Texture2D" uid="uid://cj4rujp2s0v55" path="res://menu/exit.png" id="7_qcdew"]
+[ext_resource type="Texture2D" uid="uid://qfac6dfn5odw" path="res://menu/settings.png" id="8_7fuki"]
+
+[sub_resource type="Animation" id="Animation_jvcvm"]
+resource_name = "on"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1.10957, 1.86607),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.15, 2.15)]
+}
+
+[sub_resource type="Animation" id="Animation_q2m02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_dthix"]
+resource_name = "off"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1.10957, 1.7411),
+"update": 0,
+"values": [Vector2(2.15, 2.15), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kofma"]
+_data = {
+"RESET": SubResource("Animation_q2m02"),
+"off": SubResource("Animation_dthix"),
+"on": SubResource("Animation_jvcvm")
+}
+
+[sub_resource type="Animation" id="Animation_svtyx"]
+resource_name = "on"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.7411),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../continue:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.7411),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../music:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.7411),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../exit:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.7411),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../settings:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.7411),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h3rmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../continue:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../music:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../exit:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../settings:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_63t1i"]
+resource_name = "off"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.68179),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../continue:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.68179),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../music:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.68179),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../exit:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.68179),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../settings:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.68179),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mpw62"]
+_data = {
+"RESET": SubResource("Animation_h3rmq"),
+"off": SubResource("Animation_63t1i"),
+"on": SubResource("Animation_svtyx")
+}
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_op8so")
+metadata/_edit_use_anchors_ = true
+
+[node name="settingsLine" type="TextureButton" parent="."]
+modulate = Color(0.917647, 0.917647, 0.917647, 0.65098)
+texture_filter = 1
+layout_mode = 0
+offset_left = 546.0
+offset_top = -10.0
+offset_right = 578.0
+offset_bottom = 6.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_3ju0h")
+texture_hover = ExtResource("3_2kcot")
+
+[node name="GuiMenu" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(576, 114)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_2wl5c")
+
+[node name="continue" type="TextureButton" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 515.5
+offset_top = 59.0
+offset_right = 555.5
+offset_bottom = 99.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(15.5, 16)
+texture_normal = ExtResource("4_tat5t")
+
+[node name="Animation" type="AnimationPlayer" parent="continue"]
+libraries = {
+"": SubResource("AnimationLibrary_kofma")
+}
+
+[node name="music" type="Node2D" parent="."]
+visible = false
+position = Vector2(602, 59)
+
+[node name="music" type="TextureButton" parent="music"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(17, 16)
+texture_normal = ExtResource("5_qo148")
+
+[node name="mute" type="TextureButton" parent="music"]
+visible = false
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(17, 16)
+texture_normal = ExtResource("6_nf1c5")
+
+[node name="unmute" type="TextureButton" parent="music"]
+visible = false
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(17, 16)
+texture_normal = ExtResource("5_qo148")
+
+[node name="Animation" type="AnimationPlayer" parent="music"]
+root_node = NodePath("../music")
+libraries = {
+"": SubResource("AnimationLibrary_kofma")
+}
+
+[node name="exit" type="TextureButton" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 600.0
+offset_top = 139.0
+offset_right = 640.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(15.5, 16)
+texture_normal = ExtResource("7_qcdew")
+
+[node name="Animation" type="AnimationPlayer" parent="exit"]
+libraries = {
+"": SubResource("AnimationLibrary_kofma")
+}
+
+[node name="settings" type="TextureButton" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 515.0
+offset_top = 139.0
+offset_right = 555.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(15.5, 16)
+texture_normal = ExtResource("8_7fuki")
+
+[node name="Animation" type="AnimationPlayer" parent="settings"]
+libraries = {
+"": SubResource("AnimationLibrary_kofma")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../GuiMenu")
+libraries = {
+"": SubResource("AnimationLibrary_mpw62")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="button_up" from="settingsLine" to="." method="_on_settings_line_button_up"]
+[connection signal="button_down" from="continue" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="continue" to="." method="_on_texture_button_button_up"]
+[connection signal="mouse_entered" from="continue" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="continue" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="button_down" from="music/music" to="." method="_on_music_button_down"]
+[connection signal="button_up" from="music/music" to="." method="_on_music_button_up"]
+[connection signal="mouse_entered" from="music/music" to="." method="_on_music_mouse_entered"]
+[connection signal="mouse_exited" from="music/music" to="." method="_on_music_mouse_exited"]
+[connection signal="button_down" from="music/mute" to="." method="_on_music_button_down"]
+[connection signal="button_up" from="music/mute" to="." method="_on_music_button_up"]
+[connection signal="mouse_entered" from="music/mute" to="." method="_on_music_mouse_entered"]
+[connection signal="mouse_exited" from="music/mute" to="." method="_on_music_mouse_exited"]
+[connection signal="button_down" from="music/unmute" to="." method="_on_music_button_down"]
+[connection signal="button_up" from="music/unmute" to="." method="_on_music_button_up"]
+[connection signal="mouse_entered" from="music/unmute" to="." method="_on_music_mouse_entered"]
+[connection signal="mouse_exited" from="music/unmute" to="." method="_on_music_mouse_exited"]
+[connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]
+[connection signal="button_up" from="exit" to="." method="_on_exit_button_up"]
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="button_down" from="settings" to="." method="_on_settings_button_down"]
+[connection signal="button_up" from="settings" to="." method="_on_settings_button_up"]
+[connection signal="mouse_entered" from="settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

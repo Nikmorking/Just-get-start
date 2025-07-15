@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqbprkc5r4w2"]
+
+[ext_resource type="Script" uid="uid://dc4hyjt0t41t" path="res://ggnhn.gd" id="1_45bt4"]
+[ext_resource type="Texture2D" uid="uid://c5mc5nnqw2jfs" path="res://pngwing.com.png" id="1_xtopa"]
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.255, 0.255)
+script = ExtResource("1_45bt4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 0.354294)
+scale = Vector2(0.255, 0.255)
+polygon = PackedVector2Array(23, -12, 23, 12, 10, 25.4275, -7, 25.4275, -21, 13.5296, -21, -12, -7, -26, 9, -26)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("1_xtopa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5ww6foqs5mog"]
+
+[ext_resource type="Script" uid="uid://dwmwckkapy8hc" path="res://node_2d.gd" id="1_ketoh"]
+[ext_resource type="Texture2D" uid="uid://n2yixp1fl18t" path="res://i.webp" id="2_t3yij"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ketoh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.502941, 0.496875)
+texture = ExtResource("2_t3yij")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.49742, 0.498998)
+polygon = PackedVector2Array(-37, -153, 6, -160, 70, -117, 63, -59, 174.955, 158.73, -180.629, 159.39, -154.15, 85.5274, -75, 27, -85, -23, -81, -111)

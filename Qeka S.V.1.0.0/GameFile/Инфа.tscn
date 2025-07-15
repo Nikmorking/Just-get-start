@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkyvqpu34u2ss"]
+
+[ext_resource type="Script" uid="uid://bohgdterh43hr" path="res://инфа.gd" id="1_6uut1"]
+[ext_resource type="Texture2D" uid="uid://c3cbyaokej0lf" path="res://Трава 2.png" id="1_q01jg"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6uut1")
+metadata/_edit_vertical_guides_ = [-104.0, 1292.0]
+metadata/_edit_horizontal_guides_ = [-11.0, 658.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(594, 323.5)
+scale = Vector2(43.625, 20.9063)
+texture = ExtResource("1_q01jg")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 172.0
+offset_top = 129.0
+offset_right = 995.0
+offset_bottom = 543.0
+text = "V. S1.0.0
+Здравствуй и добро пожаловать в Qeka!
+Есть надежды на то что мой первый проект хоть кого-нибудь заинтересует.
+Что нового:
+Первая версия игры, чего вы ждёте? Добавил слизничка, игровое меню,
+закулисье под картой, монеты и ещё по мелочам.
+В следующих версиях будет:
+Доделана \"Prosto knopochka\", исправлены мелкие баги, возможно будет изменён персонаж
+и будет добавлен звук."
+
+[node name="Button" type="Button" parent="."]
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 118.0
+offset_bottom = 57.0
+text = "Back to main menu"
+
+[connection signal="button_down" from="Button" to="." method="hynhgmnjmh"]

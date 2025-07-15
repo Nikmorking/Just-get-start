@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb0xw1noblv6o"]
+
+[ext_resource type="Script" uid="uid://q70jfn282ukn" path="res://враг.gd" id="1_vg5w6"]
+[ext_resource type="Texture2D" uid="uid://xlchqoutcl2n" path="res://i (9).png" id="2_qrirk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmemp"]
+radius = 60.0
+height = 266.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_vg5w6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_qrirk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, 7)
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CapsuleShape2D_mmemp")
+
+[node name="Levo" type="RayCast2D" parent="."]
+position = Vector2(-15, 12)
+scale = Vector2(0.1, 0.1)
+target_position = Vector2(-100, 70)
+
+[node name="Pravo" type="RayCast2D" parent="."]
+position = Vector2(15, 12)
+scale = Vector2(0.1, 0.1)
+target_position = Vector2(110, 60)
