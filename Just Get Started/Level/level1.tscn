@@ -52,6 +52,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(262158, 851969, 10, 327694, 851969, 11)
 
 [node name="openDoor" type="TileMap" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(251.985, -211.385)
 scale = Vector2(2, 2)

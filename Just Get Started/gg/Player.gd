@@ -13,7 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	direction = Input.get_axis("left", "right")
+	direction = Input.get_axis("ui_left", "ui_right")
 	pass
 
 
@@ -21,7 +21,7 @@ func _input(event):
 func _ready():
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_axis("left", "right")
+	direction = Input.get_axis("ui_left", "ui_right")
 	pass
 
 
@@ -45,10 +45,10 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 	
 	
-	if Input.is_action_pressed("down") and dashKd == true:
-		if Input.is_action_pressed("right"):
+	if Input.is_action_pressed("ui_down") and dashKd == true:
+		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED * 10
-		elif Input.is_action_pressed("left"):
+		elif Input.is_action_pressed("ui_left"):
 			velocity.x = SPEED * -10
 		$Timer2.start()
 	
