@@ -1,11 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=31 format=3 uid="uid://c032dqi0ll2eh"]
 
 [ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
 [ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_84oma"]
 [ext_resource type="Texture2D" uid="uid://cir1qgf7exf1f" path="res://menu/button.png" id="3_yvft0"]
 [ext_resource type="Script" path="res://menu/G_menu.gd" id="4_j7bh4"]
-[ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="5_pagdp"]
+[ext_resource type="LabelSettings" uid="uid://via1nnm8j1ix" path="res://menu/Menu.tres" id="6_e4lj0"]
 [ext_resource type="Texture2D" uid="uid://b3p18lnq6ue8o" path="res://menu/Sprit.png" id="6_uwaaf"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="7_ngooc"]
 [ext_resource type="Texture2D" uid="uid://duu35gp4f20jh" path="res://background/black.png" id="8_mqvu6"]
@@ -46,10 +46,6 @@ _data = {
 "F": SubResource("Animation_usq20"),
 "RESET": SubResource("Animation_jao3x")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_fpwas"]
-font = ExtResource("5_pagdp")
-font_size = 20
 
 [sub_resource type="Animation" id="Animation_5diak"]
 length = 0.001
@@ -515,7 +511,7 @@ motion_mirroring = Vector2(1189.67, 0)
 
 [node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer2"]
 texture_filter = 1
-position = Vector2(810, 167)
+position = Vector2(810, 172.85)
 scale = Vector2(5, 5)
 tile_set = ExtResource("2_84oma")
 format = 2
@@ -529,7 +525,7 @@ motion_mirroring = Vector2(1189.42, 0)
 
 [node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer3"]
 texture_filter = 1
-position = Vector2(856, 217)
+position = Vector2(856, 227.54)
 scale = Vector2(3.375, 3.375)
 tile_set = ExtResource("2_84oma")
 format = 2
@@ -539,7 +535,7 @@ layer_0/tile_data = PackedInt32Array(524278, 655361, 10, 524279, 655361, 9, 4587
 [node name="TileMap2" type="TileMap" parent="ParallaxBackground/ParallaxLayer3"]
 modulate = Color(0.643137, 0.643137, 0.643137, 0.858824)
 texture_filter = 1
-position = Vector2(873, 367.715)
+position = Vector2(826.13, 446.84)
 scale = Vector2(3.375, 3.375)
 tile_set = ExtResource("2_84oma")
 format = 2
@@ -558,6 +554,7 @@ script = ExtResource("4_j7bh4")
 
 [node name="Quit" type="Button" parent="G_menu"]
 texture_filter = 1
+use_parent_material = true
 layout_mode = 0
 offset_left = 123.0
 offset_top = 546.704
@@ -580,7 +577,7 @@ offset_right = 0.333336
 grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
-label_settings = SubResource("LabelSettings_fpwas")
+label_settings = ExtResource("6_e4lj0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -617,7 +614,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 text = "Settings"
-label_settings = SubResource("LabelSettings_fpwas")
+label_settings = ExtResource("6_e4lj0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -650,7 +647,7 @@ offset_right = 0.333336
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
-label_settings = SubResource("LabelSettings_fpwas")
+label_settings = ExtResource("6_e4lj0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -694,7 +691,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 text = "Settings"
-label_settings = SubResource("LabelSettings_fpwas")
+label_settings = ExtResource("6_e4lj0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -722,7 +719,7 @@ offset_right = 0.333336
 grow_horizontal = 2
 grow_vertical = 2
 text = "back"
-label_settings = SubResource("LabelSettings_fpwas")
+label_settings = ExtResource("6_e4lj0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -755,7 +752,7 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 2
-position = Vector2(578, 328)
+position = Vector2(577, 326.996)
 
 [connection signal="button_down" from="G_menu/Quit" to="." method="_on_quit"]
 [connection signal="button_down" from="G_menu/Quit" to="G_menu" method="_on_quit_button_down"]
