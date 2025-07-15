@@ -37,8 +37,10 @@ func _on_start_pressed():
 
 
 func _on_timer_timeout():
-
-	get_tree().change_scene_to_file("res://Level/level1.tscn")
+	if Global.level == 1:
+		get_tree().change_scene_to_file("res://Level/level1.tscn")
+	if Global.level == 2:
+		get_tree().change_scene_to_file("res://Level/level2.tscn")
 	pass
 
 
