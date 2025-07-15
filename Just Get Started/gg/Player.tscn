@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://gg/Player.gd" id="1_ctixr"]
 [ext_resource type="Texture2D" uid="uid://eexubh3u6dkm" path="res://анимация.png" id="2_oh6la"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw353"]
-size = Vector2(60, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78kji"]
+size = Vector2(48, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45kru"]
 atlas = ExtResource("2_oh6la")
@@ -51,8 +51,8 @@ animations = [{
 script = ExtResource("1_ctixr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -36)
-shape = SubResource("RectangleShape2D_bw353")
+position = Vector2(-1, -36)
+shape = SubResource("RectangleShape2D_78kji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -66,3 +66,4 @@ wait_time = 0.05
 one_shot = true
 
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+
