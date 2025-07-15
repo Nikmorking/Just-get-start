@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="5_sj74b"]
 [ext_resource type="Texture2D" uid="uid://br0vkfvckllsc" path="res://Level/Sprite-0011.png" id="6_84g71"]
 [ext_resource type="Texture2D" uid="uid://um8g2n4w53tx" path="res://Level/jumpButton.png" id="8_v33o3"]
-[ext_resource type="PackedScene" uid="uid://oc5s14ug6qjw" path="res://menu/control.tscn" id="9_g5y7y"]
+[ext_resource type="PackedScene" uid="uid://diialn30lhdpa" path="res://menu/control.tscn" id="9_g5y7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
 font = ExtResource("4_0c017")

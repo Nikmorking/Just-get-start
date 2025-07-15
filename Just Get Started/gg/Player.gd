@@ -24,7 +24,14 @@ func _ready():
 	direction = Input.get_axis("ui_left", "ui_right")
 	pass
 
-
+func _on_timer_2_timeout():
+	print(1)
+	dashKd = false
+	print(dashKd)
+	$Timer.start()
+	velocity.x = 0
+	move_and_slide()
+	pass # Replace with function body.
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -62,10 +69,4 @@ func _on_timer_timeout():
 	pass # Replace with function body.
 
 
-func _on_timer_2_timeout():
-	$Timer2.stop()
-	dashKd = false
-	$Timer.start()
-	velocity.x = 0
-	move_and_slide()
-	pass # Replace with function body.
+
