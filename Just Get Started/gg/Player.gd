@@ -26,12 +26,16 @@ func _ready():
 	pass
 
 func _on_timer_2_timeout():
-	timerBlock = true
-	dashKd = false
-	print(dashKd)
-	velocity.x = 0
-	move_and_slide()
-	$Timer.start()
+	if dashKd:
+		timerBlock = true
+		dashKd = false
+		velocity.x = 0
+		move_and_slide()
+		$Timer2.wait_time = 1
+		$Timer2.start()
+	elif !dashKd:
+		$Timer2.wait_time = 0.05
+		dashKd = true
 	pass # Replace with function body.
 
 func _physics_process(delta):
@@ -64,9 +68,3 @@ func _physics_process(delta):
 	
 	
 	move_and_slide()
-
-
-func _on_timer_timeout():
-	$Timer.stop()
-	dashKd = true
-	pass # Replace with function body.
