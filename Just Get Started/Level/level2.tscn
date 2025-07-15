@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs24arycu5a0"]
+[gd_scene load_steps=11 format=3 uid="uid://bs24arycu5a0"]
+
 [ext_resource type="Script" path="res://Level/level2.gd" id="1_yf1p3"]
 [ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_pb7o3"]
 [ext_resource type="Texture2D" uid="uid://cs483au81ef7a" path="res://Level/Sprite-0012.png" id="3_qc2c1"]
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="4_sl7y5"]
 [ext_resource type="PackedScene" uid="uid://qfagnaexl464" path="res://gg/Player.tscn" id="5_1gddi"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="6_3fb2k"]
-[ext_resource type="PackedScene" path="res://menu/control.tscn" id="7_p55tk"]
+[ext_resource type="PackedScene" uid="uid://diialn30lhdpa" path="res://menu/control.tscn" id="7_p55tk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oj6ix"]
 font = ExtResource("4_sl7y5")
@@ -102,6 +103,7 @@ offset_bottom = -250.0
 grow_vertical = 1
 pivot_offset = Vector2(575, 115)
 size_flags_vertical = 0
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(39, -25)
 
