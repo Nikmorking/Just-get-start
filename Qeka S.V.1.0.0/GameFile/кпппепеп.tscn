@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d10758wj2o6ug"]
+
+[ext_resource type="Texture2D" uid="uid://c5mc5nnqw2jfs" path="res://pngwing.com.png" id="1_5tjcr"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 0.354294)
+scale = Vector2(1, 1.00858)
+polygon = PackedVector2Array(23, -12, 23, 12, 9, 25, -7, 25, -21, 14, -21, -12, -7, -26, 9, -26)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("1_5tjcr")

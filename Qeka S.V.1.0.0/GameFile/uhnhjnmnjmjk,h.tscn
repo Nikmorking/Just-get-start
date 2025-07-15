@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://crlv4trr76cdn"]
+
+[ext_resource type="Script" uid="uid://cyqf4ey8ban3q" path="res://shopen.gd" id="1_5jvk5"]
+[ext_resource type="Texture2D" uid="uid://ch0y3px1jolda" path="res://2024-12-12_14-35-26-601453.png" id="1_7y3a4"]
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.46, 0.46)
+script = ExtResource("1_5jvk5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.46, 0.46)
+polygon = PackedVector2Array(-395, -189, 352, -189, 361, 197, -385, 198)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("1_7y3a4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

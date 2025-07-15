@@ -35,8 +35,14 @@ func _physics_process(delta):
 	
 	if direction:
 		velocity.x = direction * SPEED
+		$AnimatedSprite2D.play("run")
+		if direction == 1:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
 	else:
-		velocity.x = direction * SPEED * -1
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.stop()
 	
 	
 	if Input.is_action_pressed("down") and dashKd == true:
@@ -60,7 +66,6 @@ func _on_timer_2_timeout():
 	$Timer2.stop()
 	dashKd = false
 	$Timer.start()
-	
 	velocity.x = 0
 	move_and_slide()
 	pass # Replace with function body.
