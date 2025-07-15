@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://diialn30lhdpa"]
+[gd_scene load_steps=18 format=3 uid="uid://cw7r82ttqkt87"]
 
 [ext_resource type="Texture2D" path="res://menu/guiMenu.png" id="1_2wl5c"]
 [ext_resource type="Script" path="res://menu/control.gd" id="1_op8so"]
 [ext_resource type="Texture2D" path="res://Level/settingsLine.png" id="2_3ju0h"]
 [ext_resource type="Texture2D" path="res://menu/settingsLine.png" id="3_2kcot"]
-[ext_resource type="Texture2D" uid="uid://4bnjam26swn2" path="res://menu/continiu.png" id="4_tat5t"]
+[ext_resource type="Texture2D" path="res://menu/continiu.png" id="4_tat5t"]
 [ext_resource type="Texture2D" path="res://menu/music.png" id="5_qo148"]
 [ext_resource type="Texture2D" path="res://menu/mute.png" id="6_nf1c5"]
 [ext_resource type="Texture2D" path="res://menu/exit.png" id="7_qcdew"]
