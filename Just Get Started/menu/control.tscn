@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://oc5s14ug6qjw"]
+
+[ext_resource type="Texture2D" uid="uid://bjxh2ygpks3b5" path="res://menu/guiMenu.png" id="1_2wl5c"]
+[ext_resource type="Texture2D" uid="uid://cauf40ma2dy3u" path="res://Level/settingsLine.png" id="2_3ju0h"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GuiMenu" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 164)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_2wl5c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuiMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -96.0
+offset_right = -64.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsLine" type="Sprite2D" parent="."]
+modulate = Color(0.776471, 0.776471, 0.776471, 0.890196)
+texture_filter = 1
+position = Vector2(575, 10)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3ju0h")
