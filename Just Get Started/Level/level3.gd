@@ -7,6 +7,7 @@ func _ready():
 	door_x = 717
 	door_y = 34
 	start_pos = $Player.position
+	Global.save_game()
 	if Global.canCreep:
 		$Label.hide()
 		$"Стрелка".show()

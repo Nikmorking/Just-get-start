@@ -4,6 +4,7 @@ extends Control
 
 func _ready():
 	$AnimationPlayer.play("appearance")
+	Global.load_game()
 	pass
 
 

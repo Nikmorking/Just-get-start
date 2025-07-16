@@ -11,4 +11,5 @@ func _ready():
 	start_pos = $Player.position
 	door_x = 717
 	door_y = 34
+	Global.save_game()
 	pass
