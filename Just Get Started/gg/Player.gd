@@ -6,6 +6,7 @@ extends CharacterBody2D
 var dashKd: bool = true
 var dashBlock: bool = false
 var direction
+var lest = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -31,7 +32,11 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor() and dashKd:
 		velocity.y += gravity * delta
-
+	if lest:
+		if Input.is_action_pressed("ui_up"):
+			velocity.y = JUMP_VELOCITY/3
+		else:
+			velocity.y = JUMP_VELOCITY/-15
 	# Handle jump.
 	
 	if direction and dashKd:
@@ -72,4 +77,17 @@ func _on_timer_timeout():
 	else:
 		$Timer.wait_time = 0.1
 		dashBlock = true
+	pass # Replace with function body.
+
+
+func _lest(body):
+	if body == self:
+		lest = true
+	pass # Replace with function body.
+
+
+func _on_lest(body):
+	if body == self:
+		lest = false
+		velocity.y -= JUMP_VELOCITY/2
 	pass # Replace with function body.
