@@ -2,6 +2,7 @@ extends Node
 
 
 var menuStart = false
+var canCreep = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
