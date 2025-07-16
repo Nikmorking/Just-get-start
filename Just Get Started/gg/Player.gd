@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -350.0
 var dashKd: bool = true
 var timerBlock: bool = true
+var shiftSetting: bool = true
+var shiftBlock: bool = true
 var direction
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -41,20 +43,33 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+	
+	elif Input.is_action_just_released("ctrl") and shiftBlock:
+		shiftBlock = false
+		dashKd = false
+	elif Input.is_action_just_released("ctrl") and !shiftBlock:
+		shiftBlock = true
+		dashKd = true
 	# Handle jump.
 	
 	if direction:
-		velocity.x = direction * SPEED
-		$AnimatedSprite2D.play("run")
-		if direction == 1:
-			$AnimatedSprite2D.flip_h = false
+		if shiftBlock:
+			velocity.x = direction * SPEED
+			$AnimatedSprite2D.play("run")
+			if direction == 1:
+				$AnimatedSprite2D.flip_h = false
+			else:
+				$AnimatedSprite2D.flip_h = true
 		else:
-			$AnimatedSprite2D.flip_h = true
+			velocity.x = direction * SPEED / 3.0
+			$AnimatedSprite2D.play("run")
+			if direction == 1:
+				$AnimatedSprite2D.flip_h = false
+			else:
+				$AnimatedSprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimatedSprite2D.stop()
-	
 	
 	if Input.is_action_pressed("dash") and dashKd == true:
 		if Input.is_action_pressed("ui_right"):
