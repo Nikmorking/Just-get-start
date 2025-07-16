@@ -60,6 +60,10 @@ dash={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://vignette/start.dialogue")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
