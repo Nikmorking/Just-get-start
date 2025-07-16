@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_84oma"]
 [ext_resource type="Texture2D" uid="uid://cir1qgf7exf1f" path="res://menu/button.png" id="3_yvft0"]
 [ext_resource type="Script" path="res://menu/G_menu.gd" id="4_j7bh4"]
-[ext_resource type="LabelSettings" path="res://menu/Menu.tres" id="6_e4lj0"]
+[ext_resource type="LabelSettings" uid="uid://via1nnm8j1ix" path="res://menu/Menu.tres" id="6_e4lj0"]
 [ext_resource type="Texture2D" uid="uid://b3p18lnq6ue8o" path="res://menu/Sprit.png" id="6_uwaaf"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="7_ngooc"]
 [ext_resource type="Texture2D" uid="uid://duu35gp4f20jh" path="res://background/black.png" id="8_mqvu6"]

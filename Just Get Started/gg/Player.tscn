@@ -62,7 +62,7 @@ sprite_frames = SubResource("SpriteFrames_oigvg")
 animation = &"run"
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.07
 one_shot = true
 
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

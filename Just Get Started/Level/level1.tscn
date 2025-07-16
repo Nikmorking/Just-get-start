@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://j4lt2hbh88tk"]
+[gd_scene load_steps=14 format=3 uid="uid://bxfau01l8ih4f"]
 
-[ext_resource type="Script" path="res://Level/level1.gd" id="1_33loi"]
+[ext_resource type="Script" path="res://Level/level1.gd" id="1_r38uj"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_itkbj"]
 [ext_resource type="Texture2D" uid="uid://cs483au81ef7a" path="res://Level/Sprite-0012.png" id="3_psff3"]
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="4_0c017"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="5_sj74b"]
 [ext_resource type="Texture2D" uid="uid://br0vkfvckllsc" path="res://Level/Sprite-0011.png" id="6_84g71"]
 [ext_resource type="Texture2D" uid="uid://um8g2n4w53tx" path="res://Level/jumpButton.png" id="8_v33o3"]
-[ext_resource type="PackedScene" uid="uid://diialn30lhdpa" path="res://menu/control.tscn" id="9_g5y7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
 font = ExtResource("4_0c017")
@@ -29,8 +28,8 @@ font = ExtResource("4_0c017")
 font_size = 20
 font_color = Color(0.317647, 0.172549, 0.156863, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_efy1n"]
-size = Vector2(51, 255)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbgcs"]
+size = Vector2(45, 268)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(31, 268)
@@ -102,7 +101,6 @@ position = Vector2(716, 14)
 shape = SubResource("CapsuleShape2D_e38m4")
 
 [node name="vignette" parent="." instance=ExtResource("5_sj74b")]
-visible = false
 
 [node name="gui" type="Sprite2D" parent="."]
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
@@ -260,35 +258,18 @@ scale = Vector2(0.95, 0.95)
 text = "???"
 label_settings = SubResource("LabelSettings_0au0v")
 
-[node name="Control" parent="." instance=ExtResource("9_g5y7y")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -176.0
-offset_top = -242.0
-offset_right = -176.0
-offset_bottom = -242.0
-grow_vertical = 1
-pivot_offset = Vector2(575, 115)
-size_flags_vertical = 0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(412.03, -27.02)
-zoom = Vector2(1.5, 1.5)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(39, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(15.5, -92.5)
-shape = SubResource("RectangleShape2D_efy1n")
+position = Vector2(64.5, -107)
+shape = SubResource("RectangleShape2D_nbgcs")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(755, -18)
+position = Vector2(709, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(15.5, -92.5)
-shape = SubResource("RectangleShape2D_efy1n")
+position = Vector2(64.5, -107)
+shape = SubResource("RectangleShape2D_nbgcs")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
