@@ -3,6 +3,7 @@ extends Level
 var back = false
 
 func _ready():
+	Global.level = 3
 	door_x = 717
 	door_y = 34
 	start_pos = $Player.position
