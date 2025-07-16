@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
 [ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
-[ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_84oma"]
+[ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_84oma"]
 [ext_resource type="Texture2D" uid="uid://cir1qgf7exf1f" path="res://menu/button.png" id="3_yvft0"]
 [ext_resource type="Script" path="res://menu/G_menu.gd" id="4_j7bh4"]
 [ext_resource type="LabelSettings" uid="uid://via1nnm8j1ix" path="res://menu/Menu.tres" id="6_e4lj0"]

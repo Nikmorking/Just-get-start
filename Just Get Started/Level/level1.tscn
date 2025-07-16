@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://j4lt2hbh88tk"]
+[gd_scene load_steps=14 format=3 uid="uid://bxfau01l8ih4f"]
 
 [ext_resource type="Script" path="res://Level/level1.gd" id="1_r38uj"]
-[ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_itkbj"]
+[ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_itkbj"]
 [ext_resource type="Texture2D" uid="uid://cs483au81ef7a" path="res://Level/Sprite-0012.png" id="3_psff3"]
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="4_0c017"]
 [ext_resource type="PackedScene" uid="uid://qfagnaexl464" path="res://gg/Player.tscn" id="4_oq6gw"]

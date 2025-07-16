@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dk6wvadcmc486"]
+[gd_scene load_steps=16 format=3 uid="uid://cur8qu0mg32kw"]
 
 [ext_resource type="Script" path="res://Level/level2.gd" id="1_8bk5g"]
-[ext_resource type="TileSet" uid="uid://cammdp5ce8jes" path="res://tileset.tres" id="2_qnher"]
+[ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_qnher"]
 [ext_resource type="Texture2D" uid="uid://cs483au81ef7a" path="res://Level/Sprite-0012.png" id="3_q3s00"]
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="4_k32fu"]
 [ext_resource type="PackedScene" uid="uid://qfagnaexl464" path="res://gg/Player.tscn" id="5_k0hq8"]
@@ -11,6 +11,21 @@
 font = ExtResource("4_k32fu")
 font_size = 20
 font_color = Color(0.192157, 0.121569, 0.152941, 1)
+
+[sub_resource type="Animation" id="Animation_5jsr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(412, -35)]
+}
 
 [sub_resource type="Animation" id="Animation_352gx"]
 resource_name = "lock"
@@ -26,21 +41,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(412, -35), Vector2(1153, -35)]
-}
-
-[sub_resource type="Animation" id="Animation_5jsr3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(412, -35)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3pgaf"]
@@ -65,7 +65,7 @@ size = Vector2(20, 166)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ffyl"]
 size = Vector2(40, 90)
 
-[node name="Level2" type="Node2D"]
+[node name="Level3" type="Node2D"]
 position = Vector2(31, 268)
 script = ExtResource("1_8bk5g")
 
@@ -89,6 +89,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(262158, 851969, 10, 327694, 851969, 11)
 
 [node name="openDoor" type="TileMap" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(251.985, -186.095)
 scale = Vector2(2, 2)
