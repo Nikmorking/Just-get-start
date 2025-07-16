@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="4_sl7y5"]
 [ext_resource type="PackedScene" uid="uid://qfagnaexl464" path="res://gg/Player.tscn" id="5_1gddi"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="6_3fb2k"]
-[ext_resource type="PackedScene" uid="uid://cw7r82ttqkt87" path="res://menu/control.tscn" id="7_p55tk"]
+[ext_resource type="PackedScene" uid="uid://bhrttpot01o8j" path="res://menu/control.tscn" id="7_p55tk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oj6ix"]
 font = ExtResource("4_sl7y5")

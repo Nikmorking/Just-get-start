@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="5_sj74b"]
 [ext_resource type="Texture2D" uid="uid://br0vkfvckllsc" path="res://Level/Sprite-0011.png" id="6_84g71"]
 [ext_resource type="Texture2D" uid="uid://um8g2n4w53tx" path="res://Level/jumpButton.png" id="8_v33o3"]
-[ext_resource type="PackedScene" uid="uid://cw7r82ttqkt87" path="res://menu/control.tscn" id="9_g5y7y"]
+[ext_resource type="PackedScene" uid="uid://bhrttpot01o8j" path="res://menu/control.tscn" id="9_g5y7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
 font = ExtResource("4_0c017")
@@ -223,7 +223,7 @@ offset_top = -45.8015
 offset_right = 21.3893
 offset_bottom = -22.8015
 scale = Vector2(0.95, 0.95)
-text = "jamp
+text = "jump
 "
 label_settings = SubResource("LabelSettings_0au0v")
 
@@ -238,13 +238,13 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -1.0
-offset_right = 6.1
-offset_bottom = 3.0
+offset_left = -8.0
+offset_top = 2.0
+offset_right = -9.9
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 1.5708
+rotation = -1.5708
 scale = Vector2(0.8, 0.8)
 size_flags_vertical = 1
 text = "["
