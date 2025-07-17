@@ -49,12 +49,8 @@ func _on_texture_button_button_up():
 	$continue.scale.x = 2.15
 	$continue.scale.y = 2.15
 	_on_settings_line_button_up()
-	if Global.level == 1:
-		get_tree().paused = false
-		get_tree().change_scene_to_file("res://Level/level1.tscn")
-	if Global.level == 2:
-		get_tree().paused = false
-		get_tree().change_scene_to_file("res://Level/level2.tscn")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Level/level%s.tscn" % Global.level)
 
 func _on_music_mouse_entered():
 	$music/Animation.play("on")
