@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -350.0
 var dashKd: bool = true
 var timerBlock: bool = true
+var dashFlag: bool = false
 var direction
 var lest = false
 var dashBlock = false
@@ -31,7 +32,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if lest:
+	if lest and timerBlock:
 		$AnimatedSprite2D.play("lest")
 		if Input.is_action_pressed("ui_up"):
 			velocity.y = JUMP_VELOCITY/3
@@ -39,32 +40,40 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY/-15
 	if direction:
 		velocity.x = direction * SPEED
-		$AnimatedSprite2D.play("run")
+		if timerBlock:
+			$AnimatedSprite2D.play("run")
 		if direction == 1:
 			$AnimatedSprite2D.flip_h = false
 		else:
 			$AnimatedSprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if !lest:
+		if !lest and timerBlock:
 			$AnimatedSprite2D.play("stay")
 	
 	
-	if Input.is_action_pressed("dash") and dashKd:
-		$AnimatedSprite2D.play("dash")
+	if (Input.is_action_pressed("dash") or dashFlag) and dashKd:
 		if Input.is_action_pressed("ui_right"):
-			velocity.x = SPEED * 5
+			velocity.x = SPEED * 3
+			dashFlag = true
+			if timerBlock:
+				$AnimatedSprite2D.play("dash")
+				$Timer.start()
+				timerBlock = false
 		elif Input.is_action_pressed("ui_left"):
-			velocity.x = SPEED * -5
-		if timerBlock:
-			$Timer.start()
-			timerBlock = false
+			velocity.x = SPEED * -3
+			dashFlag = true
+			if timerBlock:
+				$AnimatedSprite2D.play("dash")
+				$Timer.start()
+				timerBlock = false
 	
 	
 	move_and_slide()
 
 func _on_timer_timeout():
 	if dashKd:
+		dashFlag = false
 		timerBlock = true
 		dashKd = false
 		velocity.x = 0
@@ -72,7 +81,7 @@ func _on_timer_timeout():
 		$Timer.wait_time = 1
 		$Timer.start()
 	elif !dashKd:
-		$Timer.wait_time = 0.07
+		$Timer.wait_time = 0.2
 		dashKd = true
 	pass # Replace with function body.
 
