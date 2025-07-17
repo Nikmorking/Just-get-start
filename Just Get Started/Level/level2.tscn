@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="4_sl7y5"]
 [ext_resource type="PackedScene" uid="uid://qfagnaexl464" path="res://gg/Player.tscn" id="5_1gddi"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="6_3fb2k"]
-[ext_resource type="PackedScene" uid="uid://bhrttpot01o8j" path="res://menu/control.tscn" id="7_p55tk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oj6ix"]
 font = ExtResource("4_sl7y5")
@@ -82,7 +81,7 @@ position = Vector2(115, -8)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(422.995, -34.001)
+position = Vector2(412, -27)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -93,19 +92,6 @@ position = Vector2(716, 14)
 shape = SubResource("CapsuleShape2D_e38m4")
 
 [node name="vignette" parent="." instance=ExtResource("6_3fb2k")]
-
-[node name="Control" parent="." instance=ExtResource("7_p55tk")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -176.0
-offset_top = -250.0
-offset_right = -176.0
-offset_bottom = -250.0
-grow_vertical = 1
-pivot_offset = Vector2(575, 115)
-size_flags_vertical = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

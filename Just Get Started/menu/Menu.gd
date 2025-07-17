@@ -1,14 +1,13 @@
 extends Control
 
 
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("appearance")
-	Global.load_game()
-	pass
+	pass # Replace with function body.
 
 
-
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -18,23 +17,17 @@ func _process(delta):
 func _on_settings():
 	$G_menu.hide()
 	$Settings.show()
-	pass
+	pass # Replace with function body.
 
 
 func _on_quit():
 	get_tree().quit()
-	pass
+	pass # Replace with function body.
 
 
 func _on_start_pressed():
-	if !Global.menuStart:
-		$start.play("start")
-		$Timer.start(10)
-	else:
-		if Global.level == 1:
-			get_tree().change_scene_to_file("res://Level/level1.tscn")
-		if Global.level == 2:
-			get_tree().change_scene_to_file("res://Level/level2.tscn")
+	$start.play("start")
+	$Timer.start(10)
 
 
 func _on_timer_timeout():
@@ -45,4 +38,4 @@ func _on_timer_timeout():
 func _on_back():
 	$G_menu.show()
 	$Settings.hide()
-	pass
+	pass # Replace with function body.
