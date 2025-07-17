@@ -12,3 +12,10 @@ func _input(event):
 		Global.level = 3
 	Global.save_game()
 	pass
+
+
+func _on_lock(body):
+	if body == $Player:
+		$Camera2D/AnimationPlayer.play("lock")
+		$Player.JUMP_VELOCITY = -400
+	pass # Replace with function body.

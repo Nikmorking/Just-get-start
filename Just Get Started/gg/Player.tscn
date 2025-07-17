@@ -1,10 +1,45 @@
-[gd_scene load_steps=9 format=3 uid="uid://qfagnaexl464"]
+[gd_scene load_steps=24 format=3 uid="uid://qfagnaexl464"]
 
 [ext_resource type="Script" path="res://gg/Player.gd" id="1_ctixr"]
-[ext_resource type="Texture2D" uid="uid://eexubh3u6dkm" path="res://анимация.png" id="2_oh6la"]
+[ext_resource type="Texture2D" uid="uid://db2e51qn8p8lj" path="res://gg/рывок.png" id="2_1xcdj"]
+[ext_resource type="Texture2D" uid="uid://eexubh3u6dkm" path="res://gg/анимация.png" id="2_oh6la"]
+[ext_resource type="Texture2D" uid="uid://cf1bk335fpnoj" path="res://gg/Ползанье.png" id="3_ajm07"]
+[ext_resource type="Texture2D" uid="uid://bynxbmvt08fxg" path="res://gg/Стояние.png" id="5_std2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw353"]
 size = Vector2(60, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt4th"]
+atlas = ExtResource("2_1xcdj")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5w8h"]
+atlas = ExtResource("2_1xcdj")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyp6l"]
+atlas = ExtResource("2_1xcdj")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c2ay"]
+atlas = ExtResource("2_1xcdj")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4dgo"]
+atlas = ExtResource("3_ajm07")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mq3q"]
+atlas = ExtResource("3_ajm07")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ft2s"]
+atlas = ExtResource("3_ajm07")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hypnj"]
+atlas = ExtResource("3_ajm07")
+region = Rect2(48, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45kru"]
 atlas = ExtResource("2_oh6la")
@@ -22,12 +57,62 @@ region = Rect2(32, 0, 16, 32)
 atlas = ExtResource("2_oh6la")
 region = Rect2(48, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5y1c"]
+atlas = ExtResource("5_std2p")
+region = Rect2(0, 0, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y38as"]
+atlas = ExtResource("5_std2p")
+region = Rect2(16, 0, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u8gh"]
+atlas = ExtResource("5_std2p")
+region = Rect2(32, 0, 16, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17xih"]
+atlas = ExtResource("5_std2p")
+region = Rect2(48, 0, 16, 34)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_oigvg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt4th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5w8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyp6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c2ay")
+}],
+"loop": false,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4dgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mq3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ft2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hypnj")
+}],
+"loop": true,
+"name": &"lest",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -45,6 +130,23 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5y1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y38as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u8gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17xih")
+}],
+"loop": true,
+"name": &"stay",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -59,7 +161,7 @@ texture_filter = 1
 position = Vector2(-5, -36)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_oigvg")
-animation = &"run"
+animation = &"lest"
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eexubh3u6dkm"
-path="res://.godot/imported/анимация.png-bc821de7df756003e63e105f9c55c3c3.ctex"
+uid="uid://db2e51qn8p8lj"
+path="res://.godot/imported/рывок.png-4ae1023dd7455c6e6f2921316a249780.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://анимация.png"
-dest_files=["res://.godot/imported/анимация.png-bc821de7df756003e63e105f9c55c3c3.ctex"]
+source_file="res://gg/рывок.png"
+dest_files=["res://.godot/imported/рывок.png-4ae1023dd7455c6e6f2921316a249780.ctex"]
 
 [params]
 

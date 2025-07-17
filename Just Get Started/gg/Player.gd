@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-@export var SPEED := 250.0
+@export var SPEED := 200.0
 @export var JUMP_VELOCITY = -350.0
-var dashKd: bool = true
+var dashKd: bool = false
 var timerBlock: bool = true
 var direction
 var lest = false
@@ -45,12 +45,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if lest:
+		$AnimatedSprite2D.play("lest")
 		if Input.is_action_pressed("ui_up"):
 			velocity.y = JUMP_VELOCITY/3
 		else:
 			velocity.y = JUMP_VELOCITY/-15
-	# Handle jump.
-	
 	if direction:
 		velocity.x = direction * SPEED
 		$AnimatedSprite2D.play("run")
@@ -58,12 +57,14 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = false
 		else:
 			$AnimatedSprite2D.flip_h = true
-	elif dashKd:
+	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$AnimatedSprite2D.stop()
+		if !lest:
+			$AnimatedSprite2D.play("stay")
 	
 	
-	if Input.is_action_pressed("dash") and dashKd == true:
+	if Input.is_action_pressed("dash") and dashKd:
+		$AnimatedSprite2D.play("dash")
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED * 10
 		elif Input.is_action_pressed("ui_left"):
@@ -104,4 +105,5 @@ func _on_lest(body):
 	if body == self:
 		lest = false
 		velocity.y -= JUMP_VELOCITY/2
+		$AnimatedSprite2D.stop()
 	pass # Replace with function body.

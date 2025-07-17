@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=34 format=3 uid="uid://c032dqi0ll2eh"]
 
 [ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
 [ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
@@ -7,8 +7,10 @@
 [ext_resource type="Script" path="res://menu/G_menu.gd" id="4_j7bh4"]
 [ext_resource type="LabelSettings" uid="uid://via1nnm8j1ix" path="res://menu/Menu.tres" id="6_e4lj0"]
 [ext_resource type="Texture2D" uid="uid://b3p18lnq6ue8o" path="res://menu/Sprit.png" id="6_uwaaf"]
+[ext_resource type="Script" path="res://menu/Settings.gd" id="7_ev23b"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="7_ngooc"]
 [ext_resource type="Texture2D" uid="uid://duu35gp4f20jh" path="res://background/black.png" id="8_mqvu6"]
+[ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="8_tyj7i"]
 
 [sub_resource type="Animation" id="Animation_usq20"]
 resource_name = "F"
@@ -202,6 +204,10 @@ _data = {
 "offButton": SubResource("Animation_nar6m"),
 "startButton": SubResource("Animation_yusvk")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_nssor"]
+font = ExtResource("8_tyj7i")
+font_size = 40
 
 [sub_resource type="Animation" id="Animation_nqk2d"]
 length = 0.001
@@ -658,10 +664,10 @@ libraries = {
 }
 
 [node name="Settings" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 1149.0
 offset_bottom = 660.0
+script = ExtResource("7_ev23b")
 
 [node name="Sprit" type="Sprite2D" parent="Settings"]
 position = Vector2(578.75, 332.75)
@@ -683,15 +689,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 294.0
+offset_left = 284.0
 offset_top = 154.0
-offset_right = -733.0
+offset_right = -717.0
 offset_bottom = -456.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 text = "Settings"
-label_settings = ExtResource("6_e4lj0")
+label_settings = SubResource("LabelSettings_nssor")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -731,10 +737,28 @@ libraries = {
 
 [node name="HSlider" type="HSlider" parent="Settings"]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 225.0
-offset_right = 814.0
-offset_bottom = 340.0
+offset_left = 61.0
+offset_top = 227.0
+offset_right = 691.0
+offset_bottom = 342.0
+
+[node name="Label2" type="Label" parent="Settings"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 708.0
+offset_top = 264.0
+offset_right = -293.0
+offset_bottom = -346.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "Volume"
+label_settings = SubResource("LabelSettings_nssor")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -780,4 +804,5 @@ position = Vector2(577, 326.996)
 [connection signal="button_up" from="Settings/Back" to="." method="_on_back"]
 [connection signal="mouse_entered" from="Settings/Back" to="G_menu" method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="Settings/Back" to="G_menu" method="_on_quit_mouse_exited"]
+[connection signal="drag_ended" from="Settings/HSlider" to="Settings" method="_on_volume"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
