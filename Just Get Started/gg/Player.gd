@@ -61,7 +61,7 @@ func _physics_process(delta):
 			else:
 				$AnimatedSprite2D.flip_h = true
 		else:
-			velocity.x = direction * SPEED / 3.0
+			velocity.x = direction * SPEED / 5.0
 			$AnimatedSprite2D.play("run")
 			if direction == 1:
 				$AnimatedSprite2D.flip_h = false
