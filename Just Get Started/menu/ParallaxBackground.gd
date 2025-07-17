@@ -26,7 +26,7 @@ func _process(delta):
 	else:
 		scroll_offset.x -= speed * delta
 		$marker.position.x -= speed * delta
-		print()
+		print(scroll_offset.x)
 	pass
 
 func stop():
@@ -35,7 +35,7 @@ func stop():
 	start = false
 	$ParallaxLayer3/TileMap.hide()
 	$ParallaxLayer2/TileMap.hide()
-	$ParallaxLayer3/TileMap2/AnimationPlayer.play("F")
+	$ParallaxLayer4/TileMap2/AnimationPlayer.play("F")
 	pass
 
 func _on_start_button_up():
