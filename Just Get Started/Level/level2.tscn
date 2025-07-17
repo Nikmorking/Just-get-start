@@ -46,13 +46,12 @@ format = 2
 layer_0/tile_data = PackedInt32Array(262158, 851969, 10, 327694, 851969, 11)
 
 [node name="openDoor" type="TileMap" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(251.985, -186.095)
 scale = Vector2(2, 2)
 tile_set = ExtResource("2_pb7o3")
 format = 2
-layer_0/tile_data = PackedInt32Array(262158, 786433, 10, 327694, 786433, 11, 458746, 327681, 5, 458747, 131073, 1)
+layer_0/tile_data = PackedInt32Array(262158, 786433, 10, 327694, 786433, 11)
 
 [node name="e" type="Sprite2D" parent="openDoor"]
 texture_filter = 1

@@ -10,6 +10,11 @@ var volume = 8
 func _ready():
 	pass # Replace with function body.
 
+func del_data():
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	save_file.store_line("")
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
