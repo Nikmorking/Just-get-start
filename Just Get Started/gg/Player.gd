@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var SPEED := 200.0
 @export var JUMP_VELOCITY = -350.0
-var dashKd: bool = false
+var dashKd: bool = true
 var timerBlock: bool = true
 var direction
 var lest = false
@@ -26,19 +26,6 @@ func _ready():
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("ui_left", "ui_right")
 	pass
-
-func _on_timer_2_timeout():
-	if dashKd:
-		timerBlock = true
-		dashKd = false
-		velocity.x = 0
-		move_and_slide()
-		$Timer2.wait_time = 1
-		$Timer2.start()
-	elif !dashKd:
-		$Timer2.wait_time = 0.05
-		dashKd = true
-	pass # Replace with function body.
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -66,32 +53,27 @@ func _physics_process(delta):
 	if Input.is_action_pressed("dash") and dashKd:
 		$AnimatedSprite2D.play("dash")
 		if Input.is_action_pressed("ui_right"):
-			velocity.x = SPEED * 10
+			velocity.x = SPEED * 5
 		elif Input.is_action_pressed("ui_left"):
-			velocity.x = SPEED * -10
+			velocity.x = SPEED * -5
 		if timerBlock:
-			$Timer2.start()
+			$Timer.start()
 			timerBlock = false
 	
 	
 	move_and_slide()
 
 func _on_timer_timeout():
-	if dashKd == false:
-		dashKd = true
-		dashBlock = false
-		
-		if Input.is_action_pressed("ui_right"):
-			velocity.x = SPEED * 150
-		elif Input.is_action_pressed("ui_left"):
-			velocity.x = SPEED * -150
-			
+	if dashKd:
+		timerBlock = true
+		dashKd = false
+		velocity.x = 0
 		move_and_slide()
-		$Timer.wait_time = 2
+		$Timer.wait_time = 1
 		$Timer.start()
-	else:
-		$Timer.wait_time = 0.1
-		dashBlock = true
+	elif !dashKd:
+		$Timer.wait_time = 0.07
+		dashKd = true
 	pass # Replace with function body.
 
 
