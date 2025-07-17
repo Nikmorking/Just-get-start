@@ -7,7 +7,7 @@ var dashKd: bool = false
 var timerBlock: bool = true
 var direction
 var lest = false
-var dashBlock = false
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -79,7 +79,7 @@ func _physics_process(delta):
 func _on_timer_timeout():
 	if dashKd == false:
 		dashKd = true
-		dashBlock = false
+		Global.dashBlock = false
 		
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED * 150
@@ -91,7 +91,7 @@ func _on_timer_timeout():
 		$Timer.start()
 	else:
 		$Timer.wait_time = 0.1
-		dashBlock = true
+		Global.dashBlock = true
 	pass # Replace with function body.
 
 
