@@ -20,3 +20,9 @@ func _on_volume(value_changed):
 func set_value():
 	$HSlider.value = Global.volume
 	pass
+
+
+func _on_del_data():
+	Global.del_data()
+	$Label/AnimationPlayer.play("del")
+	pass # Replace with function body.

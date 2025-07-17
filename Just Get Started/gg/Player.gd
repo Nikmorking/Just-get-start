@@ -3,8 +3,9 @@ extends CharacterBody2D
 
 @export var SPEED := 200.0
 @export var JUMP_VELOCITY = -350.0
-var dashKd: bool = false
+var dashKd: bool = true
 var timerBlock: bool = true
+var dashFlag: bool = false
 var direction
 var lest = false
 
@@ -27,24 +28,11 @@ func _ready():
 	direction = Input.get_axis("ui_left", "ui_right")
 	pass
 
-func _on_timer_2_timeout():
-	if dashKd:
-		timerBlock = true
-		dashKd = false
-		velocity.x = 0
-		move_and_slide()
-		$Timer2.wait_time = 1
-		$Timer2.start()
-	elif !dashKd:
-		$Timer2.wait_time = 0.05
-		dashKd = true
-	pass # Replace with function body.
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if lest:
+	if lest and timerBlock:
 		$AnimatedSprite2D.play("lest")
 		if Input.is_action_pressed("ui_up"):
 			velocity.y = JUMP_VELOCITY/3
@@ -52,46 +40,49 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY/-15
 	if direction:
 		velocity.x = direction * SPEED
-		$AnimatedSprite2D.play("run")
+		if timerBlock:
+			$AnimatedSprite2D.play("run")
 		if direction == 1:
 			$AnimatedSprite2D.flip_h = false
 		else:
 			$AnimatedSprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if !lest:
+		if !lest and timerBlock:
 			$AnimatedSprite2D.play("stay")
 	
 	
-	if Input.is_action_pressed("dash") and dashKd:
-		$AnimatedSprite2D.play("dash")
+	if (Input.is_action_pressed("dash") or dashFlag) and dashKd:
 		if Input.is_action_pressed("ui_right"):
-			velocity.x = SPEED * 10
+			velocity.x = SPEED * 3
+			dashFlag = true
+			if timerBlock:
+				$AnimatedSprite2D.play("dash")
+				$Timer.start()
+				timerBlock = false
 		elif Input.is_action_pressed("ui_left"):
-			velocity.x = SPEED * -10
-		if timerBlock:
-			$Timer2.start()
-			timerBlock = false
+			velocity.x = SPEED * -3
+			dashFlag = true
+			if timerBlock:
+				$AnimatedSprite2D.play("dash")
+				$Timer.start()
+				timerBlock = false
 	
 	
 	move_and_slide()
 
 func _on_timer_timeout():
-	if dashKd == false:
-		dashKd = true
-		Global.dashBlock = false
-		
-		if Input.is_action_pressed("ui_right"):
-			velocity.x = SPEED * 150
-		elif Input.is_action_pressed("ui_left"):
-			velocity.x = SPEED * -150
-			
+	if dashKd:
+		dashFlag = false
+		timerBlock = true
+		dashKd = false
+		velocity.x = 0
 		move_and_slide()
-		$Timer.wait_time = 2
+		$Timer.wait_time = 1
 		$Timer.start()
-	else:
-		$Timer.wait_time = 0.1
-		Global.dashBlock = true
+	elif !dashKd:
+		$Timer.wait_time = 0.2
+		dashKd = true
 	pass # Replace with function body.
 
 

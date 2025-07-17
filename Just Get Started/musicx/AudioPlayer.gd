@@ -14,3 +14,6 @@ func _process(delta):
 func _set_volume():
 	volume_db = Global.volume
 	pass
+
+func save_value():
+	pass
