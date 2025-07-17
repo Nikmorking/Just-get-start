@@ -3,6 +3,8 @@ extends Node
 var level = 1
 var menuStart = false
 var canCreep = false
+var volume = 8
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +21,9 @@ func save_game():
 		# Call the node's save function.
 	var node_data = {
 		"level":level,
-		"menuStart":menuStart
+		"menuStart":menuStart,
+		"volume":volume,
+		"canCreep":canCreep
 	}
 	var json_string = JSON.stringify(node_data)
 	save_file.store_line(json_string)
@@ -39,4 +43,5 @@ func load_game():
 	var node_data = json.data
 	level = node_data["level"]
 	menuStart = node_data["menuStart"]
-	print(level, menuStart)
+	volume = node_data["volume"]
+	print(level, menuStart, volume)

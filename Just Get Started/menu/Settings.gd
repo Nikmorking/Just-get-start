@@ -12,4 +12,11 @@ func _process(delta):
 
 
 func _on_volume(value_changed):
+	if value_changed:
+		Global.volume = $HSlider.value
+		get_parent().get_node("Audio")._set_volume()
 	pass # Replace with function body.
+
+func set_value():
+	$HSlider.value = Global.volume
+	pass

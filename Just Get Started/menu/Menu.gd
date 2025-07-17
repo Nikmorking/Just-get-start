@@ -18,6 +18,7 @@ func _process(delta):
 func _on_settings():
 	$G_menu.hide()
 	$Settings.show()
+	$Settings.set_value()
 	pass
 
 
@@ -42,4 +43,5 @@ func _on_timer_timeout():
 func _on_back():
 	$G_menu.show()
 	$Settings.hide()
+	Global.save_game()
 	pass

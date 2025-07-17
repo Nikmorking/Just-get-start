@@ -1,16 +1,18 @@
-[gd_scene load_steps=34 format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=37 format=3 uid="uid://c032dqi0ll2eh"]
 
 [ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
 [ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_84oma"]
 [ext_resource type="Texture2D" uid="uid://cir1qgf7exf1f" path="res://menu/button.png" id="3_yvft0"]
 [ext_resource type="Script" path="res://menu/G_menu.gd" id="4_j7bh4"]
+[ext_resource type="Texture2D" uid="uid://6rfifaen1a5f" path="res://menu/ThemeLogo_JustGetStarted.png" id="4_uliwk"]
 [ext_resource type="LabelSettings" uid="uid://via1nnm8j1ix" path="res://menu/Menu.tres" id="6_e4lj0"]
 [ext_resource type="Texture2D" uid="uid://b3p18lnq6ue8o" path="res://menu/Sprit.png" id="6_uwaaf"]
 [ext_resource type="Script" path="res://menu/Settings.gd" id="7_ev23b"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="7_ngooc"]
 [ext_resource type="Texture2D" uid="uid://duu35gp4f20jh" path="res://background/black.png" id="8_mqvu6"]
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="8_tyj7i"]
+[ext_resource type="PackedScene" uid="uid://bx1tu726eau64" path="res://musicx/audio_player.tscn" id="13_jacfg"]
 
 [sub_resource type="Animation" id="Animation_usq20"]
 resource_name = "F"
@@ -205,9 +207,13 @@ _data = {
 "startButton": SubResource("Animation_yusvk")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_clhy7"]
+font = ExtResource("8_tyj7i")
+font_size = 25
+
 [sub_resource type="LabelSettings" id="LabelSettings_nssor"]
 font = ExtResource("8_tyj7i")
-font_size = 40
+font_size = 45
 
 [sub_resource type="Animation" id="Animation_nqk2d"]
 length = 0.001
@@ -510,6 +516,12 @@ layer_0/modulate = Color(0.201527, 0.201526, 0.201526, 0.831373)
 layer_0/tile_data = PackedInt32Array(-65544, 655361, 5, -8, 655361, 6, 65528, 655361, 5, 131064, 655361, 6, 196600, 524289, 5, 262136, 524289, 6, 327672, 524289, 7, -65543, 589825, 1, -7, 589825, 2, 65529, 589825, 3, 131065, 589825, 4, 196601, 589825, 5, 262137, 589825, 6, 327673, 589825, 7, -65542, 589825, 2, -6, 589825, 3, 65530, 655361, 3, 131066, 655361, 4, 196602, 655361, 5, 262138, 655361, 6, 327674, 655361, 7, -65541, 589825, 2, -5, 589825, 3, 65531, 720897, 3, 131067, 720897, 4, 196603, 720897, 5, 262139, 720897, 6, 327675, 720897, 7, -65540, 786433, 1, -4, 786433, 2, 65532, 786433, 3, 131068, 786433, 4, 196604, 786433, 5, 262140, 786433, 6, 327676, 786433, 7, -65539, 851969, 1, -3, 851969, 2, 65533, 851969, 3, 131069, 524289, 4, 196605, 524289, 5, 262141, 524289, 6, 327677, 524289, 7, -65538, 589825, 1, -2, 589825, 2, 65534, 589825, 3, 131070, 589825, 4, 196606, 589825, 5, 262142, 589825, 6, 327678, 589825, 7, -65537, 524289, 3, -1, 524289, 3, 65535, 655361, 3, 131071, 655361, 4, 196607, 655361, 5, 262143, 655361, 6, 327679, 655361, 7, -131072, 524289, 3, -65536, 524289, 3, 0, 720897, 3, 65536, 720897, 4, 131072, 720897, 5, 196608, 720897, 6, 262144, 720897, 7, -131071, 786433, 1, -65535, 786433, 2, 1, 786433, 3, 65537, 786433, 4, 131073, 786433, 5, 196609, 786433, 6, 262145, 786433, 7, -131070, 851969, 1, -65534, 851969, 2, 2, 851969, 3, 65538, 524289, 4, 131074, 524289, 5, 196610, 524289, 6, 262146, 524289, 7)
 layer_1/tile_data = PackedInt32Array()
 
+[node name="ThemeLogoJustGetStarted" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.473976, 0.473976, 0.473976, 0.854902)
+position = Vector2(535, 224)
+scale = Vector2(0.165167, 0.162932)
+texture = ExtResource("4_uliwk")
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -8.86)
 motion_scale = Vector2(0.6, 0.6)
@@ -664,6 +676,7 @@ libraries = {
 }
 
 [node name="Settings" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 1149.0
 offset_bottom = 660.0
@@ -683,21 +696,21 @@ offset_right = 218.0
 offset_bottom = 167.0
 scale = Vector2(2.5, 2.5)
 
-[node name="Label" type="Label" parent="Settings"]
+[node name="Label" type="Label" parent="Settings/CheckButton"]
 modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 284.0
-offset_top = 154.0
-offset_right = -717.0
-offset_bottom = -456.0
+offset_left = 17.2
+offset_top = -5.6
+offset_right = 121.2
+offset_bottom = 10.4
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 text = "Settings"
-label_settings = SubResource("LabelSettings_nssor")
+label_settings = SubResource("LabelSettings_clhy7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -741,17 +754,20 @@ offset_left = 61.0
 offset_top = 227.0
 offset_right = 691.0
 offset_bottom = 342.0
+scale = Vector2(1.3, 1.3)
+min_value = -40.0
+max_value = 40.0
 
-[node name="Label2" type="Label" parent="Settings"]
+[node name="Label2" type="Label" parent="Settings/HSlider"]
 modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 708.0
-offset_top = 264.0
-offset_right = -293.0
-offset_bottom = -346.0
+offset_left = 647.0
+offset_top = 37.0
+offset_right = 137.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
@@ -784,6 +800,8 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 2
 position = Vector2(577, 326.996)
+
+[node name="Audio" parent="." instance=ExtResource("13_jacfg")]
 
 [connection signal="button_down" from="G_menu/Quit" to="." method="_on_quit"]
 [connection signal="button_down" from="G_menu/Quit" to="G_menu" method="_on_quit_button_down"]
