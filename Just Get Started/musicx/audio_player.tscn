@@ -8,3 +8,5 @@ stream = ExtResource("1_n0ihv")
 autoplay = true
 bus = &"Music"
 script = ExtResource("2_0nlpb")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

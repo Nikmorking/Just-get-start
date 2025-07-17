@@ -14,7 +14,7 @@ func _process(delta):
 func _on_volume(value_changed):
 	if value_changed:
 		Global.volume = $HSlider.value
-		get_parent().get_node("Audio")._set_volume()
+		AudioPlayer._set_volume()
 	pass # Replace with function body.
 
 func set_value():
@@ -25,4 +25,9 @@ func set_value():
 func _on_del_data():
 	Global.del_data()
 	$Label/AnimationPlayer.play("del")
+	Global.level = 1
+	Global.menuStart = false
+	Global.canCreep = false
+	Global.volume = 8
+	Global.dashBlock = false
 	pass # Replace with function body.

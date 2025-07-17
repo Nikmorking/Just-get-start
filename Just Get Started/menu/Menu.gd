@@ -19,6 +19,7 @@ func _on_settings():
 	$G_menu.hide()
 	$Settings.show()
 	$Settings.set_value()
+	Global.load_game()
 	pass
 
 

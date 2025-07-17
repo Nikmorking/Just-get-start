@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhrttpot01o8j"]
+[gd_scene load_steps=19 format=3 uid="uid://bhrttpot01o8j"]
 
 [ext_resource type="Texture2D" uid="uid://bjxh2ygpks3b5" path="res://menu/guiMenu.png" id="1_2wl5c"]
 [ext_resource type="Script" path="res://menu/control.gd" id="1_op8so"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtheta72y247" path="res://menu/mute.png" id="6_nf1c5"]
 [ext_resource type="Texture2D" uid="uid://cj4rujp2s0v55" path="res://menu/exit.png" id="7_qcdew"]
 [ext_resource type="Texture2D" uid="uid://qfac6dfn5odw" path="res://menu/settings.png" id="8_7fuki"]
+[ext_resource type="PackedScene" uid="uid://iev73h7hxbm8" path="res://settings.tscn" id="10_gua3w"]
 
 [sub_resource type="Animation" id="Animation_q2m02"]
 length = 0.001
@@ -389,6 +390,12 @@ libraries = {
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Settings" parent="." instance=ExtResource("10_gua3w")]
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 1148.0
+offset_bottom = 654.0
 
 [connection signal="button_up" from="settingsLine" to="." method="_on_settings_line_button_up"]
 [connection signal="button_down" from="continue" to="." method="_on_texture_button_button_down"]

@@ -17,3 +17,8 @@ func _set_volume():
 
 func save_value():
 	pass
+
+
+func _on_finished():
+	play()
+	pass # Replace with function body.
