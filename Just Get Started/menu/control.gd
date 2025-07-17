@@ -109,6 +109,7 @@ func _on_settings_button_up():
 	$settings/Animation.stop()
 	$settings.scale.x = 2.15
 	$settings.scale.y = 2.15
+	$Settings.show()
 	pass # Replace with function body.
 
 

@@ -1,6 +1,6 @@
 extends Control
 
-
+signal back
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -30,4 +30,9 @@ func _on_del_data():
 	Global.canCreep = false
 	Global.volume = 8
 	Global.dashBlock = false
+	pass # Replace with function body.
+
+
+func _on_back_button_up():
+	back.emit()
 	pass # Replace with function body.
