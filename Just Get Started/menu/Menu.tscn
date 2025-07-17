@@ -550,7 +550,10 @@ format = 2
 layer_0/modulate = Color(0.359069, 0.359069, 0.359069, 0.984314)
 layer_0/tile_data = PackedInt32Array(524278, 655361, 10, 524279, 655361, 9, 458743, 655361, 12, 458744, 655361, 10, 458745, 720897, 12, 524281, 655361, 9, 524280, 655361, 9, 524282, 655361, 10, 393208, 655361, 11, 524283, 786433, 12, 458746, 589825, 11, 524273, 655361, 10, 524272, 655361, 9, 524274, 786433, 9, 458736, 458753, 11, 458737, 589825, 11, 524275, 196609, 14, 524276, 262145, 14, 524277, 393217, 14, 524285, 458753, 10)
 
-[node name="TileMap2" type="TileMap" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 1.285)
+
+[node name="TileMap2" type="TileMap" parent="ParallaxBackground/ParallaxLayer4"]
 modulate = Color(0.643137, 0.643137, 0.643137, 0.858824)
 texture_filter = 1
 position = Vector2(826.13, 446.84)
@@ -559,7 +562,7 @@ tile_set = ExtResource("2_84oma")
 format = 2
 layer_0/tile_data = PackedInt32Array(-196610, 196609, 805306378, -131074, 655361, 14, 65534, 589825, 9, -196609, 131073, 805306378, -131073, 720897, 14, 65535, 458753, 9, -262144, 131073, 805306378, -196608, 720897, 14, -131072, 851969, 10, -65536, 851969, 11, 0, 327681, 9, 65536, 327681, 10, 131072, 327681, 10, 196608, 327681, 9, 262144, 327681, 11, -262143, 131073, 805306378, -196607, 786433, 14, 1, 458753, 9, -262142, 65537, 805306378, -196606, 851969, 14, 2, 524289, 9)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer3/TileMap2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer4/TileMap2"]
 libraries = {
 "": SubResource("AnimationLibrary_jknoa")
 }
