@@ -1,6 +1,6 @@
 extends Control
 
-var music = true
+var music = false
 var menuState = false
 
 # Called when the node enters the scene tree for the first time.
@@ -49,12 +49,8 @@ func _on_texture_button_button_up():
 	$continue.scale.x = 2.15
 	$continue.scale.y = 2.15
 	_on_settings_line_button_up()
-	if Global.level == 1:
-		get_tree().paused = false
-		get_tree().change_scene_to_file("res://Level/level1.tscn")
-	if Global.level == 2:
-		get_tree().paused = false
-		get_tree().change_scene_to_file("res://Level/level2.tscn")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Level/level%s.tscn" % Global.level)
 
 func _on_music_mouse_entered():
 	$music/Animation.play("on")
@@ -71,8 +67,10 @@ func _on_music_button_up():
 	$music/Animation.stop()
 	if music:
 		music = false
+		AudioPlayer.play()
 	else:
 		music = true
+		AudioPlayer.stop()
 	$music/music.scale.x = 2.15
 	$music/music.scale.y = 2.15
 	pass # Replace with function body.
@@ -113,6 +111,7 @@ func _on_settings_button_up():
 	$settings/Animation.stop()
 	$settings.scale.x = 2.15
 	$settings.scale.y = 2.15
+	$Settings.show()
 	pass # Replace with function body.
 
 
@@ -128,4 +127,9 @@ func _on_settings_line_button_up():
 	pass
 func _on_timer_timeout():
 	menu(false)
+	pass # Replace with function body.
+
+
+func _on_settings_back():
+	$Settings.hide()
 	pass # Replace with function body.

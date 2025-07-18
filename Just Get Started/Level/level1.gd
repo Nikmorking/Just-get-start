@@ -1,24 +1,7 @@
-extends Node2D
+extends Level
 
-var door_action = false
-
-func _ready():
-	pass 
-
-var door_x = 717
-var door_y = 34
-
-func _process(delta):
-	pass
-
-func door_state(state):
-	if state == false:
-		$closeDoor.visible = true
-		$openDoor.visible = false
-	else:
-		$closeDoor.visible = false
-		$openDoor.visible = true
-	pass
+var dash = false
+var crouch = false
 
 func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
@@ -26,15 +9,47 @@ func _input(event):
 		Global.level = 2
 	pass
 
+func _process(delta):
+	if dash:
+		$"gui/???".text = "move"
+		$gui/dash.visible = true
+		$gui/q.visible = true
+		
+		$gui/crouch.visible = false
+		$gui/crouchButton.visible = false
+	elif crouch:
+		$gui/crouch.visible = true
+		$gui/crouchButton.visible = true
+		
+		$gui/dash.visible = true
+		$gui/q.visible = true
+	else:
+		$"gui/???".text = "???"
+		$gui/dash.visible = false
+		$gui/crouch.visible = false
+		$gui/crouchButton.visible = false
+		$gui/q.visible = false
+	pass
 
-
-func _on_area_2d_body_entered(body):
-	door_action = true
-	door_state(true)
+func _ready():
+	if Global.dashKd:
+		dash = true
+		$AnimationPlayer.play("hide")
+		$Timer.start(1)
+		$Black.visible = true
+		$Label.visible = true
+	else:
+		$Black.visible = false
+		$Label.visible = false
+		dash = false
+	start_pos = $Player.position
+	door_x = 717
+	door_y = 34
+	Global.save_game()
 	pass
 
 
-func _on_area_2d_body_exited(body):
-	door_action = false
-	door_state(false)
-	pass
+func _on_timer_timeout():
+	$Black.visible = false
+	$Label.visible = false
+	pass # Replace with function body.
