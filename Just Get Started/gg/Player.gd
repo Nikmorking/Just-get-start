@@ -3,11 +3,11 @@ extends CharacterBody2D
 
 @export var SPEED := 200.0
 @export var JUMP_VELOCITY = -350.0
-var dashKd: bool = true
 var timerBlock: bool = true
 var dashFlag: bool = false
 var direction
 var lest = false
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -52,7 +52,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("stay")
 	
 	
-	if (Input.is_action_pressed("dash") or dashFlag) and dashKd:
+	if (Input.is_action_pressed("dash") or dashFlag) and Global.dashKd:
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED * 3
 			dashFlag = true
@@ -72,17 +72,17 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_timer_timeout():
-	if dashKd:
+	if Global.dashKd:
 		dashFlag = false
 		timerBlock = true
-		dashKd = false
+		Global.dashKd = false
 		velocity.x = 0
 		move_and_slide()
 		$Timer.wait_time = 1
 		$Timer.start()
-	elif !dashKd:
+	elif !Global.dashKd:
 		$Timer.wait_time = 0.2
-		dashKd = true
+		Global.dashKd = true
 	pass # Replace with function body.
 
 

@@ -5,7 +5,9 @@ var menuStart = false
 var canCreep = false
 var volume = 8
 
-var dashBlock = false
+
+var dashKd: bool = false
+
 
 
 # Called when the node enters the scene tree for the first time.

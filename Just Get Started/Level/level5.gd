@@ -3,6 +3,7 @@ extends Level
 
 
 func _ready():
+	$Player.visible = true
 	start_pos = $Player.position
 	pass # Replace with function body.
 
@@ -15,7 +16,8 @@ func _input(event):
 
 
 func _on_kill_body_entered(body):
-	Global.dashBlock = true
+	$Player.visible = false
+	Global.dashKd = true
 	Global.level = 1
 	Global.save_game()
 	get_tree().change_scene_to_file("res://Level/level1.tscn")
