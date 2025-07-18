@@ -55,6 +55,7 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("shift") and not shiftFlag and not shiftBlock:
 		$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2
 		$CollisionShape2D.position = Vector2(-7, -36)
+		$AnimatedSprite2D.play("shiftEnd")
 	elif Input.is_action_just_released("shift"):
 		shiftBlock = true
 	
