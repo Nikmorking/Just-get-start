@@ -8,7 +8,7 @@ var timerBlock: bool = true
 var dashFlag: bool = false
 var shiftFlag: bool = true
 var shiftBlock: bool = true
-var animBlock: bool = false
+var animBlock: bool = true
 var direction
 var lest = false
 var dashBlock = false
