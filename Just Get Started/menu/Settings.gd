@@ -8,7 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$CheckButton.toggle_mode = Global.menuStart
 	pass
+
 
 
 func _on_volume(value_changed):
@@ -35,4 +37,9 @@ func _on_del_data():
 
 func _on_back_button_up():
 	back.emit()
+	pass # Replace with function body.
+
+
+func _on_check_button_up():
+	Global.menuStart = $CheckButton.toggle_mode
 	pass # Replace with function body.

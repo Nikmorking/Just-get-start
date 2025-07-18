@@ -1,6 +1,6 @@
 extends Control
 
-var music = true
+var music = false
 var menuState = false
 
 # Called when the node enters the scene tree for the first time.

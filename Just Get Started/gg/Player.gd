@@ -36,8 +36,10 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("lest")
 		if Input.is_action_pressed("ui_up"):
 			velocity.y = JUMP_VELOCITY/3
+		elif Input.is_action_pressed("ui_down"):
+			velocity.y = JUMP_VELOCITY/-3
 		else:
-			velocity.y = JUMP_VELOCITY/-15
+			velocity.y = JUMP_VELOCITY/-10
 	if direction:
 		velocity.x = direction * SPEED
 		if timerBlock:
