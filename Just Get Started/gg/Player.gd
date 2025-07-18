@@ -9,9 +9,7 @@ var shiftFlag: bool = true
 var shiftBlock: bool = false
 var direction
 var lest = false
-
-
-
+var dashBlock = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -35,6 +33,8 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	
+	
 	if lest and timerBlock:
 		$AnimatedSprite2D.play("lest")
 		if Input.is_action_pressed("ui_up"):
@@ -57,7 +57,7 @@ func _physics_process(delta):
 		$CollisionShape2D.position = Vector2(-7, -36)
 	elif Input.is_action_just_released("shift"):
 		shiftBlock = true
-
+	
 	if direction:
 		if not shiftFlag:
 			velocity.x = direction * SPEED / 3
@@ -125,6 +125,7 @@ func _on_lest(body):
 		velocity.y -= JUMP_VELOCITY/2
 		$AnimatedSprite2D.stop()
 	pass # Replace with function body.
+
 
 func animation_finished():
 	if $AnimatedSprite2D.animation == "shift_start":
