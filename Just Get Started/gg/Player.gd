@@ -56,6 +56,7 @@ func _physics_process(delta):
 		$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2
 		$CollisionShape2D.position = Vector2(-7, -36)
 		$AnimatedSprite2D.play("shiftEnd")
+		shiftFlag = true
 	elif Input.is_action_just_released("shift"):
 		shiftBlock = true
 	
