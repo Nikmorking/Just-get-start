@@ -29,7 +29,6 @@ func _on_del_data():
 	Global.menuStart = false
 	Global.canCreep = false
 	Global.volume = 8
-	Global.dashBlock = false
 	pass # Replace with function body.
 
 

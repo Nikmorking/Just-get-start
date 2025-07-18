@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bynxbmvt08fxg" path="res://gg/Стояние.png" id="5_std2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw353"]
-size = Vector2(60, 128)
+size = Vector2(60, 132)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt4th"]
 atlas = ExtResource("2_1xcdj")
@@ -153,7 +153,7 @@ animations = [{
 script = ExtResource("1_ctixr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -36)
+position = Vector2(-7, -34)
 shape = SubResource("RectangleShape2D_bw353")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

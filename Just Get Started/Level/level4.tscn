@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bucxxvkwe1ldo"]
+[gd_scene load_steps=16 format=3 uid="uid://bucxxvkwe1ldo"]
 
 [ext_resource type="Script" path="res://Level/level4.gd" id="1_hvsoy"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_y7ae3"]
@@ -14,60 +14,6 @@ font = ExtResource("4_hb7cc")
 font_size = 20
 font_color = Color(0.192157, 0.121569, 0.152941, 1)
 
-[sub_resource type="Animation" id="Animation_5jsr3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(412, -35)]
-}
-
-[sub_resource type="Animation" id="Animation_352gx"]
-resource_name = "lock"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(412, -35), Vector2(1153, -35)]
-}
-
-[sub_resource type="Animation" id="Animation_g7myf"]
-resource_name = "un_lock"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1153, -35), Vector2(412, -35)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3pgaf"]
-_data = {
-"RESET": SubResource("Animation_5jsr3"),
-"lock": SubResource("Animation_352gx"),
-"un_lock": SubResource("Animation_g7myf")
-}
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e38m4"]
 radius = 16.0
 height = 58.0
@@ -79,7 +25,7 @@ size = Vector2(45, 156)
 size = Vector2(64, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2y11"]
-size = Vector2(86, 10)
+size = Vector2(82, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yog6"]
 size = Vector2(22, 256)
@@ -148,14 +94,9 @@ position = Vector2(115, -104)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(412, -35)
+position = Vector2(422.994, -34.004)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
-libraries = {
-"": SubResource("AnimationLibrary_3pgaf")
-}
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -37.69)
@@ -193,7 +134,7 @@ shape = SubResource("RectangleShape2D_w507y")
 position = Vector2(171, 123)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill2"]
-position = Vector2(139, 6)
+position = Vector2(137, 6)
 shape = SubResource("RectangleShape2D_v2y11")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="kill2"]

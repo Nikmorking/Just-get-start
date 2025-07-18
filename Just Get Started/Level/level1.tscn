@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxfau01l8ih4f"]
+[gd_scene load_steps=22 format=3 uid="uid://bxfau01l8ih4f"]
 
 [ext_resource type="Script" path="res://Level/level1.gd" id="1_r38uj"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_itkbj"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="5_sj74b"]
 [ext_resource type="Texture2D" uid="uid://br0vkfvckllsc" path="res://Level/Sprite-0011.png" id="6_84g71"]
 [ext_resource type="Texture2D" uid="uid://um8g2n4w53tx" path="res://Level/jumpButton.png" id="8_v33o3"]
+[ext_resource type="Texture2D" uid="uid://dvnxy3c8x5bxd" path="res://Level/ctrlButton.png" id="9_3irnu"]
 [ext_resource type="PackedScene" uid="uid://bhrttpot01o8j" path="res://menu/control.tscn" id="9_g5y7y"]
+[ext_resource type="Texture2D" uid="uid://0bokv3b7jp0b" path="res://menu/black.png" id="11_tp8cg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
 font = ExtResource("4_0c017")
@@ -31,6 +33,98 @@ font_color = Color(0.317647, 0.172549, 0.156863, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbgcs"]
 size = Vector2(45, 268)
+
+[sub_resource type="LabelSettings" id="LabelSettings_43epp"]
+font = ExtResource("4_0c017")
+font_size = 40
+
+[sub_resource type="Animation" id="Animation_4i1ui"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.27456, 1.8025),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.1487, 1.8025),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2ftqj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ju6cf"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.23114, 1.8025),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Black:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.1487, 1.7411),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3s4rx"]
+_data = {
+"RESET": SubResource("Animation_2ftqj"),
+"hide": SubResource("Animation_ju6cf"),
+"show": SubResource("Animation_4i1ui")
+}
 
 [node name="Level1" type="Node2D"]
 position = Vector2(31, 268)
@@ -229,7 +323,7 @@ label_settings = SubResource("LabelSettings_0au0v")
 
 [node name="jampButton" type="Sprite2D" parent="gui"]
 texture_filter = 1
-position = Vector2(-1.52672, 4.05312e-06)
+position = Vector2(-1.52672, 0)
 scale = Vector2(0.763359, 0.763359)
 texture = ExtResource("8_v33o3")
 
@@ -259,6 +353,68 @@ scale = Vector2(0.95, 0.95)
 text = "???"
 label_settings = SubResource("LabelSettings_0au0v")
 
+[node name="dash" type="Label" parent="gui"]
+offset_left = 38.9313
+offset_top = -19.084
+offset_right = 96.9313
+offset_bottom = 3.91607
+scale = Vector2(0.68, 0.68)
+text = "-dash"
+label_settings = SubResource("LabelSettings_w6368")
+
+[node name="q" type="Sprite2D" parent="gui"]
+texture_filter = 1
+position = Vector2(31.2977, -12.2137)
+scale = Vector2(0.763359, 0.763359)
+texture = ExtResource("3_psff3")
+
+[node name="Label" type="Label" parent="gui/q"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -8.0
+offset_right = -4.9
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = "q"
+label_settings = SubResource("LabelSettings_n72o5")
+
+[node name="crouch" type="Label" parent="gui"]
+offset_left = 28.2443
+offset_top = 3.81679
+offset_right = 96.2443
+offset_bottom = 26.8168
+scale = Vector2(0.68, 0.68)
+text = "crouch"
+label_settings = SubResource("LabelSettings_w6368")
+
+[node name="crouchButton" type="Sprite2D" parent="gui"]
+texture_filter = 1
+position = Vector2(47.3282, 22.9008)
+scale = Vector2(0.763359, 0.763359)
+texture = ExtResource("9_3irnu")
+
+[node name="ctrl" type="Label" parent="gui/crouchButton"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -8.0
+offset_right = -7.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.72, 0.8)
+size_flags_vertical = 1
+text = "ctrl"
+label_settings = SubResource("LabelSettings_n72o5")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -285,5 +441,35 @@ grow_vertical = 1
 pivot_offset = Vector2(575, 115)
 size_flags_vertical = 0
 
+[node name="Black" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(388, 48)
+texture = ExtResource("11_tp8cg")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 122.0
+offset_top = -22.0
+offset_right = 734.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Just get start your journy again"
+label_settings = SubResource("LabelSettings_43epp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3s4rx")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
