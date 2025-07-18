@@ -424,3 +424,4 @@ scale = Vector2(0.8, 0.8)
 [connection signal="mouse_entered" from="settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="mouse_exited" from="settings" to="." method="_on_settings_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="back" from="Settings" to="." method="_on_settings_back"]

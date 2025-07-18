@@ -67,8 +67,10 @@ func _on_music_button_up():
 	$music/Animation.stop()
 	if music:
 		music = false
+		AudioPlayer.play()
 	else:
 		music = true
+		AudioPlayer.stop()
 	$music/music.scale.x = 2.15
 	$music/music.scale.y = 2.15
 	pass # Replace with function body.
@@ -125,4 +127,9 @@ func _on_settings_line_button_up():
 	pass
 func _on_timer_timeout():
 	menu(false)
+	pass # Replace with function body.
+
+
+func _on_settings_back():
+	$Settings.hide()
 	pass # Replace with function body.
