@@ -5,8 +5,11 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -350.0
 var timerBlock: bool = true
 var dashFlag: bool = false
+var shiftFlag: bool = true
+var shiftBlock: bool = false
 var direction
 var lest = false
+
 
 
 
@@ -40,17 +43,39 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY/-3
 		else:
 			velocity.y = JUMP_VELOCITY/-10
+	
+	
+	if Input.is_action_pressed("shift") and shiftFlag and shiftBlock:
+		shiftFlag = false
+		$CollisionShape2D.scale.y = $CollisionShape2D.scale.y / 2
+		$CollisionShape2D.position = Vector2(-6, -4)
+		$AnimatedSprite2D.play("shift_start")
+	elif Input.is_action_just_released("shift") and shiftBlock:
+		shiftBlock = false
+	elif Input.is_action_pressed("shift") and not shiftFlag and not shiftBlock:
+		$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2
+		$CollisionShape2D.position = Vector2(-7, -36)
+	elif Input.is_action_just_released("shift"):
+		shiftBlock = true
+
 	if direction:
-		velocity.x = direction * SPEED
-		if timerBlock:
+		if not shiftFlag:
+			velocity.x = direction * SPEED / 3
+		else:
+			velocity.x = direction * SPEED
+			
+		if timerBlock and shiftFlag:
 			$AnimatedSprite2D.play("run")
 		if direction == 1:
 			$AnimatedSprite2D.flip_h = false
 		else:
 			$AnimatedSprite2D.flip_h = true
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if !lest and timerBlock:
+		if not shiftFlag:
+			velocity.x = move_toward(velocity.x, 0, SPEED / 3)
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		if !lest and timerBlock and shiftFlag:
 			$AnimatedSprite2D.play("stay")
 	
 	
@@ -99,4 +124,11 @@ func _on_lest(body):
 		lest = false
 		velocity.y -= JUMP_VELOCITY/2
 		$AnimatedSprite2D.stop()
+	pass # Replace with function body.
+
+func animation_finished():
+	if $AnimatedSprite2D.animation == "shift_start":
+		$AnimatedSprite2D.play("shift")
+	if $AnimatedSprite2D.animation == "shiftEnd":
+		shiftFlag = true
 	pass # Replace with function body.
