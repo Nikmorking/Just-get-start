@@ -35,6 +35,7 @@ func _on_area_2d_body_exited(body):
 func _on_out(body):
 	$Player.position = start_pos
 	$Player/AnimatedSprite2D.flip_h = false
+	$Player.kill()
 	if $Camera2D/AnimationPlayer:
 		$Camera2D/AnimationPlayer.play("RESET")
 	pass # Replace with function body.d

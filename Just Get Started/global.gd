@@ -32,7 +32,8 @@ func save_game():
 		"level":level,
 		"menuStart":menuStart,
 		"volume":volume,
-		"canCreep":canCreep
+		"canCreep":canCreep,
+		"dashKd":dashKd
 	}
 	var json_string = JSON.stringify(node_data)
 	save_file.store_line(json_string)
@@ -53,4 +54,6 @@ func load_game():
 	level = node_data["level"]
 	menuStart = node_data["menuStart"]
 	volume = node_data["volume"]
+	dashKd = node_data["dashKd"]
+	canCreep = node_data["canCreep"]
 	print(level, menuStart, volume)
