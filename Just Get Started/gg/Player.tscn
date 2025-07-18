@@ -174,11 +174,6 @@ animations = [{
 "name": &"dash",
 "speed": 20.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c4dgo")
@@ -318,7 +313,7 @@ texture_filter = 1
 position = Vector2(-5, -36)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_oigvg")
-animation = &"shiftEnd"
+animation = &"stay"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
