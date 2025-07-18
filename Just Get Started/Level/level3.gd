@@ -3,11 +3,10 @@ extends Level
 var back = false
 
 func _ready():
-	Global.level = 3
+	Global.load_game()
 	door_x = 717
 	door_y = 34
 	start_pos = $Player.position
-	Global.save_game()
 	if Global.canCreep:
 		$Label.hide()
 		$"Стрелка".show()
@@ -16,17 +15,23 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
 		get_tree().change_scene_to_file("res://Level/level4.tscn")
+		Global.level = 4
+		Global.save_game()
 	pass
 
 
 
 func _on_lock(body):
 	if body == $Player:
-		if back:
-			$Camera2D/AnimationPlayer.play("lock")
-			$Player.JUMP_VELOCITY = -500
-		else:
-			$Camera2D/AnimationPlayer.play("un_lock")
-			$Player.JUMP_VELOCITY = -350
+		$Camera2D/AnimationPlayer.play("lock")
+		$Player.JUMP_VELOCITY = -500
 	back = !back
+	pass # Replace with function body.
+
+
+func _on_shift(body):
+	if body == $Player and Global.canCreep:
+		get_tree().change_scene_to_file("res://Level/level8.tscn")
+		Global.level = 8
+		Global.save_game()
 	pass # Replace with function body.

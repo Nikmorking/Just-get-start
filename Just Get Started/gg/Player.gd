@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 @export var SPEED := 200.0
 @export var JUMP_VELOCITY = -350.0
-var dashKd: bool = true
 var timerBlock: bool = true
 var dashFlag: bool = false
 var shiftFlag: bool = true
@@ -53,22 +52,22 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_up"):
 			velocity.y = JUMP_VELOCITY / 3
 	
-	
-	if Input.is_action_pressed("shift") and shiftFlag and shiftBlock:
-		$CollisionShape2D.scale.y = $CollisionShape2D.scale.y / 2.1
-		$CollisionShape2D.position = Vector2(-6, -4)
-		$AnimatedSprite2D.play("shift_start")
-		shiftFlag = false
-		animBlock = false
-	elif Input.is_action_just_released("shift") and shiftBlock:
-		shiftBlock = false
-	elif Input.is_action_pressed("shift") and !shiftFlag and !shiftBlock:
-		$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2.1
-		$CollisionShape2D.position = Vector2(-7, -36)
-		$AnimatedSprite2D.play("shiftEnd")
-		shiftFlag = true
-	elif Input.is_action_just_released("shift") and !shiftBlock:
-		shiftBlock = true
+	if Global.canCreep:
+		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock:
+			$CollisionShape2D.scale.y = $CollisionShape2D.scale.y / 2.1
+			$CollisionShape2D.position = Vector2(-6, -4)
+			$AnimatedSprite2D.play("shift_start")
+			shiftFlag = false
+			animBlock = false
+		elif Input.is_action_just_released("shift") and shiftBlock:
+			shiftBlock = false
+		elif Input.is_action_pressed("shift") and !shiftFlag and !shiftBlock:
+			$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2.1
+			$CollisionShape2D.position = Vector2(-7, -36)
+			$AnimatedSprite2D.play("shiftEnd")
+			shiftFlag = true
+		elif Input.is_action_just_released("shift") and !shiftBlock:
+			shiftBlock = true
 	
 	if direction:
 		if not shiftFlag:
@@ -91,7 +90,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("stay")
 	
 	
-	if (Input.is_action_pressed("dash") or dashFlag) and dashKd and shiftFlag:
+	if (Input.is_action_pressed("dash") or dashFlag) and Global.dashKd and shiftFlag:
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED * 3
 			dashFlag = true
@@ -112,18 +111,18 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_timer_timeout():
-	if dashKd:
+	if Global.dashKd:
 		dashFlag = false
 		animBlock = true
 		timerBlock = true
-		dashKd = false
+		Global.dashKd = false
 		velocity.x = 0
 		move_and_slide()
 		$Timer.wait_time = 1
 		$Timer.start()
-	elif !dashKd:
+	elif !Global.dashKd:
 		$Timer.wait_time = 0.2
-		dashKd = true
+		Global.dashKd = true
 	pass # Replace with function body.
 
 
@@ -142,8 +141,9 @@ func _on_lest(body):
 
 
 func animation_finished():
-	if $AnimatedSprite2D.animation == "shift_start":
-		$AnimatedSprite2D.play("shift")
-	if $AnimatedSprite2D.animation == "shiftEnd":
-		animBlock = true
+	if Global.canCreep:
+		if $AnimatedSprite2D.animation == "shift_start":
+			$AnimatedSprite2D.play("shift")
+		if $AnimatedSprite2D.animation == "shiftEnd":
+			animBlock = true
 	pass # Replace with function body.

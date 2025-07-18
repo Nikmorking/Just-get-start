@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cur8qu0mg32kw"]
+[gd_scene load_steps=22 format=3 uid="uid://cur8qu0mg32kw"]
 
 [ext_resource type="Script" path="res://Level/level3.gd" id="1_r8hsb"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_qnher"]
@@ -90,6 +90,9 @@ size = Vector2(40, 376)
 [sub_resource type="LabelSettings" id="LabelSettings_no78s"]
 font = ExtResource("4_k32fu")
 font_size = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4h08l"]
+size = Vector2(40, 50)
 
 [node name="Level3" type="Node2D"]
 texture_filter = 1
@@ -231,6 +234,13 @@ offset_top = -250.0
 offset_right = -152.0
 offset_bottom = -250.0
 
+[node name="Area2D7" type="Area2D" parent="."]
+position = Vector2(1549, -114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
+position = Vector2(-25, 7)
+shape = SubResource("RectangleShape2D_4h08l")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_out"]
@@ -240,3 +250,4 @@ offset_bottom = -250.0
 [connection signal="body_entered" from="Area2D6" to="Player" method="_lest"]
 [connection signal="body_exited" from="Area2D6" to="Player" method="_on_lest"]
 [connection signal="body_entered" from="Area2D4" to="." method="_on_lock"]
+[connection signal="body_entered" from="Area2D7" to="." method="_on_shift"]
