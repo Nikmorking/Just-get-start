@@ -4,10 +4,9 @@ var dash = false
 var crouch = false
 
 func _ready():
-	
+	Global.level = 5
 	$Black.visible = false
 	$Label.visible = false
-	
 	if Global.dashKd:
 		dash = true
 	else:
@@ -23,7 +22,6 @@ func _ready():
 	else:
 		$gui.visible = false
 		crouch = false
-		
 	$Player.visible = true
 	start_pos = $Player.position
 	Global.save_game()
