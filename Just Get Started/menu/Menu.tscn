@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://6rfifaen1a5f" path="res://menu/ThemeLogo_JustGetStarted.png" id="4_uliwk"]
 [ext_resource type="LabelSettings" uid="uid://via1nnm8j1ix" path="res://menu/Menu.tres" id="6_e4lj0"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="7_ngooc"]
-[ext_resource type="PackedScene" path="res://settings.tscn" id="8_iomm4"]
+[ext_resource type="PackedScene" uid="uid://botkxjakd5arm" path="res://settings.tscn" id="8_iomm4"]
 [ext_resource type="Texture2D" uid="uid://duu35gp4f20jh" path="res://background/black.png" id="8_mqvu6"]
 
 [sub_resource type="Animation" id="Animation_usq20"]

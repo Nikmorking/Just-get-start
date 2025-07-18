@@ -18,7 +18,7 @@ func kill():
 	lest = false
 	shiftFlag = true
 	shiftBlock = true
-	$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2.1
+	$CollisionShape2D.scale.y = 1
 	$CollisionShape2D.position = Vector2(-7, -36)
 	pass
 
@@ -39,6 +39,7 @@ func _ready():
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("ui_left", "ui_right")
+	$CollisionShape2D.scale.y = 1
 	pass
 
 func _physics_process(delta):
