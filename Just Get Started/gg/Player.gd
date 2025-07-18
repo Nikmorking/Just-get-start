@@ -6,6 +6,8 @@ extends CharacterBody2D
 var dashKd: bool = true
 var timerBlock: bool = true
 var dashFlag: bool = false
+var shiftFlag: bool = true
+var shiftBlock: bool = false
 var direction
 var lest = false
 var dashBlock = false
@@ -32,12 +34,28 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	
+	
 	if lest and timerBlock:
 		$AnimatedSprite2D.play("lest")
 		if Input.is_action_pressed("ui_up"):
 			velocity.y = JUMP_VELOCITY/3
 		else:
 			velocity.y = JUMP_VELOCITY/-15
+	
+	
+	if Input.is_action_pressed("shift") and shiftFlag:
+		shiftFlag = false
+		shiftBlock = true
+		velocity.x = SPEED / 3
+		$CollisionShape2D.scale.y = $CollisionShape2D.scale.y / 2
+		$AnimatedSprite2D.play("shift_start")
+	elif Input.is_action_just_released("shift") and shiftBlock:
+		shiftBlock = false
+	elif Input.is_action_pressed("shift") and not shiftFlag:
+		shiftBlock = false
+		shiftFlag = true
+	
 	if direction:
 		velocity.x = direction * SPEED
 		if timerBlock:
@@ -97,4 +115,10 @@ func _on_lest(body):
 		lest = false
 		velocity.y -= JUMP_VELOCITY/2
 		$AnimatedSprite2D.stop()
+	pass # Replace with function body.
+
+
+func animation_finished():
+	if $AnimatedSprite2D.animation == "shift_start":
+		$AnimatedSprite2D.play("shift")
 	pass # Replace with function body.
