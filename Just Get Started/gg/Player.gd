@@ -8,13 +8,10 @@ var dashFlag: bool = false
 
 var shiftFlag: bool = true
 var shiftBlock: bool = true
-<<<<<<< Updated upstream
-var animBlock: bool = true
-=======
 
 var animBlock: bool = true
+var lestAnimBlock: bool = false
 
->>>>>>> Stashed changes
 var direction
 var lest = false
 
@@ -57,9 +54,20 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_up"):
 			$AnimatedSprite2D.play("lest")
 			velocity.y = JUMP_VELOCITY / 3
-		elif not is_on_floor():
-			velocity.y = JUMP_VELOCITY / -15
+			lestAnimBlock = false
+		elif Input.is_action_pressed("ui_down") and not is_on_floor():
+			velocity.y = JUMP_VELOCITY / -3
 			$AnimatedSprite2D.play("lest")
+			lestAnimBlock = false
+		elif not is_on_floor():
+			velocity.y = JUMP_VELOCITY / -10
+			$AnimatedSprite2D.play("lest")
+			lestAnimBlock = false
+			
+		else:
+			lestAnimBlock = true
+	elif !lest:
+		lestAnimBlock = false
 	
 	if Global.canCreep:
 		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock:
@@ -95,7 +103,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED / 3)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		if !lest and animBlock:
+		if (!lest and animBlock) or lestAnimBlock:
 			$AnimatedSprite2D.play("stay")
 	
 	
