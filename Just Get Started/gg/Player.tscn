@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://qfagnaexl464"]
+[gd_scene load_steps=53 format=3 uid="uid://qfagnaexl464"]
 
 [ext_resource type="Script" path="res://gg/Player.gd" id="1_ctixr"]
 [ext_resource type="Texture2D" uid="uid://db2e51qn8p8lj" path="res://gg/рывок.png" id="2_1xcdj"]
@@ -347,6 +347,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqwn1"]
+size = Vector2(39, 7)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ctixr")
 
@@ -366,5 +369,13 @@ frame_progress = 0.494111
 wait_time = 0.2
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.5, -39)
+shape = SubResource("RectangleShape2D_iqwn1")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

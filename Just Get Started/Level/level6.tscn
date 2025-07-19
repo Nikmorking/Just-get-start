@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://da5f2qeie1u12"]
+[gd_scene load_steps=13 format=3 uid="uid://b1ym567o6i41m"]
 
 [ext_resource type="Script" path="res://Level/level6.gd" id="1_brs0s"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_guxgh"]
@@ -26,7 +26,7 @@ size = Vector2(51.5, 255)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bveys"]
 size = Vector2(774, 20)
 
-[node name="Level7" type="Node2D"]
+[node name="Level9" type="Node2D"]
 position = Vector2(31, 268)
 script = ExtResource("1_brs0s")
 

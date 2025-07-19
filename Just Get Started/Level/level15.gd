@@ -11,3 +11,5 @@ func _input(event):
 		get_tree().change_scene_to_file("res://menu/Menu.tscn")
 		Global.level = 15
 	pass
+
+

@@ -8,6 +8,7 @@ var dashFlag: bool = false
 
 var shiftFlag: bool = true
 var shiftBlock: bool = true
+var canHg = true
 
 var animBlock: bool = true
 var lestAnimBlock: bool = false
@@ -81,7 +82,7 @@ func _physics_process(delta):
 			animBlock = false
 		elif Input.is_action_just_released("shift") and shiftBlock:
 			shiftBlock = false
-		elif Input.is_action_pressed("shift") and !shiftFlag and !shiftBlock:
+		elif Input.is_action_pressed("shift") and !shiftFlag and !shiftBlock and canHg:
 			$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2.1
 			$CollisionShape2D.position = Vector2(-7, -36)
 			$AnimatedSprite2D.play("shiftEnd")
@@ -168,4 +169,16 @@ func animation_finished():
 			$AnimatedSprite2D.play("shift")
 		if $AnimatedSprite2D.animation == "shiftEnd":
 			animBlock = true
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body):
+	if !shiftFlag:
+		canHg = false
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body):
+	if !shiftFlag:
+		canHg = true
 	pass # Replace with function body.
