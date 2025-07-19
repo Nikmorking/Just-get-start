@@ -10,9 +10,10 @@ var shiftBlock: bool = true
 var animBlock: bool = true
 var direction
 var lest = false
-var dashBlock = false
+var dashKd = true
 
 func kill():
+	dashKd = true
 	animBlock = true
 	lest = false
 	shiftFlag = true
@@ -89,8 +90,7 @@ func _physics_process(delta):
 		if !lest and animBlock:
 			$AnimatedSprite2D.play("stay")
 	
-	
-	if (Input.is_action_pressed("dash") or dashFlag) and Global.dashKd and shiftFlag:
+	if (Input.is_action_pressed("dash") or dashFlag) and dashKd and shiftFlag and Global.dashKd:
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED * 3
 			dashFlag = true
@@ -111,18 +111,18 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_timer_timeout():
-	if Global.dashKd:
+	if dashKd:
 		dashFlag = false
 		animBlock = true
 		timerBlock = true
-		Global.dashKd = false
+		dashKd = false
 		velocity.x = 0
 		move_and_slide()
 		$Timer.wait_time = 1
 		$Timer.start()
-	elif !Global.dashKd:
+	elif !dashKd:
 		$Timer.wait_time = 0.2
-		Global.dashKd = true
+		dashKd = true
 	pass # Replace with function body.
 
 
