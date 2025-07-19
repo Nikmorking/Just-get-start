@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jrdt73ix2dh0"]
+[gd_scene load_steps=18 format=3 uid="uid://jrdt73ix2dh0"]
 
 [ext_resource type="Script" path="res://Level/level15.gd" id="1_p3ibk"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_yh7mb"]
@@ -113,6 +113,9 @@ _data = {
 "show": SubResource("Animation_4i1ui")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmhco"]
+size = Vector2(20, 89)
+
 [node name="Level15" type="Node2D"]
 position = Vector2(31, 268)
 script = ExtResource("1_p3ibk")
@@ -131,7 +134,7 @@ layer_2/tile_data = PackedInt32Array(524282, 327681, 5, 524283, 131073, 1, 52428
 [node name="closeDoor" type="TileMap" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(252, -196)
+position = Vector2(-77, -102)
 scale = Vector2(2, 2)
 tile_set = ExtResource("2_yh7mb")
 format = 2
@@ -140,7 +143,7 @@ layer_0/tile_data = PackedInt32Array(262158, 851969, 10, 327694, 851969, 11)
 [node name="openDoor" type="TileMap" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(252, -196)
+position = Vector2(-85, -102)
 scale = Vector2(2, 2)
 tile_set = ExtResource("2_yh7mb")
 format = 2
@@ -182,8 +185,9 @@ visible = false
 position = Vector2(0, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(716, 14)
+position = Vector2(387, 111)
 shape = SubResource("CapsuleShape2D_e38m4")
+disabled = true
 
 [node name="vignette" parent="." instance=ExtResource("6_hq6pw")]
 
@@ -243,6 +247,19 @@ libraries = {
 "": SubResource("AnimationLibrary_3s4rx")
 }
 
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(118, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-1, -34)
+shape = SubResource("RectangleShape2D_rmhco")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(607, -37)
+shape = SubResource("RectangleShape2D_rmhco")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="Player" method="_lest"]
+[connection signal="body_exited" from="Area2D2" to="Player" method="_on_lest"]
