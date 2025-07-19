@@ -172,7 +172,7 @@ text = "e
 label_settings = SubResource("LabelSettings_n72o5")
 
 [node name="Player" parent="." instance=ExtResource("5_gt7o8")]
-position = Vector2(112, -20)
+position = Vector2(314, 55)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -193,14 +193,14 @@ shape = SubResource("CapsuleShape2D_e38m4")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(64.5, 0.5)
+position = Vector2(42, 1)
 shape = SubResource("RectangleShape2D_nbgcs")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(709, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(64.5, -35.25)
+position = Vector2(79, -35)
 shape = SubResource("RectangleShape2D_nbgcs")
 
 [node name="Control" parent="." instance=ExtResource("7_yrd33")]

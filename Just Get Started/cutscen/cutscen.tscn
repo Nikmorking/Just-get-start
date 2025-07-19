@@ -1,0 +1,482 @@
+[gd_scene load_steps=22 format=3 uid="uid://cx876rjwi3xcy"]
+
+[ext_resource type="Script" path="res://cutscen/cutscen.gd" id="1_gwif2"]
+[ext_resource type="Script" path="res://cutscen/ParallaxBackground.gd" id="1_k43r7"]
+[ext_resource type="Texture2D" uid="uid://b4bbshhsni2pc" path="res://cutscen/cloud.png" id="1_o6en5"]
+[ext_resource type="Texture2D" uid="uid://0bokv3b7jp0b" path="res://menu/black.png" id="2_aslu4"]
+[ext_resource type="Texture2D" uid="uid://codr17wobway2" path="res://cutscen/downRoud.png" id="2_qsntm"]
+[ext_resource type="Texture2D" uid="uid://brhiiyee3ssvl" path="res://cutscen/towers.png" id="3_17i6j"]
+[ext_resource type="Texture2D" uid="uid://b32asqk7pamof" path="res://cutscen/trees.png" id="5_w25t6"]
+[ext_resource type="Texture2D" uid="uid://ckjqfoufncb20" path="res://cutscen/Roud.png" id="6_5ccns"]
+[ext_resource type="Texture2D" uid="uid://b75j5reuquuwy" path="res://cutscen/car.png" id="9_7fe6k"]
+[ext_resource type="Texture2D" uid="uid://dsfavlenb0h71" path="res://cutscen/photo_2025-07-18_14-37-57.jpg" id="9_xekbg"]
+[ext_resource type="Texture2D" uid="uid://orehtiflca1t" path="res://cutscen/photo_2025-07-18_14-45-21.jpg" id="10_qacbc"]
+[ext_resource type="Texture2D" uid="uid://c33och8uhfriw" path="res://cutscen/photo_2025-07-18_15-02-23.jpg" id="11_pbcy2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhofn"]
+atlas = ExtResource("9_7fe6k")
+region = Rect2(0, 0, 847, 380)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bgie"]
+atlas = ExtResource("9_7fe6k")
+region = Rect2(0, 380, 847, 380)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7vaf"]
+atlas = ExtResource("9_7fe6k")
+region = Rect2(0, 760, 847, 380)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2skj"]
+atlas = ExtResource("9_7fe6k")
+region = Rect2(0, 1140, 847, 380)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbhye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhofn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bgie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7vaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2skj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.5
+}]
+
+[sub_resource type="Animation" id="Animation_cifrp"]
+resource_name = "final"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sleep:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sleep:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 4.9, 5),
+"transitions": PackedFloat32Array(1.23114, 1.7411, 1.23114, 1.8025),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("nosleep:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nosleep:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5, 5.1, 9, 10),
+"transitions": PackedFloat32Array(1.1487, 1.7411, 1.18921, 1.7411),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0d57t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sleep:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sleep:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("nosleep:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nosleep:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ParallaxBackground:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxBackground/ParallaxLayer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ParallaxBackground/ParallaxLayer2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParallaxBackground/ParallaxLayer3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ParallaxBackground/ParallaxLayer4:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ParallaxBackground/ParallaxLayer5:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("avaria:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("avaria:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ParallaxBackground/ParallaxLayer6:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fobsg"]
+resource_name = "roud"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParallaxBackground/ParallaxLayer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 5.8, 6),
+"transitions": PackedFloat32Array(1.1487, 1.7411, 1.7411, 1.1487),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground/ParallaxLayer2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 5.8, 6),
+"transitions": PackedFloat32Array(1.10957, 1.7411, 1.7411, 1.10957),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/ParallaxLayer3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 5.8, 6),
+"transitions": PackedFloat32Array(1.1487, 1.7411, 1.7411, 1.1487),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ParallaxBackground/ParallaxLayer4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 5.8, 6),
+"transitions": PackedFloat32Array(1.18921, 1.68179, 1.68179, 1.18921),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxBackground/ParallaxLayer5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 5.8, 6),
+"transitions": PackedFloat32Array(1.10957, 1.7411, 1.7411, 1.10957),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("avaria:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(6, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("avaria:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(6, 6.2, 9, 10),
+"transitions": PackedFloat32Array(1.8025, 1.18921, 1.18921, 1.8025),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ParallaxBackground/ParallaxLayer6:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.1487, 1.8025),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vxnm"]
+_data = {
+"RESET": SubResource("Animation_0d57t"),
+"final": SubResource("Animation_cifrp"),
+"roud": SubResource("Animation_fobsg")
+}
+
+[node name="Cutscen" type="Node2D"]
+script = ExtResource("1_gwif2")
+
+[node name="Black" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(597, 400)
+texture = ExtResource("2_aslu4")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 0
+visible = false
+script = ExtResource("1_k43r7")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1153.24, 0)
+
+[node name="Cloud" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(577.443, 384.625)
+scale = Vector2(0.903576, 0.903576)
+texture = ExtResource("1_o6en5")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(0.3, 0)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1151.94, 0)
+
+[node name="Towers" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(576, 368)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_17i6j")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1151.94, 0)
+
+[node name="DownRoud" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(576, 603)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_qsntm")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1151.94, 0)
+
+[node name="Trees" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(576, 208)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_w25t6")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(1151.94, 0)
+
+[node name="Roud" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(576, 472)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_5ccns")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(-0.2, -0.2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(349, 312)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_gbhye")
+autoplay = "default"
+frame_progress = 0.51712
+
+[node name="sleep" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(575.108, 351)
+scale = Vector2(0.898959, 0.89896)
+texture = ExtResource("9_xekbg")
+
+[node name="nosleep" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(575.108, 351)
+scale = Vector2(0.899, 0.899)
+texture = ExtResource("10_qacbc")
+
+[node name="avaria" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(575.108, 351)
+scale = Vector2(0.899, 0.899)
+texture = ExtResource("11_pbcy2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1vxnm")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
