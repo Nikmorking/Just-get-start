@@ -90,8 +90,6 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		if !lest and animBlock and is_on_floor():
 			$AnimatedSprite2D.play("stay")
-		else:
-			$AnimatedSprite2D.play("jump")
 	
 	if (Input.is_action_pressed("dash") or dashFlag) and dashKd and shiftFlag and Global.dashKd:
 		if Input.is_action_pressed("ui_right"):

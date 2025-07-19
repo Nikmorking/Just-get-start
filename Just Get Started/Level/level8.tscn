@@ -168,13 +168,11 @@ shape = SubResource("RectangleShape2D_5y5qy")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="kill"]
 position = Vector2(16.542, 18.014)
 rotation = -1.58544
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hmvmq")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="kill"]
 position = Vector2(98, 18.014)
 rotation = -1.58544
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hmvmq")
 
 [node name="Area2D3" type="Area2D" parent="."]
