@@ -12,14 +12,12 @@ func _ready():
 		dash = false
 		
 	if Global.canCreep:
-		$gui.visible = true
 		crouch = true
 		$Label.visible = true
 		$Black.visible = true
 		$AnimationPlayer.play("hide")
 		$Timer2.start(1)
 	else:
-		$gui.visible = false
 		crouch = false
 	$Player.visible = true
 	start_pos = $Player.position
