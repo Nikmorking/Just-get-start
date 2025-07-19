@@ -2,6 +2,7 @@ extends Level
 
 
 func _ready():
+	$Camera2D.start_shake(0.3, 5.0)
 	Global.dashKd = true
 	start_pos = $Player.position
 	pass # Replace with function body.
