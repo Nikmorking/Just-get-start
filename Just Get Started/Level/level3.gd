@@ -35,3 +35,13 @@ func _on_shift(body):
 		Global.level = 8
 		Global.save_game()
 	pass # Replace with function body.
+
+
+func _player_entered(body):
+	$lestGuid.visible = true
+	pass # Replace with function body.
+
+
+func _player_exited(body):
+	$lestGuid.visible = false
+	pass # Replace with function body.
