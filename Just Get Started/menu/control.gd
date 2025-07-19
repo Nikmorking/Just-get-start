@@ -92,6 +92,7 @@ func _on_exit_button_up():
 	$exit.scale.x = 2.15
 	$exit.scale.y = 2.15
 	get_tree().paused = false
+	Global.save_game()
 	get_tree().change_scene_to_file("res://menu/Menu.tscn")
 	pass # Replace with function body.
 

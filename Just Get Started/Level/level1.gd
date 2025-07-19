@@ -7,7 +7,6 @@ func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
 		get_tree().change_scene_to_file("res://Level/level2.tscn")
 		Global.level = 2
-		Global.save_game()
 	pass
 
 func _process(delta):
@@ -33,7 +32,6 @@ func _process(delta):
 	pass
 
 func _ready():
-	Global.load_game()
 	if Global.dashKd:
 		dash = true
 		$AnimationPlayer.play("hide")

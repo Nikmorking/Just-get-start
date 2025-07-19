@@ -3,7 +3,6 @@ extends Level
 var back = false
 
 func _ready():
-	Global.load_game()
 	door_x = 717
 	door_y = 34
 	start_pos = $Player.position
@@ -16,7 +15,6 @@ func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
 		get_tree().change_scene_to_file("res://Level/level4.tscn")
 		Global.level = 4
-		Global.save_game()
 	pass
 
 
@@ -33,5 +31,4 @@ func _on_shift(body):
 	if body == $Player and Global.canCreep:
 		get_tree().change_scene_to_file("res://Level/level8.tscn")
 		Global.level = 8
-		Global.save_game()
 	pass # Replace with function body.

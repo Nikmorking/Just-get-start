@@ -4,7 +4,6 @@ var dash = false
 var crouch = false
 
 func _ready():
-	Global.load_game()
 	$Black.visible = false
 	$Label.visible = false
 	if Global.dashKd:
@@ -50,7 +49,6 @@ func _on_kill_body_entered(body):
 
 
 func _on_timer_timeout():
-	Global.save_game()
 	$Black.visible = false
 	$Label.visible = false
 	get_tree().change_scene_to_file("res://Level/level1.tscn")
