@@ -3,9 +3,8 @@ extends Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.level = 4
+	Global.load_game()
 	start_pos = $Player.position
-	Global.save_game()
 	pass # Replace with function body.
 
 func _input(event):

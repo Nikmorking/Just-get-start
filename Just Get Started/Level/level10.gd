@@ -3,6 +3,7 @@ extends Level
 var crouch = false
 
 func _ready():
+	Global.load_game()
 	Global.dashKd = true
 	
 	$Black.visible = false
@@ -20,7 +21,7 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
-		get_tree().change_scene_to_file("res://Level/level11.tscn")
+		get_tree().change_scene_to_file("res://Level/level1.tscn")
 		Global.level = 10
 		Global.save_game()
 	pass
@@ -46,6 +47,6 @@ func _on_timer_timeout():
 	Global.save_game()
 	$Black.visible = false
 	$Label.visible = false
-	get_tree().change_scene_to_file("res://Level/level5.tscn")
+	get_tree().change_scene_to_file("res://Level/level1.tscn")
 	pass # Replace with function body.
 

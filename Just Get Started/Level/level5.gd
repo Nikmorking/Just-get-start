@@ -4,7 +4,7 @@ var dash = false
 var crouch = false
 
 func _ready():
-	Global.level = 5
+	Global.load_game()
 	$Black.visible = false
 	$Label.visible = false
 	if Global.dashKd:
@@ -24,13 +24,12 @@ func _ready():
 		crouch = false
 	$Player.visible = true
 	start_pos = $Player.position
-	Global.save_game()
 	pass # Replace with function body.
 
 func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
 		get_tree().change_scene_to_file("res://Level/level6.tscn")
-		Global.level = 5
+		Global.level = 6
 	pass
 
 

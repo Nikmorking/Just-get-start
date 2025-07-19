@@ -36,6 +36,7 @@ func stop():
 	$ParallaxLayer3/TileMap.hide()
 	$ParallaxLayer2/TileMap.hide()
 	$ParallaxLayer4/TileMap2/AnimationPlayer.play("F")
+	Global.save_game()
 	pass
 
 func _on_start_button_up():

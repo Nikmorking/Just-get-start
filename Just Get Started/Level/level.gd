@@ -3,11 +3,15 @@ class_name Level
 
 var door_action = false
 var start_pos
+var start = true
 
 var door_x = 717
 var door_y = 34
 
 func _process(delta):
+	if start:
+		Global.load_game()
+		start = false
 	pass
 
 func door_state(state):
@@ -19,7 +23,9 @@ func door_state(state):
 		$openDoor.visible = true
 	pass
 
-
+func _on_kill_body_entered(body):
+	$Player.position = start_pos
+	pass # Replace with function body.
 
 func _on_area_2d_body_entered(body):
 	door_action = true
