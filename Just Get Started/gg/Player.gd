@@ -5,12 +5,18 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -350.0
 var timerBlock: bool = true
 var dashFlag: bool = false
+
 var shiftFlag: bool = true
 var shiftBlock: bool = true
+<<<<<<< Updated upstream
 var animBlock: bool = true
+=======
+
+var animBlock: bool = true
+
+>>>>>>> Stashed changes
 var direction
 var lest = false
-var dashBlock = false
 
 func kill():
 	animBlock = true
@@ -48,9 +54,12 @@ func _physics_process(delta):
 	
 	
 	if lest and animBlock:
-		$AnimatedSprite2D.play("lest")
 		if Input.is_action_pressed("ui_up"):
+			$AnimatedSprite2D.play("lest")
 			velocity.y = JUMP_VELOCITY / 3
+		elif not is_on_floor():
+			velocity.y = JUMP_VELOCITY / -15
+			$AnimatedSprite2D.play("lest")
 	
 	if Global.canCreep:
 		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock:
@@ -127,16 +136,19 @@ func _on_timer_timeout():
 
 
 func _lest(body):
-	if body == self and animBlock:
+	if body == self:
 		lest = true
+		if animBlock:
+			$AnimatedSprite2D.stop()
 	pass # Replace with function body.
 
 
 func _on_lest(body):
-	if body == self and animBlock:
+	if body == self:
 		lest = false
 		velocity.y -= JUMP_VELOCITY/2
-		$AnimatedSprite2D.stop()
+		if animBlock:
+			$AnimatedSprite2D.stop()
 	pass # Replace with function body.
 
 
