@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://jrdt73ix2dh0"]
+[gd_scene load_steps=53 format=3 uid="uid://jrdt73ix2dh0"]
 
 [ext_resource type="Script" path="res://Level/level15.gd" id="1_p3ibk"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_yh7mb"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://boss/boss.gd" id="9_glmn8"]
 [ext_resource type="Texture2D" uid="uid://cd6w72tsn1pgp" path="res://boss/босс атака.png" id="10_duonn"]
 [ext_resource type="Texture2D" uid="uid://d2b5g2pgi8qb2" path="res://boss/босс ходьба.png" id="10_taciv"]
+[ext_resource type="Texture2D" uid="uid://bnx0ei7ml3507" path="res://boss/bossNagib.png" id="11_ttl1m"]
 [ext_resource type="Texture2D" uid="uid://dskse53ucjphp" path="res://icon.svg" id="13_ujyde"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
@@ -168,6 +169,38 @@ region = Rect2(180, 0, 20, 40)
 atlas = ExtResource("10_duonn")
 region = Rect2(200, 0, 20, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2y5i"]
+atlas = ExtResource("11_ttl1m")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wf8l"]
+atlas = ExtResource("11_ttl1m")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov45f"]
+atlas = ExtResource("11_ttl1m")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf5ry"]
+atlas = ExtResource("11_ttl1m")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y75x3"]
+atlas = ExtResource("11_ttl1m")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s05k0"]
+atlas = ExtResource("11_ttl1m")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f7qv"]
+atlas = ExtResource("11_ttl1m")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0st0x"]
+atlas = ExtResource("11_ttl1m")
+region = Rect2(0, 0, 40, 40)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cy2nc"]
 atlas = ExtResource("10_taciv")
 region = Rect2(0, 0, 20, 40)
@@ -239,6 +272,40 @@ animations = [{
 "loop": false,
 "name": &"atack",
 "speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2y5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wf8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov45f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf5ry")
+}],
+"loop": false,
+"name": &"nagib",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y75x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s05k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f7qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0st0x")
+}],
+"loop": false,
+"name": &"pod",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -435,9 +502,7 @@ shape = SubResource("RectangleShape2D_bg5sf")
 position = Vector2(1.50001, -12.5)
 scale = Vector2(2.35, 2.375)
 sprite_frames = SubResource("SpriteFrames_fjtgv")
-animation = &"atack"
-frame = 10
-frame_progress = 1.0
+animation = &"pod"
 
 [node name="RayCast2D" type="RayCast2D" parent="boss"]
 position = Vector2(-6, -18)
@@ -454,6 +519,9 @@ one_shot = true
 one_shot = true
 
 [node name="Timer3" type="Timer" parent="boss"]
+one_shot = true
+
+[node name="Timer4" type="Timer" parent="boss"]
 one_shot = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
@@ -475,3 +543,4 @@ texture_progress = ExtResource("13_ujyde")
 [connection signal="timeout" from="boss/Timer" to="boss" method="_on_timer_timeout"]
 [connection signal="timeout" from="boss/Timer2" to="boss" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="boss/Timer3" to="boss" method="_on_timer_3_timeout"]
+[connection signal="timeout" from="boss/Timer4" to="boss" method="_on_timer_4_timeout"]

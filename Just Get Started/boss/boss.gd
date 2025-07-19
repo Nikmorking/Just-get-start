@@ -6,6 +6,7 @@ var direction = 1
 var stor = 1
 var chicken
 var old = 1
+var flag = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -67,17 +68,24 @@ func _on_timer_2_timeout():
 func _on_animated_sprite_2d_animation_finished():
 	if chicken:
 		get_parent().add_child(chicken)
+		chicken = null
 	pass # Replace with function body.
 
 
 func _stop_boss():
 	$Timer3.start(5)
-	$AnimatedSprite2D.play("dost")
+	$AnimatedSprite2D.play("nagib")
 	old = direction
 	direction = 0
 	pass # Replace with function body.
 
 
 func _on_timer_3_timeout():
+	$AnimatedSprite2D.play("pod")
+	$Timer4.start(1)
+	pass # Replace with function body.
+
+
+func _on_timer_4_timeout():
 	direction = old
 	pass # Replace with function body.
