@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=33 format=3 uid="uid://c032dqi0ll2eh"]
 
 [ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
 [ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cir1qgf7exf1f" path="res://menu/button.png" id="3_yvft0"]
 [ext_resource type="Script" path="res://menu/G_menu.gd" id="4_j7bh4"]
 [ext_resource type="Texture2D" uid="uid://6rfifaen1a5f" path="res://menu/ThemeLogo_JustGetStarted.png" id="4_uliwk"]
-[ext_resource type="PackedScene" uid="uid://qfagnaexl464" path="res://gg/Player.tscn" id="5_3174s"]
 [ext_resource type="LabelSettings" uid="uid://via1nnm8j1ix" path="res://menu/Menu.tres" id="6_e4lj0"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="7_ngooc"]
 [ext_resource type="PackedScene" uid="uid://botkxjakd5arm" path="res://settings.tscn" id="8_iomm4"]
@@ -510,9 +509,9 @@ layer_0/tile_data = PackedInt32Array(-65544, 655361, 5, -8, 655361, 6, 65528, 65
 layer_1/tile_data = PackedInt32Array()
 
 [node name="ThemeLogoJustGetStarted" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-modulate = Color(0.473976, 0.473976, 0.473976, 0.854902)
-position = Vector2(535, 224)
-scale = Vector2(0.165167, 0.162932)
+modulate = Color(0.2484, 0.2484, 0.2484, 0.854902)
+position = Vector2(572.812, 276.438)
+scale = Vector2(0.110125, 0.106734)
 texture = ExtResource("4_uliwk")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -549,10 +548,6 @@ position = Vector2(18.9999, 711.715)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/ParallaxLayer3/StaticBody2D"]
 position = Vector2(561, -3)
 shape = SubResource("RectangleShape2D_yqu64")
-
-[node name="Player" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource("5_3174s")]
-modulate = Color(0.356863, 0.356863, 0.356863, 0.803922)
-position = Vector2(772, 606.715)
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, 1.285)

@@ -3,15 +3,11 @@ class_name Level
 
 var door_action = false
 var start_pos
-var start = true
 
 var door_x = 717
 var door_y = 34
 
 func _process(delta):
-	if start:
-		Global.load_game()
-		start = false
 	pass
 
 func door_state(state):

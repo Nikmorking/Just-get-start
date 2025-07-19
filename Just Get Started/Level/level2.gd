@@ -1,7 +1,6 @@
 extends Level
 
 func _ready():
-	Global.load_game()
 	door_x = 717
 	door_y = 34
 	start_pos = $Player.position
@@ -11,7 +10,6 @@ func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
 		get_tree().change_scene_to_file("res://Level/level3.tscn")
 		Global.level = 3
-		Global.save_game()
 	pass
 
 

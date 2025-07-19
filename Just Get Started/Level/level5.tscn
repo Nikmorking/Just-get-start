@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cnmm5su68ssov"]
+[gd_scene load_steps=18 format=3 uid="uid://cnmm5su68ssov"]
 
 [ext_resource type="Script" path="res://Level/level5.gd" id="1_fod60"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_qympb"]
@@ -6,11 +6,8 @@
 [ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="4_von3d"]
 [ext_resource type="PackedScene" uid="uid://qfagnaexl464" path="res://gg/Player.tscn" id="5_j8ps5"]
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="6_uerw7"]
-[ext_resource type="Texture2D" uid="uid://br0vkfvckllsc" path="res://Level/Sprite-0011.png" id="7_1nq8u"]
-[ext_resource type="Texture2D" uid="uid://um8g2n4w53tx" path="res://Level/jumpButton.png" id="8_ejxgb"]
 [ext_resource type="PackedScene" uid="uid://bhrttpot01o8j" path="res://menu/control.tscn" id="8_g1q1j"]
 [ext_resource type="Texture2D" uid="uid://0bokv3b7jp0b" path="res://menu/black.png" id="10_2s0dw"]
-[ext_resource type="Texture2D" uid="uid://dvnxy3c8x5bxd" path="res://Level/ctrlButton.png" id="11_uayrc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
 font = ExtResource("4_von3d")
@@ -27,9 +24,9 @@ size = Vector2(45, 268)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06m2o"]
 size = Vector2(177, 13.5)
 
-[sub_resource type="LabelSettings" id="LabelSettings_cog38"]
+[sub_resource type="LabelSettings" id="LabelSettings_5us5q"]
 font = ExtResource("4_von3d")
-font_size = 40
+font_size = 38
 
 [sub_resource type="Animation" id="Animation_2ftqj"]
 length = 0.001
@@ -118,21 +115,6 @@ _data = {
 "hide": SubResource("Animation_ju6cf"),
 "show": SubResource("Animation_4i1ui")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_lixv3"]
-font = ExtResource("4_von3d")
-font_size = 20
-font_color = Color(0.168627, 0.105882, 0.133333, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_f1qgr"]
-font = ExtResource("4_von3d")
-font_size = 20
-font_color = Color(0.192157, 0.121569, 0.152941, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_lphxd"]
-font = ExtResource("4_von3d")
-font_size = 20
-font_color = Color(0.317647, 0.172549, 0.156863, 1)
 
 [node name="Level5" type="Node2D"]
 position = Vector2(31, 268)
@@ -243,11 +225,13 @@ one_shot = true
 
 [node name="Black" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 position = Vector2(388, 48)
 texture = ExtResource("10_2s0dw")
 
 [node name="Label" type="Label" parent="."]
 visible = false
+z_index = 1
 texture_filter = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -260,8 +244,9 @@ offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "Just get start your journy again"
-label_settings = SubResource("LabelSettings_cog38")
+text = "Just get start your journey again
+Not everyone gets it right the first time..."
+label_settings = SubResource("LabelSettings_5us5q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -270,224 +255,6 @@ libraries = {
 
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
-
-[node name="gui" type="Sprite2D" parent="."]
-modulate = Color(0.779291, 0.779291, 0.779291, 1)
-texture_filter = 1
-position = Vector2(161, 104)
-scale = Vector2(1.31, 1.31)
-texture = ExtResource("7_1nq8u")
-
-[node name="run" type="Label" parent="gui"]
-offset_left = -64.1221
-offset_top = -45.8015
-offset_right = -24.1221
-offset_bottom = -22.8015
-scale = Vector2(0.95, 0.95)
-text = "run"
-label_settings = SubResource("LabelSettings_lixv3")
-
-[node name="a" type="Sprite2D" parent="gui"]
-texture_filter = 1
-position = Vector2(-59.542, -12.2137)
-scale = Vector2(0.763359, 0.763359)
-texture = ExtResource("3_dbhd4")
-
-[node name="Label" type="Label" parent="gui/a"]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -8.0
-offset_right = -4.9
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-size_flags_vertical = 1
-text = "a"
-label_settings = SubResource("LabelSettings_f1qgr")
-
-[node name="d" type="Sprite2D" parent="gui"]
-texture_filter = 1
-position = Vector2(-40.458, -12.2137)
-scale = Vector2(0.763359, 0.763359)
-texture = ExtResource("3_dbhd4")
-
-[node name="Label" type="Label" parent="gui/d"]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -8.0
-offset_right = -4.9
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-size_flags_vertical = 1
-text = "d"
-label_settings = SubResource("LabelSettings_f1qgr")
-
-[node name="or" type="Label" parent="gui"]
-offset_left = -56.4886
-offset_top = -6.87024
-offset_right = -16.4886
-offset_bottom = 16.1298
-scale = Vector2(0.68, 0.68)
-text = "or"
-label_settings = SubResource("LabelSettings_lphxd")
-
-[node name=">" type="Sprite2D" parent="gui"]
-texture_filter = 1
-position = Vector2(-40.458, 12.2137)
-scale = Vector2(0.763359, 0.763359)
-texture = ExtResource("3_dbhd4")
-
-[node name="Label" type="Label" parent="gui/>"]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -8.0
-offset_right = -3.9
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-size_flags_vertical = 1
-text = ">
-"
-label_settings = SubResource("LabelSettings_f1qgr")
-
-[node name="<" type="Sprite2D" parent="gui"]
-texture_filter = 1
-position = Vector2(-59.542, 12.2137)
-scale = Vector2(0.763359, 0.763359)
-texture = ExtResource("3_dbhd4")
-
-[node name="Label" type="Label" parent="gui/<"]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -8.0
-offset_right = -4.9
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-size_flags_vertical = 1
-text = "<"
-label_settings = SubResource("LabelSettings_f1qgr")
-
-[node name="jamp" type="Label" parent="gui"]
-offset_left = -20.6107
-offset_top = -45.8015
-offset_right = 21.3893
-offset_bottom = -22.8015
-scale = Vector2(0.95, 0.95)
-text = "jump
-"
-label_settings = SubResource("LabelSettings_lixv3")
-
-[node name="jampButton" type="Sprite2D" parent="gui"]
-texture_filter = 1
-position = Vector2(-1.52672, 0)
-scale = Vector2(0.763359, 0.763359)
-texture = ExtResource("8_ejxgb")
-
-[node name="Label" type="Label" parent="gui/jampButton"]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = 2.0
-offset_right = -9.9
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5708
-scale = Vector2(0.8, 0.8)
-size_flags_vertical = 1
-text = "["
-label_settings = SubResource("LabelSettings_f1qgr")
-
-[node name="???" type="Label" parent="gui"]
-offset_left = 34.3511
-offset_top = -45.8015
-offset_right = 76.3511
-offset_bottom = -22.8015
-scale = Vector2(0.95, 0.95)
-text = "move"
-label_settings = SubResource("LabelSettings_lixv3")
-
-[node name="dash" type="Label" parent="gui"]
-offset_left = 38.9313
-offset_top = -19.084
-offset_right = 96.9313
-offset_bottom = 3.91607
-scale = Vector2(0.68, 0.68)
-text = "-dash"
-label_settings = SubResource("LabelSettings_lphxd")
-
-[node name="q" type="Sprite2D" parent="gui"]
-texture_filter = 1
-position = Vector2(31.2977, -12.2137)
-scale = Vector2(0.763359, 0.763359)
-texture = ExtResource("3_dbhd4")
-
-[node name="Label" type="Label" parent="gui/q"]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -8.0
-offset_right = -4.9
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-size_flags_vertical = 1
-text = "q"
-label_settings = SubResource("LabelSettings_f1qgr")
-
-[node name="crouch" type="Label" parent="gui"]
-offset_left = 28.2443
-offset_top = 3.81679
-offset_right = 96.2443
-offset_bottom = 26.8168
-scale = Vector2(0.68, 0.68)
-text = "crouch"
-label_settings = SubResource("LabelSettings_lphxd")
-
-[node name="crouchButton" type="Sprite2D" parent="gui"]
-texture_filter = 1
-position = Vector2(47.3282, 22.9008)
-scale = Vector2(0.763359, 0.763359)
-texture = ExtResource("11_uayrc")
-
-[node name="ctrl" type="Label" parent="gui/crouchButton"]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = -8.0
-offset_right = -7.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.72, 0.8)
-size_flags_vertical = 1
-text = "ctrl"
-label_settings = SubResource("LabelSettings_f1qgr")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

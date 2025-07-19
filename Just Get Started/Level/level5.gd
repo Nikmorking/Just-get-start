@@ -4,7 +4,6 @@ var dash = false
 var crouch = false
 
 func _ready():
-	Global.load_game()
 	$Black.visible = false
 	$Label.visible = false
 	if Global.dashKd:
@@ -13,14 +12,12 @@ func _ready():
 		dash = false
 		
 	if Global.canCreep:
-		$gui.visible = true
 		crouch = true
 		$Label.visible = true
 		$Black.visible = true
 		$AnimationPlayer.play("hide")
 		$Timer2.start(1)
 	else:
-		$gui.visible = false
 		crouch = false
 	$Player.visible = true
 	start_pos = $Player.position
@@ -50,7 +47,6 @@ func _on_kill_body_entered(body):
 
 
 func _on_timer_timeout():
-	Global.save_game()
 	$Black.visible = false
 	$Label.visible = false
 	get_tree().change_scene_to_file("res://Level/level1.tscn")

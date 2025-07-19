@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhrttpot01o8j"]
+[gd_scene load_steps=21 format=3 uid="uid://bhrttpot01o8j"]
 
 [ext_resource type="Texture2D" uid="uid://bjxh2ygpks3b5" path="res://menu/guiMenu.png" id="1_2wl5c"]
 [ext_resource type="Script" path="res://menu/control.gd" id="1_op8so"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cxtheta72y247" path="res://menu/mute.png" id="6_nf1c5"]
 [ext_resource type="Texture2D" uid="uid://cj4rujp2s0v55" path="res://menu/exit.png" id="7_qcdew"]
 [ext_resource type="Texture2D" uid="uid://qfac6dfn5odw" path="res://menu/settings.png" id="8_7fuki"]
+[ext_resource type="Texture2D" uid="uid://7c2ubm1jcevf" path="res://menu/cont.png" id="10_2v44o"]
 [ext_resource type="PackedScene" uid="uid://botkxjakd5arm" path="res://settings.tscn" id="10_gua3w"]
+[ext_resource type="Texture2D" uid="uid://ctcnf8r55qobc" path="res://menu/save.png" id="11_ew4d5"]
 
 [sub_resource type="Animation" id="Animation_q2m02"]
 length = 0.001
@@ -273,6 +275,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_op8so")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = [426.0, 490.0, 505.0, 569.0, 584.0, 648.0]
+metadata/_edit_horizontal_guides_ = [43.0, 106.0, 121.0, 186.0]
 
 [node name="settingsLine" type="TextureButton" parent="."]
 modulate = Color(0.917647, 0.917647, 0.917647, 0.65098)
@@ -290,34 +294,35 @@ texture_hover = ExtResource("3_2kcot")
 [node name="GuiMenu" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(576, 114)
-scale = Vector2(1.5, 1.5)
+position = Vector2(581.5, 114)
+scale = Vector2(2.11719, 1.5)
 texture = ExtResource("1_2wl5c")
 
-[node name="continue" type="TextureButton" parent="."]
+[node name="reset" type="TextureButton" parent="."]
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 515.5
+offset_left = 565.0
 offset_top = 59.0
-offset_right = 555.5
+offset_right = 605.0
 offset_bottom = 99.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(15.5, 16)
 texture_normal = ExtResource("4_tat5t")
 
-[node name="Animation" type="AnimationPlayer" parent="continue"]
+[node name="Animation" type="AnimationPlayer" parent="reset"]
 libraries = {
 "": SubResource("AnimationLibrary_kofma")
 }
 
 [node name="music" type="Node2D" parent="."]
 visible = false
-position = Vector2(602, 59)
+position = Vector2(645, 59)
 
 [node name="music" type="TextureButton" parent="music"]
 texture_filter = 1
-offset_right = 40.0
+offset_left = 1.0
+offset_right = 41.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(17, 16)
@@ -326,8 +331,10 @@ texture_normal = ExtResource("5_qo148")
 [node name="mute" type="TextureButton" parent="music"]
 visible = false
 texture_filter = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 41.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(17, 16)
 texture_normal = ExtResource("6_nf1c5")
@@ -335,7 +342,8 @@ texture_normal = ExtResource("6_nf1c5")
 [node name="unmute" type="TextureButton" parent="music"]
 visible = false
 texture_filter = 1
-offset_right = 40.0
+offset_left = 1.0
+offset_right = 41.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(17, 16)
@@ -351,9 +359,9 @@ libraries = {
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 600.0
+offset_left = 644.0
 offset_top = 139.0
-offset_right = 640.0
+offset_right = 684.0
 offset_bottom = 179.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(15.5, 16)
@@ -368,15 +376,49 @@ libraries = {
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 515.0
-offset_top = 139.0
-offset_right = 555.0
-offset_bottom = 179.0
+offset_left = 565.0
+offset_top = 138.0
+offset_right = 605.0
+offset_bottom = 178.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(15.5, 16)
 texture_normal = ExtResource("8_7fuki")
 
 [node name="Animation" type="AnimationPlayer" parent="settings"]
+libraries = {
+"": SubResource("AnimationLibrary_kofma")
+}
+
+[node name="continue" type="TextureButton" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 486.0
+offset_top = 58.0
+offset_right = 526.0
+offset_bottom = 98.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(15.5, 16)
+texture_normal = ExtResource("10_2v44o")
+
+[node name="Animation" type="AnimationPlayer" parent="continue"]
+libraries = {
+"": SubResource("AnimationLibrary_kofma")
+}
+
+[node name="save" type="TextureButton" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 486.0
+offset_top = 138.0
+offset_right = 526.0
+offset_bottom = 178.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(15.5, 16)
+texture_normal = ExtResource("11_ew4d5")
+
+[node name="Animation" type="AnimationPlayer" parent="save"]
 libraries = {
 "": SubResource("AnimationLibrary_kofma")
 }
@@ -399,10 +441,10 @@ offset_bottom = 666.0
 scale = Vector2(0.6, 0.6)
 
 [connection signal="button_up" from="settingsLine" to="." method="_on_settings_line_button_up"]
-[connection signal="button_down" from="continue" to="." method="_on_texture_button_button_down"]
-[connection signal="button_up" from="continue" to="." method="_on_texture_button_button_up"]
-[connection signal="mouse_entered" from="continue" to="." method="_on_texture_button_mouse_entered"]
-[connection signal="mouse_exited" from="continue" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="button_down" from="reset" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="reset" to="." method="_on_texture_button_button_up"]
+[connection signal="mouse_entered" from="reset" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="reset" to="." method="_on_texture_button_mouse_exited"]
 [connection signal="button_down" from="music/music" to="." method="_on_music_button_down"]
 [connection signal="button_up" from="music/music" to="." method="_on_music_button_up"]
 [connection signal="mouse_entered" from="music/music" to="." method="_on_music_mouse_entered"]
@@ -423,5 +465,13 @@ scale = Vector2(0.6, 0.6)
 [connection signal="button_up" from="settings" to="." method="_on_settings_button_up"]
 [connection signal="mouse_entered" from="settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="mouse_exited" from="settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="button_down" from="continue" to="." method="_on_continue_button_down"]
+[connection signal="button_up" from="continue" to="." method="_on_continue_button_up"]
+[connection signal="mouse_entered" from="continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="mouse_exited" from="continue" to="." method="_on_continue_mouse_exited"]
+[connection signal="button_down" from="save" to="." method="_on_save_button_down"]
+[connection signal="button_up" from="save" to="." method="_on_save_button_up"]
+[connection signal="mouse_entered" from="save" to="." method="_on_save_mouse_entered"]
+[connection signal="mouse_exited" from="save" to="." method="_on_save_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="back" from="Settings" to="." method="_on_settings_back"]
