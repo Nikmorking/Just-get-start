@@ -123,6 +123,7 @@ _data = {
 size = Vector2(20, 129)
 
 [node name="Level12" type="Node2D"]
+texture_filter = 1
 position = Vector2(31, 268)
 script = ExtResource("1_r63xu")
 
