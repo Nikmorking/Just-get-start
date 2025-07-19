@@ -28,26 +28,28 @@ func menu(state):
 	$music.visible = state
 	$exit.visible = state
 	$settings.visible = state
+	$reset.visible = state
+	$save.visible = state
 	menuState = state
 	get_tree().paused = state
 	pass
 
 
 func _on_texture_button_mouse_entered():
-	$continue/Animation.play("on")
+	$reset/Animation.play("on")
 	pass
 func _on_texture_button_mouse_exited():
-	$continue/Animation.play("off")
+	$reset/Animation.play("off")
 	pass
 func _on_texture_button_button_down():
-	$continue/Animation.stop()
-	$continue.scale.x = 2
-	$continue.scale.y = 2
+	$reset/Animation.stop()
+	$reset.scale.x = 2
+	$reset.scale.y = 2
 	pass # Replace with function body.
 func _on_texture_button_button_up():
-	$continue/Animation.stop()
-	$continue.scale.x = 2.15
-	$continue.scale.y = 2.15
+	$reset/Animation.stop()
+	$reset.scale.x = 2.15
+	$reset.scale.y = 2.15
 	_on_settings_line_button_up()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Level/level%s.tscn" % Global.level)
@@ -134,3 +136,42 @@ func _on_timer_timeout():
 func _on_settings_back():
 	$Settings.hide()
 	pass # Replace with function body.
+
+
+func _on_save_mouse_entered():
+	$save/Animation.play("on")
+	pass
+func _on_save_mouse_exited():
+	$save/Animation.play("off")
+	pass
+func _on_save_button_down():
+	$save/Animation.stop()
+	$save.scale.x = 2
+	$save.scale.y = 2
+	pass # Replace with function body.
+func _on_save_button_up():
+	$save/Animation.stop()
+	$save.scale.x = 2.15
+	$save.scale.y = 2.15
+	Global.save_game()
+	pass # Replace with function body.
+
+func _on_continue_mouse_entered():
+	$continue/Animation.play("on")
+	pass
+func _on_continue_mouse_exited():
+	$continue/Animation.play("off")
+	pass
+func _on_continue_button_down():
+	$continue/Animation.stop()
+	$continue.scale.x = 2
+	$continue.scale.y = 2
+	pass # Replace with function body.
+func _on_continue_button_up():
+	$continue/Animation.stop()
+	$continue.scale.x = 2.15
+	$continue.scale.y = 2.15
+	_on_settings_line_button_up()
+	get_tree().paused = false
+	pass # Replace with function body.
+

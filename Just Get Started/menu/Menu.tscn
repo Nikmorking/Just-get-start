@@ -509,9 +509,9 @@ layer_0/tile_data = PackedInt32Array(-65544, 655361, 5, -8, 655361, 6, 65528, 65
 layer_1/tile_data = PackedInt32Array()
 
 [node name="ThemeLogoJustGetStarted" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-modulate = Color(0.473976, 0.473976, 0.473976, 0.854902)
-position = Vector2(535, 224)
-scale = Vector2(0.165167, 0.162932)
+modulate = Color(0.2484, 0.2484, 0.2484, 0.854902)
+position = Vector2(572.812, 276.438)
+scale = Vector2(0.110125, 0.106734)
 texture = ExtResource("4_uliwk")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]

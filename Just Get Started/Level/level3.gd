@@ -9,6 +9,7 @@ func _ready():
 	if Global.canCreep:
 		$Label.hide()
 		$"Стрелка".show()
+	$Player.SPEED = 250
 	pass
 
 func _input(event):
