@@ -4,10 +4,22 @@ extends CharacterBody2D
 @export var SPEED = 200.0
 var direction = 1
 var stor = 1
-
+var chicken
+var old = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+
+func attack():
+	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+	$AnimatedSprite2D.play("atack")
+	direction = 0
+	chicken = load("res://boss/lava chicken.tscn").instantiate()
+	chicken.global_position = position
+	chicken.global_position.y += -70
+	chicken.rot = stor
+	pass
 
 
 func _physics_process(delta):
@@ -18,15 +30,11 @@ func _physics_process(delta):
 		if $RayCast2D.is_colliding() and stor == -1:
 			$Timer.start(5)
 			stor = 1
-			$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
-			$AnimatedSprite2D.play("atack")
-			direction = 0
+			attack()
 		elif $RayCast2D2.is_colliding() and stor == 1:
 			$Timer2.start(5)
-			$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
-			$AnimatedSprite2D.play("atack")
-			direction = 0
 			stor = -1
+			attack()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if direction:
@@ -52,4 +60,24 @@ func _on_timer_timeout():
 
 func _on_timer_2_timeout():
 	direction = -1
+	pass # Replace with function body.
+
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if chicken:
+		get_parent().add_child(chicken)
+	pass # Replace with function body.
+
+
+func _stop_boss():
+	$Timer3.start(5)
+	$AnimatedSprite2D.play("dost")
+	old = direction
+	direction = 0
+	pass # Replace with function body.
+
+
+func _on_timer_3_timeout():
+	direction = old
 	pass # Replace with function body.

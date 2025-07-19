@@ -1,5 +1,6 @@
 extends Level
 
+signal _stop_boss
 
 func _ready():
 	Global.dashKd = true
@@ -11,5 +12,10 @@ func _input(event):
 		get_tree().change_scene_to_file("res://menu/Menu.tscn")
 		Global.level = 15
 	pass
+
+func stop_boss():
+	_stop_boss.emit()
+	pass
+
 
 
