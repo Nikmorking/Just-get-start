@@ -30,6 +30,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and animBlock:
 		velocity.y = JUMP_VELOCITY
+		$AnimatedSprite2D.play("jump")
 	direction = Input.get_axis("ui_left", "ui_right")
 	pass
 
@@ -87,8 +88,10 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED / 3)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		if !lest and animBlock:
+		if !lest and animBlock and is_on_floor():
 			$AnimatedSprite2D.play("stay")
+		else:
+			$AnimatedSprite2D.play("jump")
 	
 	if (Input.is_action_pressed("dash") or dashFlag) and dashKd and shiftFlag and Global.dashKd:
 		if Input.is_action_pressed("ui_right"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://br6jre3b7cjpp"]
+[gd_scene load_steps=20 format=3 uid="uid://br6jre3b7cjpp"]
 
 [ext_resource type="Script" path="res://Level/level8.gd" id="1_dvi4l"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_fw56i"]
@@ -26,11 +26,20 @@ size = Vector2(51.5, 464)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bveys"]
 size = Vector2(774, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y5qy"]
-size = Vector2(170, 5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cems"]
+size = Vector2(163, 10.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0alu"]
 size = Vector2(603, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yo23"]
+size = Vector2(161, 10.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y5qy"]
+size = Vector2(107, 17.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmvmq"]
+size = Vector2(157.998, 17.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm0jc"]
 size = Vector2(20, 95)
@@ -141,16 +150,32 @@ position = Vector2(253, 157)
 shape = SubResource("RectangleShape2D_bveys")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="kill"]
-position = Vector2(91, -230.5)
-shape = SubResource("RectangleShape2D_5y5qy")
+position = Vector2(89.5, -226.875)
+shape = SubResource("RectangleShape2D_3cems")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="kill"]
 position = Vector2(171.5, -181)
 shape = SubResource("RectangleShape2D_p0alu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="kill"]
-position = Vector2(345, -230.5)
+position = Vector2(349.5, -226.875)
+shape = SubResource("RectangleShape2D_3yo23")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="kill"]
+position = Vector2(58, -71)
 shape = SubResource("RectangleShape2D_5y5qy")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="kill"]
+position = Vector2(16.542, 18.014)
+rotation = -1.58544
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hmvmq")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="kill"]
+position = Vector2(98, 18.014)
+rotation = -1.58544
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hmvmq")
 
 [node name="Area2D3" type="Area2D" parent="."]
 position = Vector2(184, -5)
