@@ -360,7 +360,7 @@ position = Vector2(-5, -36)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_oigvg")
 animation = &"jump"
-frame_progress = 0.202113
+frame_progress = 0.494111
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
