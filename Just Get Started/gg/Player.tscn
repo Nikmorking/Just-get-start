@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://byfey1c3a6060" path="res://gg/Переход присед.png" id="6_7phc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw353"]
-size = Vector2(60, 132)
+size = Vector2(60, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt4th"]
 atlas = ExtResource("2_1xcdj")
@@ -351,7 +351,7 @@ animations = [{
 script = ExtResource("1_ctixr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -34)
+position = Vector2(-7, -36)
 shape = SubResource("RectangleShape2D_bw353")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cur8qu0mg32kw"]
+[gd_scene load_steps=24 format=3 uid="uid://cur8qu0mg32kw"]
 
 [ext_resource type="Script" path="res://Level/level3.gd" id="1_r8hsb"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_qnher"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="6_ctf3h"]
 [ext_resource type="Texture2D" uid="uid://bdv7hog2cmur6" path="res://Level/стрелка.png" id="7_jdy4i"]
 [ext_resource type="PackedScene" uid="uid://bhrttpot01o8j" path="res://menu/control.tscn" id="8_hch3n"]
+[ext_resource type="Texture2D" uid="uid://dvnxy3c8x5bxd" path="res://Level/ctrlButton.png" id="9_gpodf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oj6ix"]
 font = ExtResource("4_k32fu")
@@ -82,7 +83,7 @@ size = Vector2(356, 20)
 size = Vector2(764, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82es1"]
-size = Vector2(20, 166)
+size = Vector2(21, 157)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ffyl"]
 size = Vector2(40, 376)
@@ -93,6 +94,11 @@ font_size = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4h08l"]
 size = Vector2(40, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bg7m6"]
+font = ExtResource("4_k32fu")
+font_size = 20
+font_color = Color(0.192157, 0.121569, 0.152941, 1)
 
 [node name="Level3" type="Node2D"]
 texture_filter = 1
@@ -197,7 +203,7 @@ shape = SubResource("RectangleShape2D_p16j5")
 position = Vector2(184, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(0, -73)
+position = Vector2(-0.5, -68.5)
 shape = SubResource("RectangleShape2D_82es1")
 
 [node name="Area2D6" type="Area2D" parent="."]
@@ -241,11 +247,192 @@ position = Vector2(1549, -114)
 position = Vector2(-25, 7)
 shape = SubResource("RectangleShape2D_4h08l")
 
+[node name="lestGuid" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(273, -86)
+scale = Vector2(4, 4)
+texture = ExtResource("9_gpodf")
+
+[node name="W" type="Sprite2D" parent="lestGuid"]
+texture_filter = 1
+position = Vector2(-9.00003, -3)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_q3s00")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="lestGuid/W"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.97345
+offset_top = -8.20152
+offset_right = -5.87345
+offset_bottom = -4.20152
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = "w
+"
+label_settings = SubResource("LabelSettings_bg7m6")
+
+[node name="S" type="Sprite2D" parent="lestGuid"]
+texture_filter = 1
+position = Vector2(-9.00003, 3)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_q3s00")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="lestGuid/S"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.62002
+offset_top = -7.86
+offset_right = -4.52002
+offset_bottom = -3.86
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = "s
+"
+label_settings = SubResource("LabelSettings_bg7m6")
+
+[node name="Up" type="Sprite2D" parent="lestGuid"]
+position = Vector2(1.33328, -5.33334)
+scale = Vector2(0.25, 0.25)
+
+[node name="Label" type="Label" parent="lestGuid/Up"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -33.3331
+offset_top = 1.33337
+offset_right = 67.6669
+offset_bottom = 20.3334
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = " - up"
+label_settings = SubResource("LabelSettings_bg7m6")
+
+[node name="Down" type="Sprite2D" parent="lestGuid"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Label" type="Label" parent="lestGuid/Down"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = 4.0
+offset_right = 65.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = " - down"
+label_settings = SubResource("LabelSettings_bg7m6")
+
+[node name="upPalka" type="Sprite2D" parent="lestGuid"]
+position = Vector2(10.6667, -3.66667)
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="lestGuid/upPalka"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.11112
+offset_top = -4.44445
+offset_right = 1.88888
+offset_bottom = 14.5556
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = "|
+"
+label_settings = SubResource("LabelSettings_bg7m6")
+
+[node name="downPalka" type="Sprite2D" parent="lestGuid"]
+position = Vector2(10.6667, 0.333267)
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="lestGuid/downPalka"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.11112
+offset_top = -4.44445
+offset_right = 1.88888
+offset_bottom = 14.5556
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = "|
+"
+label_settings = SubResource("LabelSettings_bg7m6")
+
+[node name="upArrow" type="Sprite2D" parent="lestGuid"]
+position = Vector2(10.606, -3.33368)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+
+[node name="Label2" type="Label" parent="lestGuid/upArrow"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.33333
+offset_top = -7.77779
+offset_right = 3.66667
+offset_bottom = 11.2222
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = ">
+"
+label_settings = SubResource("LabelSettings_bg7m6")
+
+[node name="downArrow" type="Sprite2D" parent="lestGuid"]
+position = Vector2(10.606, 2.66623)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+
+[node name="Label2" type="Label" parent="lestGuid/downArrow"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.33333
+offset_top = -7.77779
+offset_right = 3.66667
+offset_bottom = 11.2222
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = ">
+"
+label_settings = SubResource("LabelSettings_bg7m6")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_out"]
 [connection signal="body_entered" from="Area2D5" to="." method="_on_out"]
+[connection signal="body_entered" from="Area2D3" to="." method="_player_entered"]
 [connection signal="body_entered" from="Area2D3" to="Player" method="_lest"]
+[connection signal="body_exited" from="Area2D3" to="." method="_player_exited"]
 [connection signal="body_exited" from="Area2D3" to="Player" method="_on_lest"]
 [connection signal="body_entered" from="Area2D6" to="Player" method="_lest"]
 [connection signal="body_exited" from="Area2D6" to="Player" method="_on_lest"]

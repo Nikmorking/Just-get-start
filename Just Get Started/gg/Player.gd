@@ -5,9 +5,13 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -350.0
 var timerBlock: bool = true
 var dashFlag: bool = false
+
 var shiftFlag: bool = true
 var shiftBlock: bool = true
+
 var animBlock: bool = true
+var lestAnimBlock: bool = false
+
 var direction
 var lest = false
 var dashKd = true
@@ -50,9 +54,23 @@ func _physics_process(delta):
 	
 	
 	if lest and animBlock:
-		$AnimatedSprite2D.play("lest")
 		if Input.is_action_pressed("ui_up"):
+			$AnimatedSprite2D.play("lest")
 			velocity.y = JUMP_VELOCITY / 3
+			lestAnimBlock = false
+		elif Input.is_action_pressed("ui_down") and not is_on_floor():
+			velocity.y = JUMP_VELOCITY / -3
+			$AnimatedSprite2D.play("lest")
+			lestAnimBlock = false
+		elif not is_on_floor():
+			velocity.y = JUMP_VELOCITY / -10
+			$AnimatedSprite2D.play("lest")
+			lestAnimBlock = false
+			
+		else:
+			lestAnimBlock = true
+	elif !lest:
+		lestAnimBlock = false
 	
 	if Global.canCreep:
 		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock:
@@ -88,7 +106,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED / 3)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		if !lest and animBlock and is_on_floor():
+		if (!lest and animBlock) or lestAnimBlock:
 			$AnimatedSprite2D.play("stay")
 	
 	if (Input.is_action_pressed("dash") or dashFlag) and dashKd and shiftFlag and Global.dashKd:
@@ -128,16 +146,19 @@ func _on_timer_timeout():
 
 
 func _lest(body):
-	if body == self and animBlock:
+	if body == self:
 		lest = true
+		if animBlock:
+			$AnimatedSprite2D.stop()
 	pass # Replace with function body.
 
 
 func _on_lest(body):
-	if body == self and animBlock:
+	if body == self:
 		lest = false
 		velocity.y -= JUMP_VELOCITY/2
-		$AnimatedSprite2D.stop()
+		if animBlock:
+			$AnimatedSprite2D.stop()
 	pass # Replace with function body.
 
 
