@@ -129,6 +129,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../save:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../reset:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_63t1i"]
 resource_name = "off"
@@ -190,6 +214,30 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1.1487, 1.68179),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../reset:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.18921, 1.8025),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../save:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.10957, 1.7411),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
 }
@@ -257,6 +305,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../save:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1487, 1.7411),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../reset:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.10957, 1.56917),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mpw62"]
 _data = {
@@ -299,7 +371,6 @@ scale = Vector2(2.11719, 1.5)
 texture = ExtResource("1_2wl5c")
 
 [node name="reset" type="TextureButton" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 565.0
@@ -316,7 +387,6 @@ libraries = {
 }
 
 [node name="music" type="Node2D" parent="."]
-visible = false
 position = Vector2(645, 59)
 
 [node name="music" type="TextureButton" parent="music"]
@@ -356,7 +426,6 @@ libraries = {
 }
 
 [node name="exit" type="TextureButton" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 644.0
@@ -373,7 +442,6 @@ libraries = {
 }
 
 [node name="settings" type="TextureButton" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 565.0
@@ -390,7 +458,6 @@ libraries = {
 }
 
 [node name="continue" type="TextureButton" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 486.0
@@ -407,7 +474,6 @@ libraries = {
 }
 
 [node name="save" type="TextureButton" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 486.0
