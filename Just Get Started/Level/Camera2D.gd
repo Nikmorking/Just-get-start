@@ -10,6 +10,8 @@ func _ready():
 	original_position = position
 
 func start_shake(duration = shake_duration, strength = shake_strength):
+	zoom.x = 1.52
+	zoom.y = 1.52
 	shake_time_left = duration
 	shake_strength = strength
 
@@ -22,4 +24,6 @@ func _process(delta):
 		) * shake_strength
 		position = original_position + offset
 	else:
+		zoom.x = 1.5
+		zoom.y = 1.5
 		position = original_position
