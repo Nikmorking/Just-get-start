@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://jrdt73ix2dh0"]
+[gd_scene load_steps=79 format=3 uid="uid://jrdt73ix2dh0"]
 
 [ext_resource type="Script" path="res://Level/level15.gd" id="1_p3ibk"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_yh7mb"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://d2b5g2pgi8qb2" path="res://boss/босс ходьба.png" id="10_taciv"]
 [ext_resource type="Texture2D" uid="uid://bnx0ei7ml3507" path="res://boss/bossNagib.png" id="11_ttl1m"]
 [ext_resource type="Texture2D" uid="uid://y0c00sadk4bq" path="res://boss/босс2 бросок.png" id="12_o6snu"]
-[ext_resource type="Texture2D" uid="uid://satn7iqgw5n6" path="res://boss/Босс умирает.png" id="13_belc0"]
 [ext_resource type="Texture2D" uid="uid://bt8kganawooq6" path="res://boss/босс2 ходьба.png" id="15_bnvvr"]
 [ext_resource type="Texture2D" uid="uid://d3o1yc5jmjlkb" path="res://boss/bossBar (3).png" id="15_gxat4"]
 [ext_resource type="Texture2D" uid="uid://oygpmhyd2g5k" path="res://boss/bossLine.png" id="16_5i6ct"]
@@ -276,30 +275,6 @@ region = Rect2(180, 0, 20, 40)
 atlas = ExtResource("12_o6snu")
 region = Rect2(200, 0, 20, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bm6ad"]
-atlas = ExtResource("13_belc0")
-region = Rect2(0, 0, 20, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qb3d5"]
-atlas = ExtResource("13_belc0")
-region = Rect2(20, 0, 20, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8jbnl"]
-atlas = ExtResource("13_belc0")
-region = Rect2(40, 0, 20, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mq47q"]
-atlas = ExtResource("13_belc0")
-region = Rect2(60, 0, 20, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m24ro"]
-atlas = ExtResource("13_belc0")
-region = Rect2(80, 0, 20, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s30gy"]
-atlas = ExtResource("13_belc0")
-region = Rect2(100, 0, 20, 40)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2y5i"]
 atlas = ExtResource("11_ttl1m")
 region = Rect2(0, 0, 40, 40)
@@ -476,29 +451,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bm6ad")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qb3d5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8jbnl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mq47q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m24ro")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s30gy")
-}],
-"loop": true,
-"name": &"die",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_t2y5i")
 }, {
 "duration": 1.0,
@@ -595,7 +547,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nkty1")
 }],
-"loop": false,
+"loop": true,
 "name": &"stay2",
 "speed": 5.0
 }]
@@ -687,15 +639,6 @@ position = Vector2(387, 111)
 shape = SubResource("CapsuleShape2D_e38m4")
 disabled = true
 
-[node name="Area2D3" type="Area2D" parent="."]
-position = Vector2(0, -50)
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(387, 111)
-shape = SubResource("CapsuleShape2D_e38m4")
-
 [node name="vignette" parent="." instance=ExtResource("6_hq6pw")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -781,7 +724,7 @@ shape = SubResource("RectangleShape2D_bg5sf")
 position = Vector2(1.50001, -12.5)
 scale = Vector2(2.35, 2.375)
 sprite_frames = SubResource("SpriteFrames_fjtgv")
-animation = &"run"
+animation = &"atack"
 
 [node name="RayCast2D" type="RayCast2D" parent="boss"]
 position = Vector2(-6, -18)
@@ -805,8 +748,8 @@ one_shot = true
 
 [node name="Area2D" type="Area2D" parent="boss"]
 position = Vector2(30, 10)
-collision_layer = 6
-collision_mask = 6
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D"]
 position = Vector2(-1, 6.5)
@@ -851,10 +794,6 @@ collision_mask = 4
 position = Vector2(1.5, -14)
 shape = SubResource("RectangleShape2D_5hxe5")
 
-[node name="Timer7" type="Timer" parent="boss"]
-wait_time = 0.4
-one_shot = true
-
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = 250.0
 offset_top = -190.0
@@ -879,9 +818,9 @@ shape = SubResource("RectangleShape2D_omit4")
 one_way_collision = true
 
 [connection signal="_stop_boss" from="." to="boss" method="_stop_boss"]
+[connection signal="area_entered" from="Area2D" to="boss" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="area_entered" from="Area2D3" to="boss" method="_on_area_2d_3_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D2" to="Player" method="_lest"]
 [connection signal="body_exited" from="Area2D2" to="Player" method="_on_lest"]
@@ -893,5 +832,3 @@ one_way_collision = true
 [connection signal="body_entered" from="boss/Area2D" to="boss" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="boss/Timer5" to="boss" method="_on_timer_5_timeout"]
 [connection signal="body_entered" from="boss/Area2D2" to="boss" method="_on_area_2d_2_body_entered"]
-[connection signal="timeout" from="boss/Timer7" to="." method="_on_timer_7_timeout"]
-[connection signal="timeout" from="boss/Timer7" to="boss" method="_on_timer_7_timeout"]

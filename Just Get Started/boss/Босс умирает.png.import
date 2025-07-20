@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt8kganawooq6"
-path="res://.godot/imported/босс2 ходьба.png-a63519c96a564a38fa05f0d511a9eb03.ctex"
+uid="uid://satn7iqgw5n6"
+path="res://.godot/imported/Босс умирает.png-4735d8f37a3948e43bfe3861a7c57bb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://boss/босс2 ходьба.png"
-dest_files=["res://.godot/imported/босс2 ходьба.png-a63519c96a564a38fa05f0d511a9eb03.ctex"]
+source_file="res://boss/Босс умирает.png"
+dest_files=["res://.godot/imported/Босс умирает.png-4735d8f37a3948e43bfe3861a7c57bb4.ctex"]
 
 [params]
 

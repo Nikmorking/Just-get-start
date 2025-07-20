@@ -8,9 +8,11 @@ var chicken
 var old = 0
 var flag = false
 var heals = 10
-var pin = false
-var throws: int
+var pin = false 
+var throws: int = 0
 var chickens
+var bei = false
+var die = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -39,13 +41,6 @@ func attack():
 		chicken.get_node("area2D3")
 		chicken.rot = stor
 		throws += 1
-		if throws == 5:
-			$Timer.stop()
-			$Timer2.stop()
-			$Timer3.stop()
-			$Timer4.stop()
-			$Timer5.stop()
-			$Timer6.stop()
 	pass
 
 
@@ -53,16 +48,22 @@ func attack():
 func _input(event):
 	if pin:
 		if Input.is_action_pressed("e"):
+			bei = true
 			pin = false
 			get_parent().get_node("Player/AnimatedSprite2D").play("pinok")
 			get_parent().get_node("Camera2D").start_shake(0.2, 7.0)
-			chickens.queue_free()
+			$Area2D/e.hide()
+			direction = stor
+			old = 0
+			if chickens != null: chickens.queue_free()
+			print(heals)
 			if heals > 1:
 				heals -= 1
 				get_parent().load_bar(heals)
-			elif heals == 1:
-				heals = 0
-				get_parent().boss_die()
+			elif heals == 0:
+				$AnimatedSprite2D.play("die")
+				direction = 0
+				$Timer7.start()
 			else:
 				heals = 0
 			_on_timer_3_timeout()
@@ -73,6 +74,12 @@ func _input(event):
 
 func _physics_process(delta):
 	# Add the gravity.
+	if heals == 0 and !die:
+		$AnimatedSprite2D.play("die")
+		direction = 0
+		$Timer7.start()
+		die = true
+		
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if stor != 0:
@@ -130,8 +137,11 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 func _stop_boss():
-	$Timer3.start(5)
-	$AnimatedSprite2D.play("nagib")
+	if Global.bossState:
+		$AnimatedSprite2D.play("stay2")
+	else:
+		$AnimatedSprite2D.play("nagib")
+		$Timer3.start(5)
 	$Area2D/e.show()
 	old = direction
 	direction = 0
@@ -139,7 +149,7 @@ func _stop_boss():
 
 
 func _on_timer_3_timeout():
-	if !chickens:
+	if !bei:
 		$AnimatedSprite2D.play("pod")
 		$Timer4.start(1)
 	pass # Replace with function body.
@@ -168,3 +178,14 @@ func _on_area_2d_2_body_entered(body):
 		get_tree().change_scene_to_file("res://Level/level15.tscn")
 		Global.bossState = false
 		heals = 10
+
+
+func _on_area_2d_3_area_entered(area):
+	if throws == 5:
+		_stop_boss()
+	pass # Replace with function body.
+
+
+func _on_timer_7_timeout():
+	print("time")
+	pass # Replace with function body.

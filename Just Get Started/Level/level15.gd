@@ -29,6 +29,7 @@ func _final():
 
 
 func _on_timer_timeout():
+	Global.number = 1
 	get_tree().change_scene_to_file("res://cutscen/cutscen.tscn")
 
 
@@ -42,3 +43,7 @@ func load_bar(heals):
 	
 
 
+
+func _on_timer_7_timeout():
+	_final()
+	pass # Replace with function body.
