@@ -3,7 +3,6 @@ extends Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.load_game()
 	start_pos = $Player.position
 	pass # Replace with function body.
 
@@ -15,4 +14,10 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_pressed("ui_down"):
+		$lestColl/CollisionShape2D.disabled = true
+		$lestColl/CollisionShape2D2.disabled = true
+	else:
+		$lestColl/CollisionShape2D.disabled = false
+		$lestColl/CollisionShape2D2.disabled = false
 	pass

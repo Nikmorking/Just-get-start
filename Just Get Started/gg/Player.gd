@@ -8,17 +8,17 @@ var dashFlag: bool = false
 
 var shiftFlag: bool = true
 var shiftBlock: bool = true
-<<<<<<< Updated upstream
-var animBlock: bool = true
-=======
+var canHg = true
 
 var animBlock: bool = true
+var lestAnimBlock: bool = false
 
->>>>>>> Stashed changes
 var direction
 var lest = false
+var dashKd = true
 
 func kill():
+	dashKd = true
 	animBlock = true
 	lest = false
 	shiftFlag = true
@@ -35,6 +35,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and animBlock:
 		velocity.y = JUMP_VELOCITY
+		$AnimatedSprite2D.play("jump")
 	direction = Input.get_axis("ui_left", "ui_right")
 	pass
 
@@ -57,9 +58,20 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_up"):
 			$AnimatedSprite2D.play("lest")
 			velocity.y = JUMP_VELOCITY / 3
-		elif not is_on_floor():
-			velocity.y = JUMP_VELOCITY / -15
+			lestAnimBlock = false
+		elif Input.is_action_pressed("ui_down") and not is_on_floor():
+			velocity.y = JUMP_VELOCITY / -3
 			$AnimatedSprite2D.play("lest")
+			lestAnimBlock = false
+		elif not is_on_floor():
+			velocity.y = JUMP_VELOCITY / -10
+			$AnimatedSprite2D.play("lest")
+			lestAnimBlock = false
+			
+		else:
+			lestAnimBlock = true
+	elif !lest:
+		lestAnimBlock = false
 	
 	if Global.canCreep:
 		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock:
@@ -70,7 +82,7 @@ func _physics_process(delta):
 			animBlock = false
 		elif Input.is_action_just_released("shift") and shiftBlock:
 			shiftBlock = false
-		elif Input.is_action_pressed("shift") and !shiftFlag and !shiftBlock:
+		elif Input.is_action_pressed("shift") and !shiftFlag and !shiftBlock and canHg:
 			$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2.1
 			$CollisionShape2D.position = Vector2(-7, -36)
 			$AnimatedSprite2D.play("shiftEnd")
@@ -95,11 +107,10 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED / 3)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		if !lest and animBlock:
+		if (!lest and animBlock) or lestAnimBlock:
 			$AnimatedSprite2D.play("stay")
 	
-	
-	if (Input.is_action_pressed("dash") or dashFlag) and Global.dashKd and shiftFlag:
+	if (Input.is_action_pressed("dash") or dashFlag) and dashKd and shiftFlag and Global.dashKd:
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED * 3
 			dashFlag = true
@@ -120,18 +131,18 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_timer_timeout():
-	if Global.dashKd:
+	if dashKd:
 		dashFlag = false
 		animBlock = true
 		timerBlock = true
-		Global.dashKd = false
+		dashKd = false
 		velocity.x = 0
 		move_and_slide()
 		$Timer.wait_time = 1
 		$Timer.start()
-	elif !Global.dashKd:
+	elif !dashKd:
 		$Timer.wait_time = 0.2
-		Global.dashKd = true
+		dashKd = true
 	pass # Replace with function body.
 
 
@@ -158,4 +169,16 @@ func animation_finished():
 			$AnimatedSprite2D.play("shift")
 		if $AnimatedSprite2D.animation == "shiftEnd":
 			animBlock = true
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body):
+	if !shiftFlag:
+		canHg = false
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body):
+	if !shiftFlag:
+		canHg = true
 	pass # Replace with function body.
