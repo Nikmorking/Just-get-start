@@ -1,6 +1,6 @@
 extends Node2D
 
-var number = 1
+var number = 0
 
 
 
