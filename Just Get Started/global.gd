@@ -8,7 +8,7 @@ var menuStart = false
 var canCreep = true
 var volume = 8
 
-
+var number = 0
 var dashKd: bool = false
 
 

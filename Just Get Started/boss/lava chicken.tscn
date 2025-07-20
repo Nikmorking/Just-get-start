@@ -11,7 +11,7 @@ size = Vector2(46, 84)
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_06ov2")
-speed = 7
+speed = 8
 
 [node name="Meat" type="Sprite2D" parent="."]
 position = Vector2(2, -44)
