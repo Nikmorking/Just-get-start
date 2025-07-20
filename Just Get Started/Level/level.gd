@@ -21,6 +21,7 @@ func door_state(state):
 
 func _on_kill_body_entered(body):
 	$Player.position = start_pos
+	$Player.kill()
 	pass # Replace with function body.
 
 func _on_area_2d_body_entered(body):

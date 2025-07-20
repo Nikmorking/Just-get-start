@@ -1,5 +1,6 @@
 extends Level
 
+signal _stop_boss
 
 func _ready():
 	_final()
@@ -21,4 +22,8 @@ func _final():
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://cutscen/cutscen.tscn")
-	pass # Replace with function body.
+
+
+func stop_boss():
+	_stop_boss.emit()
+	pass

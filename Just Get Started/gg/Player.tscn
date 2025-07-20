@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://qfagnaexl464"]
+[gd_scene load_steps=53 format=3 uid="uid://qfagnaexl464"]
 
 [ext_resource type="Script" path="res://gg/Player.gd" id="1_ctixr"]
 [ext_resource type="Texture2D" uid="uid://db2e51qn8p8lj" path="res://gg/рывок.png" id="2_1xcdj"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://byfey1c3a6060" path="res://gg/Переход присед.png" id="6_7phc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw353"]
-size = Vector2(60, 132)
+size = Vector2(60, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt4th"]
 atlas = ExtResource("2_1xcdj")
@@ -347,11 +347,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqwn1"]
+size = Vector2(39, 7)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ctixr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -34)
+position = Vector2(-7, -36)
 shape = SubResource("RectangleShape2D_bw353")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -360,11 +363,19 @@ position = Vector2(-5, -36)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_oigvg")
 animation = &"jump"
-frame_progress = 0.202113
+frame_progress = 0.494111
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.5, -39)
+shape = SubResource("RectangleShape2D_iqwn1")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -26,6 +26,7 @@ size = Vector2(51.5, 255)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bveys"]
 size = Vector2(774, 20)
 
+
 [node name="Level7" type="Node2D"]
 texture_filter = 1
 position = Vector2(31, 268)
