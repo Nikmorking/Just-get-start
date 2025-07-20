@@ -74,7 +74,7 @@ func _physics_process(delta):
 		lestAnimBlock = false
 	
 	if Global.canCreep:
-		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock:
+		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock and !lestAnimBlock:
 			$CollisionShape2D.scale.y = $CollisionShape2D.scale.y / 2.1
 			$CollisionShape2D.position = Vector2(-6, -4)
 			$AnimatedSprite2D.play("shift_start")
@@ -96,7 +96,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = direction * SPEED
 			
-		if animBlock:
+		if animBlock and !lestAnimBlock:
 			$AnimatedSprite2D.play("run")
 		if direction == 1:
 			$AnimatedSprite2D.flip_h = false
@@ -110,7 +110,7 @@ func _physics_process(delta):
 		if (!lest and animBlock) or lestAnimBlock:
 			$AnimatedSprite2D.play("stay")
 	
-	if (Input.is_action_pressed("dash") or dashFlag) and dashKd and shiftFlag and Global.dashKd:
+	if (Input.is_action_pressed("dash") or dashFlag) and dashKd and shiftFlag and Global.dashKd and !lestAnimBlock:
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED * 3
 			dashFlag = true
