@@ -33,3 +33,13 @@ func _on_shift(body):
 		get_tree().change_scene_to_file("res://Level/level8.tscn")
 		Global.level = 8
 	pass # Replace with function body.
+
+
+func _player_entered(body):
+	$lestGuid.visible = true
+	pass # Replace with function body.
+
+
+func _player_exited(body):
+	$lestGuid.visible = false
+	pass # Replace with function body.

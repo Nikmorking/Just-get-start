@@ -1,5 +1,6 @@
 extends Level
 
+signal _stop_boss
 
 func _ready():
 	$Camera2D.start_shake(0.3, 5.0)
@@ -15,3 +16,9 @@ func _input(event):
 
 func _final():
 	get_tree().change_scene_to_file("res://cutscen/cutscen.tscn")
+
+func stop_boss():
+	_stop_boss.emit()
+	pass
+
+

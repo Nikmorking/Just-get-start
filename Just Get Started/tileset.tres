@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://cjikwnxplla7"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://cjikwnxplla7"]
 
 [ext_resource type="Texture2D" uid="uid://wcyycn38j4mw" path="res://Level/Dungeon Tile Set.png" id="1_4e70v"]
 
@@ -19,6 +19,9 @@ tile_data = PackedInt32Array(0, 655361, 1, 65536, 655361, 2, 131072, 524289, 6, 
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_q1wrs"]
 tile_data = PackedInt32Array(0, 589825, 9, 1, 458753, 9, 2, 524289, 9)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_3vjnh"]
+tile_data = PackedInt32Array(0, 65537, 1342177289, 65536, 131073, 1342177289, 131072, 131073, 1342177289, 196608, 131073, 1342177289, 262144, 131073, 1342177289, 327680, 131073, 1342177289, 393216, 131073, 1342177289, 458752, 131073, 1342177289, 524288, 131073, 1342177289, 589824, 196609, 1342177289, 1, 196609, 1610612745, 65537, 131073, 1610612745, 131073, 131073, 1610612745, 196609, 131073, 1610612745, 262145, 131073, 1610612745, 327681, 131073, 1610612745, 393217, 131073, 1610612745, 458753, 131073, 1610612745, 524289, 131073, 1610612745, 589825, 65537, 1610612745)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hdaak"]
 texture = ExtResource("1_4e70v")
@@ -258,15 +261,16 @@ texture = ExtResource("1_4e70v")
 1:9/0 = 0
 1:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:9/0/physics_layer_0/angular_velocity = 0.0
-1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+sics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.5625, -8, 6.4375, -8, 6.5625, -2.375, -6.3125, -2.625)
 2:9/0 = 0
 2:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:9/0/physics_layer_0/angular_velocity = 0.0
-2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.5625, -8, 6.4375, -8, 6.5625, -2.375, -6.3125, -2.625)
 3:9/0 = 0
 3:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:9/0/physics_layer_0/angular_velocity = 0.0
-3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.5625, -8, 6.4375, -8, 6.5625, -2.375, -6.3125, -2.625)
 5:9/0 = 0
 5:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:9/0/physics_layer_0/angular_velocity = 0.0
@@ -428,6 +432,7 @@ texture = ExtResource("1_4e70v")
 3:14/0 = 0
 3:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:14/0/physics_layer_0/angular_velocity = 0.0
+3:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.5625, -8, 6.4375, -8, 6.5625, -2.375, -6.3125, -2.625)
 4:14/0 = 0
 4:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:14/0/physics_layer_0/angular_velocity = 0.0
@@ -482,3 +487,4 @@ pattern_2 = SubResource("TileMapPattern_n7dq1")
 pattern_3 = SubResource("TileMapPattern_2xsbd")
 pattern_4 = SubResource("TileMapPattern_kpvv6")
 pattern_5 = SubResource("TileMapPattern_q1wrs")
+pattern_6 = SubResource("TileMapPattern_3vjnh")
