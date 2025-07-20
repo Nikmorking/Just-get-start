@@ -4,6 +4,8 @@ var dash = false
 var crouch = false
 
 func _ready():
+	
+	
 	$Black.visible = false
 	$Label.visible = false
 	if Global.dashKd:
