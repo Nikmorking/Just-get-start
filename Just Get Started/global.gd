@@ -11,12 +11,6 @@ var volume = 8
 var dashKd: bool = false
 
 
-func _input(event):
-	if Input.is_action_pressed("ui_focus_next"):
-		load_game()
-	pass
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
