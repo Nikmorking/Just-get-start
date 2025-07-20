@@ -3,6 +3,7 @@ extends Node2D
 var number = 0
 
 func _ready():
+	AudioPlayer.stop()
 	if number == 0:
 		_avaria()
 		$Timer.start(10)
@@ -22,6 +23,7 @@ func _final():
 
 func _on_timer_timeout():
 	if number == 0:
+		AudioPlayer.play()
 		get_tree().change_scene_to_file("res://Level/level1.tscn")
 		number += 1
 	elif number == 1:
