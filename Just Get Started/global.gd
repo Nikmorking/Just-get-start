@@ -1,5 +1,7 @@
 extends Node
 
+var labelText
+
 var level = 1
 var menuStart = false
 var canCreep = false

@@ -3,7 +3,6 @@ extends Level
 signal _stop_boss
 
 func _ready():
-	_final()
 	$Camera2D.start_shake(0.3, 5.0)
 	Global.dashKd = true
 	start_pos = $Player.position

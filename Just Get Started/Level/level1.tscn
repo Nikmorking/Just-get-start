@@ -34,9 +34,9 @@ font_color = Color(0.317647, 0.172549, 0.156863, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbgcs"]
 size = Vector2(45, 268)
 
-[sub_resource type="LabelSettings" id="LabelSettings_43epp"]
+[sub_resource type="LabelSettings" id="LabelSettings_tw1q4"]
 font = ExtResource("4_0c017")
-font_size = 40
+font_size = 35
 
 [sub_resource type="Animation" id="Animation_2ftqj"]
 length = 0.001
@@ -462,7 +462,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 text = "Just get start your journy again"
-label_settings = SubResource("LabelSettings_43epp")
+label_settings = SubResource("LabelSettings_tw1q4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

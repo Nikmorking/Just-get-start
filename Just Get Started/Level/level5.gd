@@ -38,6 +38,7 @@ func _on_kill_body_entered(body):
 		Global.dashKd = true
 		Global.level = 1
 		
+		Global.labelText = $Label.text
 		$Black.visible = true
 		$Label.visible = true
 		$AnimationPlayer.play("show")
