@@ -400,6 +400,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q1m2"]
+size = Vector2(18, 33)
+
 [node name="Level15" type="Node2D"]
 texture_filter = 1
 position = Vector2(31, 268)
@@ -460,6 +463,7 @@ label_settings = SubResource("LabelSettings_n72o5")
 position = Vector2(226, 67)
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
+JUMP_VELOCITY = -400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(421.005, -11.995)
@@ -581,6 +585,39 @@ one_shot = true
 [node name="Timer4" type="Timer" parent="boss"]
 one_shot = true
 
+[node name="e" type="Sprite2D" parent="boss"]
+visible = false
+texture_filter = 1
+position = Vector2(27, -14)
+scale = Vector2(0.763359, 0.763359)
+texture = ExtResource("3_vs1fp")
+
+[node name="Label" type="Label" parent="boss/e"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.62002
+offset_top = -7.86
+offset_right = -4.52002
+offset_bottom = -3.86
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+size_flags_vertical = 1
+text = "e
+"
+label_settings = SubResource("LabelSettings_n72o5")
+
+[node name="Area2D" type="Area2D" parent="boss"]
+position = Vector2(30, 10)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D"]
+position = Vector2(-1, 6.5)
+shape = SubResource("RectangleShape2D_4q1m2")
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = 323.0
 offset_top = -219.0
@@ -601,3 +638,4 @@ texture_progress = ExtResource("13_ujyde")
 [connection signal="timeout" from="boss/Timer2" to="boss" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="boss/Timer3" to="boss" method="_on_timer_3_timeout"]
 [connection signal="timeout" from="boss/Timer4" to="boss" method="_on_timer_4_timeout"]
+[connection signal="body_entered" from="boss/Area2D" to="boss" method="_on_area_2d_body_entered"]

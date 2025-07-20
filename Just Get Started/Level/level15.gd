@@ -26,3 +26,8 @@ func _on_timer_timeout():
 func stop_boss():
 	_stop_boss.emit()
 	pass
+
+func load_bar(heals):
+	$TextureProgressBar.value = heals
+	pass
+	

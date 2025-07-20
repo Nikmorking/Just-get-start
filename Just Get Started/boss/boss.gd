@@ -5,8 +5,10 @@ extends CharacterBody2D
 var direction = 1
 var stor = 1
 var chicken
-var old = 1
+var old = 0
 var flag = false
+var heals = 10
+var pin = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -20,6 +22,23 @@ func attack():
 	chicken.global_position = position
 	chicken.global_position.y += -70
 	chicken.rot = stor
+	pass
+
+
+
+func _input(event):
+	if pin:
+		if Input.is_action_pressed("e"):
+			pin = false
+			if heals > 1:
+				heals -= 1
+				get_parent().load_bar(heals)
+			elif heals == 1:
+				heals = 0
+				get_parent().boss_die()
+			else:
+				heals = 0
+			_on_timer_3_timeout()
 	pass
 
 
@@ -75,6 +94,7 @@ func _on_animated_sprite_2d_animation_finished():
 func _stop_boss():
 	$Timer3.start(5)
 	$AnimatedSprite2D.play("nagib")
+	$e.show()
 	old = direction
 	direction = 0
 	pass # Replace with function body.
@@ -88,4 +108,12 @@ func _on_timer_3_timeout():
 
 func _on_timer_4_timeout():
 	direction = old
+	old = 0
+	$e.hide()
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body):
+	if old != 0 and !pin:
+		pin = true
 	pass # Replace with function body.
