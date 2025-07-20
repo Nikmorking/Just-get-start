@@ -31,11 +31,16 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_2_body_entered(body):
-	queue_free()
 	get_parent().stop_boss()
+	$Timer2.start()
 	pass # Replace with function body.
 
 
 func _on_area_2d_3_body_entered(body):
 	get_tree().change_scene_to_file("res://Level/level15.tscn")
+	pass # Replace with function body.
+
+
+func _on_timer_2_timeout():
+	queue_free()
 	pass # Replace with function body.

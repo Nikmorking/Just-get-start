@@ -3,7 +3,9 @@ extends Level
 signal _stop_boss
 
 func _ready():
-	$Camera2D.start_shake(2, 5.0)
+	AudioPlayer.stream = load("res://musicx/Golden Gleam.wav")
+	AudioPlayer.play()
+	$Camera2D.start_shake(0.3, 5.0)
 	Global.dashKd = true
 	start_pos = $Player.position
 	pass # Replace with function body.
@@ -31,3 +33,5 @@ func load_bar(heals):
 	$TextureProgressBar.value = heals
 	pass
 	
+
+

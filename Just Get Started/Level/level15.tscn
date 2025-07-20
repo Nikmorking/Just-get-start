@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://jrdt73ix2dh0"]
+[gd_scene load_steps=56 format=3 uid="uid://jrdt73ix2dh0"]
 
 [ext_resource type="Script" path="res://Level/level15.gd" id="1_p3ibk"]
 [ext_resource type="TileSet" uid="uid://cjikwnxplla7" path="res://tileset.tres" id="2_yh7mb"]
@@ -14,7 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cd6w72tsn1pgp" path="res://boss/босс атака.png" id="10_duonn"]
 [ext_resource type="Texture2D" uid="uid://d2b5g2pgi8qb2" path="res://boss/босс ходьба.png" id="10_taciv"]
 [ext_resource type="Texture2D" uid="uid://bnx0ei7ml3507" path="res://boss/bossNagib.png" id="11_ttl1m"]
-[ext_resource type="Texture2D" uid="uid://dskse53ucjphp" path="res://icon.svg" id="13_ujyde"]
+[ext_resource type="Texture2D" uid="uid://d3o1yc5jmjlkb" path="res://boss/bossBar (3).png" id="15_gxat4"]
+[ext_resource type="Texture2D" uid="uid://oygpmhyd2g5k" path="res://boss/bossLine.png" id="16_5i6ct"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n72o5"]
 font = ExtResource("4_f04qi")
@@ -403,6 +404,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q1m2"]
 size = Vector2(18, 33)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hxe5"]
+size = Vector2(45, 104)
+
 [node name="Level15" type="Node2D"]
 texture_filter = 1
 position = Vector2(31, 268)
@@ -420,6 +424,7 @@ layer_1/tile_data = PackedInt32Array(196606, 393217, 12, 196605, 327681, 12, 196
 layer_2/tile_data = PackedInt32Array(524282, 327681, 5, 524283, 131073, 1, 524284, 131073, 1, 524285, 131073, 1, 524286, 131073, 1, 524287, 131073, 1, 458752, 131073, 1, 458753, 131073, 1, 458754, 131073, 1, 458755, 131073, 1, 458756, 131073, 1, 458757, 131073, 1, 458758, 131073, 1, 458759, 131073, 1, 458760, 131073, 1, 458761, 131073, 1, 458762, 131073, 1, 458763, 131073, 1, 458764, 131073, 1, 458765, 131073, 1, 458766, 131073, 1, 458767, 393217, 5, 393211, 327681, 5, 393212, 131073, 1, 393213, 393217, 5, 327694, 393217, 5, 327692, 327681, 5, 327693, 131073, 1, 131086, 327681, 9, 196622, 327681, 10, 262158, 327681, 11, 196603, 327681, 9, 262139, 327681, 10, 327675, 327681, 11, 65550, 327681, 8, 131067, 327681, 8, 131087, 196609, 10, 131085, 131073, 9, 131084, 131073, 9, 131083, 65537, 9, 196602, 65537, 10, 196604, 131073, 10, 196605, 131073, 10, 196606, 196609, 9, 65548, 655361, 10, 131069, 655361, 10, 393224, 262145, 13, 393225, 327681, 13, 393226, 393217, 13, 458746, 262145, 13, 458747, 327681, 13, 458748, 393217, 13)
 
 [node name="closeDoor" type="TileMap" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(-77, -102)
 scale = Vector2(2, 2)
@@ -563,7 +568,7 @@ shape = SubResource("RectangleShape2D_bg5sf")
 position = Vector2(1.50001, -12.5)
 scale = Vector2(2.35, 2.375)
 sprite_frames = SubResource("SpriteFrames_fjtgv")
-animation = &"pod"
+animation = &"nagib"
 
 [node name="RayCast2D" type="RayCast2D" parent="boss"]
 position = Vector2(-6, -18)
@@ -585,14 +590,23 @@ one_shot = true
 [node name="Timer4" type="Timer" parent="boss"]
 one_shot = true
 
-[node name="e" type="Sprite2D" parent="boss"]
+[node name="Area2D" type="Area2D" parent="boss"]
+position = Vector2(30, 10)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D"]
+position = Vector2(-1, 6.5)
+shape = SubResource("RectangleShape2D_4q1m2")
+
+[node name="e" type="Sprite2D" parent="boss/Area2D"]
 visible = false
 texture_filter = 1
-position = Vector2(27, -14)
+position = Vector2(-3, -24)
 scale = Vector2(0.763359, 0.763359)
 texture = ExtResource("3_vs1fp")
 
-[node name="Label" type="Label" parent="boss/e"]
+[node name="Label" type="Label" parent="boss/Area2D/e"]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -609,23 +623,31 @@ text = "e
 "
 label_settings = SubResource("LabelSettings_n72o5")
 
-[node name="Area2D" type="Area2D" parent="boss"]
-position = Vector2(30, 10)
+[node name="Timer5" type="Timer" parent="boss"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Timer6" type="Timer" parent="boss"]
+
+[node name="Area2D2" type="Area2D" parent="boss"]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D"]
-position = Vector2(-1, 6.5)
-shape = SubResource("RectangleShape2D_4q1m2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D2"]
+position = Vector2(1.5, -14)
+shape = SubResource("RectangleShape2D_5hxe5")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 323.0
-offset_top = -219.0
-offset_right = 451.0
-offset_bottom = -91.0
+offset_left = 250.0
+offset_top = -190.0
+offset_right = 350.0
+offset_bottom = -180.0
+scale = Vector2(3, 3)
 max_value = 10.0
 value = 10.0
-texture_progress = ExtResource("13_ujyde")
+texture_over = ExtResource("15_gxat4")
+texture_progress = ExtResource("16_5i6ct")
 
 [connection signal="_stop_boss" from="." to="boss" method="_stop_boss"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
@@ -639,3 +661,5 @@ texture_progress = ExtResource("13_ujyde")
 [connection signal="timeout" from="boss/Timer3" to="boss" method="_on_timer_3_timeout"]
 [connection signal="timeout" from="boss/Timer4" to="boss" method="_on_timer_4_timeout"]
 [connection signal="body_entered" from="boss/Area2D" to="boss" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="boss/Timer5" to="boss" method="_on_timer_5_timeout"]
+[connection signal="body_entered" from="boss/Area2D2" to="boss" method="_on_area_2d_2_body_entered"]

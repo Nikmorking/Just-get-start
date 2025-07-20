@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://qfagnaexl464"]
+[gd_scene load_steps=60 format=3 uid="uid://qfagnaexl464"]
 
 [ext_resource type="Script" path="res://gg/Player.gd" id="1_ctixr"]
 [ext_resource type="Texture2D" uid="uid://db2e51qn8p8lj" path="res://gg/рывок.png" id="2_1xcdj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cf1bk335fpnoj" path="res://gg/Ползанье.png" id="3_ajm07"]
 [ext_resource type="Texture2D" uid="uid://dijyqabi8q8ci" path="res://gg/прыжок.png" id="3_nrcd1"]
 [ext_resource type="Texture2D" uid="uid://1tbwadq5f2ws" path="res://gg/Присед.png" id="5_2lwdq"]
+[ext_resource type="Texture2D" uid="uid://brsbn3b62dw1l" path="res://gg/пинок.png" id="5_624xs"]
 [ext_resource type="Texture2D" uid="uid://bynxbmvt08fxg" path="res://gg/Стояние.png" id="5_std2p"]
 [ext_resource type="Texture2D" uid="uid://byfey1c3a6060" path="res://gg/Переход присед.png" id="6_7phc3"]
 
@@ -63,6 +64,30 @@ region = Rect2(32, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hypnj"]
 atlas = ExtResource("3_ajm07")
 region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5moa0"]
+atlas = ExtResource("5_624xs")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi3yh"]
+atlas = ExtResource("5_624xs")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hm2c"]
+atlas = ExtResource("5_624xs")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqn0j"]
+atlas = ExtResource("5_624xs")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwf1s"]
+atlas = ExtResource("5_624xs")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edh54"]
+atlas = ExtResource("5_624xs")
+region = Rect2(80, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45kru"]
 atlas = ExtResource("2_oh6la")
@@ -239,6 +264,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5moa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi3yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hm2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqn0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwf1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edh54")
+}],
+"loop": false,
+"name": &"pinok",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_45kru")
 }, {
 "duration": 1.0,
@@ -362,8 +410,7 @@ texture_filter = 1
 position = Vector2(-5, -36)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_oigvg")
-animation = &"jump"
-frame_progress = 0.494111
+animation = &"pinok"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
