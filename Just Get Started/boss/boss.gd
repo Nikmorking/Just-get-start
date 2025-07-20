@@ -110,8 +110,9 @@ func _stop_boss():
 
 
 func _on_timer_3_timeout():
-	$AnimatedSprite2D.play("pod")
-	$Timer4.start(1)
+	if !chickens:
+		$AnimatedSprite2D.play("pod")
+		$Timer4.start(1)
 	pass # Replace with function body.
 
 
