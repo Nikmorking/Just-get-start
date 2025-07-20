@@ -371,6 +371,7 @@ scale = Vector2(2.11719, 1.5)
 texture = ExtResource("1_2wl5c")
 
 [node name="reset" type="TextureButton" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 565.0
@@ -387,6 +388,7 @@ libraries = {
 }
 
 [node name="music" type="Node2D" parent="."]
+visible = false
 position = Vector2(645, 59)
 
 [node name="music" type="TextureButton" parent="music"]
@@ -426,6 +428,7 @@ libraries = {
 }
 
 [node name="exit" type="TextureButton" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 644.0
@@ -442,6 +445,7 @@ libraries = {
 }
 
 [node name="settings" type="TextureButton" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 565.0
@@ -458,6 +462,7 @@ libraries = {
 }
 
 [node name="continue" type="TextureButton" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 486.0
@@ -474,6 +479,7 @@ libraries = {
 }
 
 [node name="save" type="TextureButton" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 486.0
