@@ -1,15 +1,15 @@
 extends Node2D
 
-var number = 0
+var number = 1
 
 func _ready():
 	AudioPlayer.stop()
 	if number == 0:
 		_avaria()
-		$Timer.start(10)
+		$Timer.start(12)
 	elif number == 1:
 		_final()
-		$Timer.start(8)
+		$Timer.start(10)
 	pass
 
 func _avaria():
@@ -27,5 +27,6 @@ func _on_timer_timeout():
 		get_tree().change_scene_to_file("res://Level/level1.tscn")
 		number += 1
 	elif number == 1:
+		get_tree().change_scene_to_file("res://titri.tscn")
 		pass
 	pass # Replace with function body.
