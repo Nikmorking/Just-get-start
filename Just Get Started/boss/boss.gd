@@ -9,6 +9,7 @@ var old = 0
 var flag = false
 var heals = 10
 var pin = false
+var throws: int
 var chickens
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -16,14 +17,35 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func attack():
-	get_parent().get_node("Camera2D").start_shake(0.3, 5.0)
-	$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
-	$AnimatedSprite2D.play("atack")
-	direction = 0
-	chicken = load("res://boss/lava chicken.tscn").instantiate()
-	chicken.global_position = position
-	chicken.global_position.y += -70
-	chicken.rot = stor
+	if !Global.bossState:
+		get_parent().get_node("Camera2D").start_shake(0.3, 5.0)
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		$AnimatedSprite2D.play("atack")
+		direction = 0
+		chicken = load("res://boss/lava chicken.tscn").instantiate()
+		chicken.global_position = position
+		chicken.global_position.y += -70
+		chicken.rot = stor
+	else:
+		get_parent().get_node("Camera2D").start_shake(0.3, 5.0)
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		$AnimatedSprite2D.play("atack2")
+		direction = 0
+		chicken = load("res://boss/lava chicken.tscn").instantiate()
+		chicken.get_node("Meat").visible = false
+		chicken.get_node("rook").visible = true
+		chicken.global_position = position
+		chicken.global_position.y += -70
+		chicken.get_node("area2D3")
+		chicken.rot = stor
+		throws += 1
+		if throws == 5:
+			$Timer.stop()
+			$Timer2.stop()
+			$Timer3.stop()
+			$Timer4.stop()
+			$Timer5.stop()
+			$Timer6.stop()
 	pass
 
 
@@ -44,6 +66,8 @@ func _input(event):
 			else:
 				heals = 0
 			_on_timer_3_timeout()
+			if heals == 1:
+				Global.bossState = true
 	pass
 
 
@@ -63,9 +87,13 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if direction:
+		flag = true
 		get_parent().get_node("Camera2D").start_shake(0.1, 2.0)
 		velocity.x = direction * SPEED
-		$AnimatedSprite2D.play("run")
+		if !Global.bossState:
+			$AnimatedSprite2D.play("run")
+		else:
+			$AnimatedSprite2D.play("run2")
 		if direction == 1:
 			$AnimatedSprite2D.flip_h = true
 			$Area2D.position.x = -27
@@ -73,6 +101,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = false
 			$Area2D.position.x = 30
 	else:
+		flag = false
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
@@ -93,7 +122,7 @@ func _on_timer_2_timeout():
 
 
 func _on_animated_sprite_2d_animation_finished():
-	if chicken:
+	if chicken or $AnimatedSprite2D.animation == "atack2":
 		get_parent().add_child(chicken)
 		chickens = chicken
 		chicken = null
@@ -135,6 +164,7 @@ func _on_timer_5_timeout():
 
 
 func _on_area_2d_2_body_entered(body):
-	if direction:
+	if flag:
 		get_tree().change_scene_to_file("res://Level/level15.tscn")
-	pass # Replace with function body.
+		Global.bossState = false
+		heals = 10

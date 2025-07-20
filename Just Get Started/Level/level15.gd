@@ -7,6 +7,7 @@ func _ready():
 	AudioPlayer.play()
 	$Camera2D.start_shake(0.3, 5.0)
 	Global.dashKd = true
+	Global.canCreep = true
 	start_pos = $Player.position
 	pass # Replace with function body.
 	
@@ -14,6 +15,12 @@ func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
 		get_tree().change_scene_to_file("res://menu/Menu.tscn")
 		Global.level = 15
+	if Input.is_action_pressed("ui_down"):
+		$StaticBody2D3/CollisionShape2D.disabled = true
+		$StaticBody2D3/CollisionShape2D2.disabled = true
+	elif Input.is_action_just_released("ui_down"):
+		$StaticBody2D3/CollisionShape2D.disabled = false
+		$StaticBody2D3/CollisionShape2D2.disabled = false
 	pass
 
 func _final():

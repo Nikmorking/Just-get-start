@@ -2,6 +2,7 @@ extends Node
 
 var labelText
 
+var bossState: bool = false
 var level = 1
 var menuStart = false
 var canCreep = true

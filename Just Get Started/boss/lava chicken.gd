@@ -4,17 +4,22 @@ extends Node2D
 var rot = 0
 var down = false
 var stop =  false
+var plPos: Vector2 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	plPos = get_parent().get_node("Player").position
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !stop:
+	if !stop or Global.bossState:
 		position.x += speed * rot
-		if down: position.y += 5
+		if !Global.bossState:
+			if down: position.y += 5
+		else:
+			position = lerp(position, plPos, speed / 5 * delta)
 	pass
 
 
@@ -38,9 +43,16 @@ func _on_area_2d_2_body_entered(body):
 
 func _on_area_2d_3_body_entered(body):
 	get_tree().change_scene_to_file("res://Level/level15.tscn")
+	Global.bossState = false
+	get_parent().get_node("boss").heals = 10
 	pass # Replace with function body.
 
 
 func _on_timer_2_timeout():
+	queue_free()
+	pass # Replace with function body.
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 	pass # Replace with function body.

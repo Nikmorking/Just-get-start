@@ -67,7 +67,6 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY / -10
 			$AnimatedSprite2D.play("lest")
 			lestAnimBlock = false
-			
 		else:
 			lestAnimBlock = true
 	elif !lest:
