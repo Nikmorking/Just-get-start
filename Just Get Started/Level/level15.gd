@@ -3,6 +3,7 @@ extends Level
 signal _stop_boss
 
 func _ready():
+	_final()
 	$Camera2D.start_shake(0.3, 5.0)
 	Global.dashKd = true
 	start_pos = $Player.position
@@ -15,7 +16,13 @@ func _input(event):
 	pass
 
 func _final():
+	$AnimationPlayer.play("final")
+	$Timer.start(5)
+
+
+func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://cutscen/cutscen.tscn")
+
 
 func stop_boss():
 	_stop_boss.emit()
@@ -25,5 +32,3 @@ func load_bar(heals):
 	$TextureProgressBar.value = heals
 	pass
 	
-
-
