@@ -48,6 +48,7 @@ size = Vector2(20, 92)
 size = Vector2(20, 157.5)
 
 [node name="Level8" type="Node2D"]
+texture_filter = 1
 position = Vector2(31, 268)
 script = ExtResource("1_dvi4l")
 

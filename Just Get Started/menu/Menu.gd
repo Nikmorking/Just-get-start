@@ -36,7 +36,7 @@ func _on_start_pressed():
 		get_tree().change_scene_to_file("res://Level/level%s.tscn" % Global.level)
 
 func _on_timer_timeout():
-	get_tree().change_scene_to_file("res://Level/level1.tscn")
+	get_tree().change_scene_to_file("res://cutscen/cutscen.tscn")
 	Global.save_game()
 	pass
 

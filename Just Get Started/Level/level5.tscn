@@ -117,6 +117,7 @@ _data = {
 }
 
 [node name="Level5" type="Node2D"]
+texture_filter = 1
 position = Vector2(31, 268)
 script = ExtResource("1_fod60")
 

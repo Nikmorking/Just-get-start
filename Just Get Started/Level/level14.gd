@@ -8,6 +8,6 @@ func _ready():
 	
 func _input(event):
 	if Input.is_action_just_pressed("e") && door_action:
-		get_tree().change_scene_to_file("res://Level/level13.tscn")
-		Global.level = 13
+		get_tree().change_scene_to_file("res://Level/level15.tscn")
+		Global.level = 15
 	pass

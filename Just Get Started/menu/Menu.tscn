@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c032dqi0ll2eh"]
+[gd_scene load_steps=32 format=3 uid="uid://c032dqi0ll2eh"]
 
 [ext_resource type="Script" path="res://menu/ParallaxBackground.gd" id="1_fpikx"]
 [ext_resource type="Script" path="res://menu/Menu.gd" id="1_vd862"]
@@ -10,9 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b3i54fyhqivv6" path="res://vignette/vignette.tscn" id="7_ngooc"]
 [ext_resource type="PackedScene" uid="uid://botkxjakd5arm" path="res://settings.tscn" id="8_iomm4"]
 [ext_resource type="Texture2D" uid="uid://duu35gp4f20jh" path="res://background/black.png" id="8_mqvu6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqu64"]
-size = Vector2(1190, 96)
 
 [sub_resource type="Animation" id="Animation_usq20"]
 resource_name = "F"
@@ -541,13 +538,6 @@ tile_set = ExtResource("2_84oma")
 format = 2
 layer_0/modulate = Color(0.359069, 0.359069, 0.359069, 0.984314)
 layer_0/tile_data = PackedInt32Array(524278, 655361, 10, 524279, 655361, 9, 458743, 655361, 12, 458744, 655361, 10, 458745, 720897, 12, 524281, 655361, 9, 524280, 655361, 9, 524282, 655361, 10, 393208, 655361, 11, 524283, 786433, 12, 458746, 589825, 11, 524273, 655361, 10, 524272, 655361, 9, 524274, 786433, 9, 458736, 458753, 11, 458737, 589825, 11, 524275, 196609, 14, 524276, 262145, 14, 524277, 393217, 14, 524285, 458753, 10)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2(18.9999, 711.715)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/ParallaxLayer3/StaticBody2D"]
-position = Vector2(561, -3)
-shape = SubResource("RectangleShape2D_yqu64")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, 1.285)
