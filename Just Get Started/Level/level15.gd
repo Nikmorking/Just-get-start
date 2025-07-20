@@ -3,7 +3,8 @@ extends Level
 signal _stop_boss
 
 func _ready():
-	AudioPlayer.stream = load("res://musicx/Golden Gleam.wav")
+	Global.volume -=10
+	AudioPlayer.stream = load("res://musicx/electric-symphony-20240527-202414.mp3")
 	AudioPlayer.play()
 	$Camera2D.start_shake(0.3, 5.0)
 	Global.dashKd = true
