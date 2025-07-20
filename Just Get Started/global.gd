@@ -4,7 +4,7 @@ var labelText
 
 var level = 1
 var menuStart = false
-var canCreep = false
+var canCreep = true
 var volume = 8
 
 
