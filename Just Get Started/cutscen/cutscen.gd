@@ -2,13 +2,10 @@ extends Node2D
 
 var number = 0
 
-
-
 func _ready():
 	if number == 0:
 		_avaria()
 		$Timer.start(10)
-		number += 1
 	elif number == 1:
 		_final()
 		$Timer.start(8)

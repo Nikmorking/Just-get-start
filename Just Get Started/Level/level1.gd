@@ -32,11 +32,11 @@ func _process(delta):
 	pass
 
 func _ready():
-	$Label.text = Global.labelText
 	if Global.dashKd:
 		dash = true
 		$AnimationPlayer.play("hide")
 		$Timer.start(1)
+		$Label.text = Global.labelText
 		$Black.visible = true
 		$Label.visible = true
 	else:
