@@ -10,19 +10,19 @@ func _input(event):
 	pass
 
 func _process(delta):
-	if dash:
+	if crouch:
+		$gui/crouch.visible = true
+		$gui/crouchButton.visible = true
+		
+		$gui/dash.visible = true
+		$gui/q.visible = true
+	elif dash:
 		$"gui/???".text = "move"
 		$gui/dash.visible = true
 		$gui/q.visible = true
 		
 		$gui/crouch.visible = false
 		$gui/crouchButton.visible = false
-	elif crouch:
-		$gui/crouch.visible = true
-		$gui/crouchButton.visible = true
-		
-		$gui/dash.visible = true
-		$gui/q.visible = true
 	else:
 		$"gui/???".text = "???"
 		$gui/dash.visible = false
@@ -32,6 +32,10 @@ func _process(delta):
 	pass
 
 func _ready():
+	if Global.canCreep:
+		crouch = true
+	else:
+		crouch = false
 	if Global.dashKd:
 		dash = true
 		$AnimationPlayer.play("hide")

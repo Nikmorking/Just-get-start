@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://wbl7kbrty4v0"]
+
+[ext_resource type="Texture2D" uid="uid://0bokv3b7jp0b" path="res://menu/black.png" id="1_00d87"]
+[ext_resource type="Script" path="res://titri.gd" id="1_ht78k"]
+[ext_resource type="FontFile" uid="uid://bau6c77ul27mk" path="res://menu/smallest-pixel-7.ttf" id="2_a7qq4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_utesg"]
+font = ExtResource("2_a7qq4")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_4rsb2"]
+font = ExtResource("2_a7qq4")
+font_size = 23
+
+[node name="Titri" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ht78k")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(619, 425)
+scale = Vector2(2.655, 2.655)
+texture = ExtResource("1_00d87")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 331.0
+offset_top = 10.0
+offset_right = 807.0
+offset_bottom = 781.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+
+
+Programmers:
+
+
+
+
+
+Testers:
+
+
+
+
+Game designers:
+
+
+
+
+Designers:
+"
+label_settings = SubResource("LabelSettings_utesg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Node2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 369.0
+offset_top = -22.0
+offset_right = 755.0
+offset_bottom = 920.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+
+
+
+
+
+
+Breaded (Roma)
+Nikmorking (Nikita)
+Matildazz (Ilya)
+
+
+
+
+
+
+kasochnik (Denis)
+
+
+
+
+
+
+
+kasochnik (Denis)
+Breaded (Roma)
+
+
+
+
+
+
+Breaded (Roma)
+Matildazz (Ilya)"
+label_settings = SubResource("LabelSettings_4rsb2")
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575.998, -251)

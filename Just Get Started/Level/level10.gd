@@ -31,7 +31,6 @@ func _on_kill_body_entered(body):
 		Global.canCreep = true
 		Global.level = 5
 		
-		Global.labelText = $Label.text
 		$Black.visible = true
 		$Label.visible = true
 		$AnimationPlayer.play("show")
@@ -45,6 +44,7 @@ func _on_kill_body_entered(body):
 func _on_timer_timeout():
 	$Black.visible = false
 	$Label.visible = false
+	Global.labelText = $Label.text
 	get_tree().change_scene_to_file("res://Level/level1.tscn")
 	pass # Replace with function body.
 
