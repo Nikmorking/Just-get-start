@@ -29,6 +29,7 @@ func _on_quit():
 
 
 func _on_start_pressed():
+	Global.load_game()
 	if !Global.menuStart:
 		$start.play("start")
 		$Timer.start(10)
