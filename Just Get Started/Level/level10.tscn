@@ -24,9 +24,9 @@ size = Vector2(45, 268)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06m2o"]
 size = Vector2(265, 13.5)
 
-[sub_resource type="LabelSettings" id="LabelSettings_cog38"]
+[sub_resource type="LabelSettings" id="LabelSettings_v7dtn"]
 font = ExtResource("4_oowpu")
-font_size = 40
+font_size = 35
 
 [sub_resource type="Animation" id="Animation_2ftqj"]
 length = 0.001
@@ -191,14 +191,14 @@ shape = SubResource("CapsuleShape2D_e38m4")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(64.5, -107)
+position = Vector2(56, -101)
 shape = SubResource("RectangleShape2D_nbgcs")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(709, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(64.5, -107)
+position = Vector2(79, -98)
 shape = SubResource("RectangleShape2D_nbgcs")
 
 [node name="Control" parent="." instance=ExtResource("9_wyae8")]
@@ -245,7 +245,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 text = "Just get start your journey again
 ...and not from the second..."
-label_settings = SubResource("LabelSettings_cog38")
+label_settings = SubResource("LabelSettings_v7dtn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

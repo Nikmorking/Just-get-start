@@ -31,6 +31,7 @@ func _on_kill_body_entered(body):
 		Global.canCreep = true
 		Global.level = 5
 		
+		Global.labelText = $Label.text
 		$Black.visible = true
 		$Label.visible = true
 		$AnimationPlayer.play("show")
