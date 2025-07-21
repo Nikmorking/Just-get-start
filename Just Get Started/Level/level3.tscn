@@ -27,7 +27,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(412, -35)]
+"values": [Vector2(423, -35)]
 }
 
 [sub_resource type="Animation" id="Animation_352gx"]
@@ -43,7 +43,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(412, -35), Vector2(1153, -35)]
+"values": [Vector2(422, -34), Vector2(1121, -35)]
 }
 
 [sub_resource type="Animation" id="Animation_g7myf"]
@@ -161,7 +161,7 @@ position = Vector2(115, -8)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(412, -35)
+position = Vector2(423, -35)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
