@@ -15,9 +15,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !stop or Global.bossState:
-		position.x += speed * rot
+		position.x += speed * rot *delta
 		if !Global.bossState:
-			if down: position.y += 5
+			if down: position.y += 200 * delta
 		else:
 			position = lerp(position, plPos, speed / 5 * delta)
 	pass

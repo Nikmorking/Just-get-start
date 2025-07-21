@@ -545,7 +545,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(8),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Guy: hell no!"]
+"values": ["Guy: hell, no!"]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
