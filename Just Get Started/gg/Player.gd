@@ -73,7 +73,7 @@ func _physics_process(delta):
 		lestAnimBlock = false
 	
 	if Global.canCreep:
-		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock and !lestAnimBlock and not is_on_floor():
+		if Input.is_action_pressed("shift") and shiftFlag and shiftBlock and !lestAnimBlock and is_on_floor():
 			$CollisionShape2D.scale.y = $CollisionShape2D.scale.y / 2.1
 			$CollisionShape2D.position = Vector2(-6, -4)
 			$AnimatedSprite2D.play("shift_start")
@@ -81,7 +81,7 @@ func _physics_process(delta):
 			animBlock = false
 		elif Input.is_action_just_released("shift") and shiftBlock:
 			shiftBlock = false
-		elif Input.is_action_pressed("shift") and !shiftFlag and !shiftBlock and canHg and not is_on_floor():
+		elif Input.is_action_pressed("shift") and !shiftFlag and !shiftBlock and canHg and is_on_floor():
 			$CollisionShape2D.scale.y = $CollisionShape2D.scale.y * 2.1
 			$CollisionShape2D.position = Vector2(-7, -36)
 			$AnimatedSprite2D.play("shiftEnd")
