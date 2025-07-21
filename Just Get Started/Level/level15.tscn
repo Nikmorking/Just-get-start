@@ -183,7 +183,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmhco"]
-size = Vector2(20, 91.125)
+size = Vector2(20, 90.9375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg5sf"]
 size = Vector2(34, 94)
@@ -760,11 +760,11 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-1, -36.4375)
+position = Vector2(-1, -35.4375)
 shape = SubResource("RectangleShape2D_rmhco")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(607, -35.625)
+position = Vector2(607, -36.5313)
 shape = SubResource("RectangleShape2D_rmhco")
 
 [node name="boss" type="CharacterBody2D" parent="."]
@@ -869,12 +869,12 @@ texture_progress = ExtResource("16_5i6ct")
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(117, -64.5)
+position = Vector2(117, -67.5)
 shape = SubResource("RectangleShape2D_omit4")
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(725, -67)
+position = Vector2(725, -69)
 shape = SubResource("RectangleShape2D_omit4")
 one_way_collision = true
 
