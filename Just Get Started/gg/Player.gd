@@ -18,13 +18,13 @@ var lest = false
 var dashKd = true
 
 func kill():
-	dashKd = true
 	animBlock = true
 	lest = false
 	shiftFlag = true
 	shiftBlock = true
 	$CollisionShape2D.scale.y = 1
 	$CollisionShape2D.position = Vector2(-7, -36)
+	JUMP_VELOCITY = -350.0
 	pass
 
 

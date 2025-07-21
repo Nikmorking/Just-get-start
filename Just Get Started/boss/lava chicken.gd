@@ -19,7 +19,7 @@ func _process(delta):
 		if !Global.bossState:
 			if down: position.y += 200 * delta
 		else:
-			position = lerp(position, plPos, speed / 15 * delta)
+			position = lerp(position, plPos, speed / 150 * delta)
 	pass
 
 
